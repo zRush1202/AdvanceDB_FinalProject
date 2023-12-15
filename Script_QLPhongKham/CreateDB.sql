@@ -177,6 +177,7 @@ create table CH_BENHNHAN
 (
 	MaCHBN int,
 	ThuTuKham int not null,
+	TinhTrang nvarchar(100),
 	MaPhongKham int,
 	MaBenhNhan int,
 	primary key(MaCHBN)
