@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 {
-    public partial class HOME : Form
+    public partial class DATLICHHEN : Form
     {
-        public HOME()
+        public DATLICHHEN()
         {
             InitializeComponent();
-        }
-
-        private void btn_DatLichHen_Click(object sender, EventArgs e)
-        {
-            DATLICHHEN dlh = new DATLICHHEN();
-            this.Hide();
-            dlh.ShowDialog();
         }
     }
 }
