@@ -1,0 +1,71 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0-windows7.0": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "net7.0-windows7.0": []
+  },
+  "packageFolders": {
+    "C:\\Users\\phams\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\phams\\Documents\\HCMUS\\Năm III (2023-2024)\\HK1\\CSDL NC\\Project_Github\\CSDLNC_QLPhongKham\\UI_Code\\NHOM04_UI_PHONGKHAMNHAKHOA\\NHOM04_UI_PHONGKHAMNHAKHOA\\NHOM04_UI_PHONGKHAMNHAKHOA.csproj",
+      "projectName": "NHOM04_UI_PHONGKHAMNHAKHOA",
+      "projectPath": "C:\\Users\\phams\\Documents\\HCMUS\\Năm III (2023-2024)\\HK1\\CSDL NC\\Project_Github\\CSDLNC_QLPhongKham\\UI_Code\\NHOM04_UI_PHONGKHAMNHAKHOA\\NHOM04_UI_PHONGKHAMNHAKHOA\\NHOM04_UI_PHONGKHAMNHAKHOA.csproj",
+      "packagesPath": "C:\\Users\\phams\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\phams\\Documents\\HCMUS\\Năm III (2023-2024)\\HK1\\CSDL NC\\Project_Github\\CSDLNC_QLPhongKham\\UI_Code\\NHOM04_UI_PHONGKHAMNHAKHOA\\NHOM04_UI_PHONGKHAMNHAKHOA\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\phams\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0-windows7.0": {
+          "targetAlias": "net7.0-windows",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0-windows7.0": {
+        "targetAlias": "net7.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
