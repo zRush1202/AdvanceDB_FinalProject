@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 {
-    public partial class Form1 : Form
+    public partial class QUANTRIVIEN : Form
     {
-        public Form1()
+        public QUANTRIVIEN()
         {
             InitializeComponent();
         }
