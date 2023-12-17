@@ -37,6 +37,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel_cyan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,7 +66,7 @@
             this.lb_phongkham.AutoSize = true;
             this.lb_phongkham.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_phongkham.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lb_phongkham.Location = new System.Drawing.Point(147, 6);
+            this.lb_phongkham.Location = new System.Drawing.Point(147, 7);
             this.lb_phongkham.Name = "lb_phongkham";
             this.lb_phongkham.Size = new System.Drawing.Size(160, 20);
             this.lb_phongkham.TabIndex = 2;
@@ -168,6 +168,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(419, 365);
             this.panel2.TabIndex = 4;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(184, 305);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(200, 20);
+            this.textBox5.TabIndex = 18;
             // 
             // label12
             // 
@@ -305,13 +312,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 0;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(184, 305);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 18;
             // 
             // button1
             // 

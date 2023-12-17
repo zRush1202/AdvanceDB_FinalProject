@@ -73,6 +73,16 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap entertain {
+            get {
+                object obj = ResourceManager.GetObject("entertain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap teeth_ava {
             get {
                 object obj = ResourceManager.GetObject("teeth_ava", resourceCulture);
