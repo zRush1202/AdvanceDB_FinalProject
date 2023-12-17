@@ -22,6 +22,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             DATLICHHEN dlh = new DATLICHHEN();
             this.Hide();
             dlh.ShowDialog();
+            this.Close();
         }
     }
 }

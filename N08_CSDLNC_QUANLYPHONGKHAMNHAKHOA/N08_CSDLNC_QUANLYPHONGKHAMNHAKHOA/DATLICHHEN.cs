@@ -16,5 +16,14 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ĐẶT LỊCH HẸN THÀNH CÔNG");
+            this.Hide();
+            HOME h = new HOME();
+            h.ShowDialog();
+            this.Close();
+        }
     }
 }
