@@ -130,7 +130,7 @@
             this.dtgv_DIEUTRI.Name = "dtgv_DIEUTRI";
             this.dtgv_DIEUTRI.Size = new System.Drawing.Size(506, 466);
             this.dtgv_DIEUTRI.TabIndex = 1;
-            this.dtgv_DIEUTRI.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DIEUTRI_CellContentClick);
+            //this.dtgv_DIEUTRI.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DIEUTRI_CellContentClick);
             // 
             // label2
             // 

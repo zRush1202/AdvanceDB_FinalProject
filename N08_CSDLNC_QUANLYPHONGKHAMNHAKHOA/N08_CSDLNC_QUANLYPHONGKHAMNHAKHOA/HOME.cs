@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using WinFormsApp1;
 
 namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 {
@@ -21,6 +22,16 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dtgv_DIEUTRI.DataSource = LoadData_DieuTri().Tables[0];
         }
 
+        ConnectionTester conn = new ConnectionTester();
+
+        private int testConnect()
+        {
+            // Kiểm tra các kết nối và lấy vị trí của connectionString mà kết nối thành công
+            int numConnect = conn.TestConnectionsAndGetIndex();
+
+            return numConnect;
+        }
+
         private void btn_DatLichHen_Click(object sender, EventArgs e)
         {
             DATLICHHEN dlh = new DATLICHHEN();
@@ -31,11 +42,12 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         DataSet LoadData_DieuTri()
         {
+            int numConn = testConnect();
             DataSet data = new DataSet();
 
             //sql connection
             string query = "select * from DIEUTRI";
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[numConn]))
             {
                 connection.Open();
 

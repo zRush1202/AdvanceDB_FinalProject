@@ -53,6 +53,7 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectionString.cs" />
+    <Compile Include="ConnectionTester.cs" />
     <Compile Include="DATLICHHEN.cs">
       <SubType>Form</SubType>
     </Compile>
