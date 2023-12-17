@@ -48,12 +48,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             return data;
         }
 
-        private void dtgv_DIEUTRI_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //dtgv_DIEUTRI.DataSource = LoadData_DieuTri();
-            //dtgv_DIEUTRI.DataMember= "DIEUTRI";
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             dtgv_DIEUTRI.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
