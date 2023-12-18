@@ -57,7 +57,7 @@ create table BENHNHAN
 	DiaChiBN nvarchar(100),
 	DienThoaiBN varchar(10) not null,
 	EmailBN varchar(50),
-	GioiTinhBN nvarchar(10) check (GioiTinhBN IN('Nam', N'Nữ'))
+	GioiTinhBN nvarchar(4) check (GioiTinhBN IN('Nam', N'Nữ'))
 	primary key (MaBenhNhan)
 )
 
@@ -65,7 +65,7 @@ create table CH_YEUCAU
 (
 	MaCHYC int identity(1,1),
 	TinhTrangBenh nvarchar(100),
-	ThoiGianYC datetime,
+	ThoiGianYC date,
 	MaBenhNhan int,
 	MaNhanVien int
 	primary key (MaCHYC)
@@ -87,7 +87,7 @@ create table HOSOBENHNHAN
 create table KEHOACHDIEUTRI
 (
 	MaBenhAn int, 
-	MaRang int,
+	MaRangKham int,
 	MoTa nvarchar(100),
 	NgayDieuTri datetime,
 	TrangThaiDieuTri nvarchar(50) check(TrangThaiDieuTri IN (N'kế hoạch', N'đã hoàn thành', N'đã hủy')),
@@ -95,7 +95,7 @@ create table KEHOACHDIEUTRI
 	MaThanhToan int,
 	MaNhaSi int not null,
 	MaTroKham int,
-	primary key (MaBenhAn, MaRang)
+	primary key (MaBenhAn, MaRangKham)
 )
 
 create table THANHTOAN
@@ -116,21 +116,28 @@ create table RANG
 	primary key (MaRang)
 )
 
+create table RANG_BEMAT
+(
+	MaRangKham int identity (1,1),
+	MaRang int,
+	MaBeMat int
+	primary key (MaRangKham)
+)
+
 create table BEMATRANG
 (
 	MaBeMat int identity(1,1),
-	MoTa nvarchar(100),
-	MaRang int
+	MoTa nvarchar(100)
 	primary key(MaBeMat)
 )
 
 create table GIAIDOAN
 (
 	MaBenhAn int,
-	MaRang int,
+	MaRangKham int,
 	MaDieuTri int,
 	STTGiaiDoan int check (STTGiaiDoan IN (1,2,3,4,5))
-	primary key(MaBenhAn,MaRang,MaDieuTri)
+	primary key(MaBenhAn,MaRangKham,MaDieuTri)
 )
 
 create table DIEUTRI
@@ -220,15 +227,16 @@ alter table HOSOBENHNHAN add
 alter table KEHOACHDIEUTRI add
 	constraint FK_KEHOACHDIEUTRI_THANHTOAN foreign key (MaThanhToan) references THANHTOAN(MaThanhToan),
 	constraint FK_KEHOACHDIEUTRI_HOSOBENHNHAN foreign key (MaBenhAn) references HOSOBENHNHAN(MaBenhAn),
-	constraint FK_KEHOACHDIEUTRI_RANG foreign key (MaRang) references RANG(MaRang),
+	constraint FK_KEHOACHDIEUTRI_RANG_BEMAT foreign key (MaRangKham) references RANG_BEMAT(MaRangKham),
 	constraint FK_KEHOACHDIEUTRI_NHASI foreign key (MaNhaSi) references NHASI(MaNhaSi),
 	constraint FK_KEHOACHDIEUTRI_TROKHAM foreign key (MaTroKham) references NHASI(MaNhaSi)
 
-alter table BEMATRANG add
-	constraint FK_BEMATRANG_RANG foreign key (MaRang) references RANG(MaRang)
+alter table RANG_BEMAT add
+	constraint FK_RANG_BEMAT_RANG foreign key (MaRang) references RANG(MaRang),
+	constraint FK_RANG_BEMAT_BEMATRANG foreign key (MaBeMat) references BEMATRANG(MaBeMat)
 
 alter table GIAIDOAN add
-	constraint FK_GIAIDOAN_KEHOACHDIEUTRI foreign key (MaBenhAn, MaRang) references KEHOACHDIEUTRI(MaBenhAn, MaRang),
+	constraint FK_GIAIDOAN_KEHOACHDIEUTRI foreign key (MaBenhAn, MaRangKham) references KEHOACHDIEUTRI(MaBenhAn, MaRangKham),
 	constraint FK_GIAIDOAN_DIEUTRI foreign key (MaDieuTri) references DIEUTRI(MaDieuTri)
 
 alter table TOATHUOC add
