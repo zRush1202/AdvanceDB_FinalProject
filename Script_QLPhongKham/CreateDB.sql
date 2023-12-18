@@ -78,7 +78,10 @@ create table HOSOBENHNHAN
 	TongTienThanhToan bigint,
 	SucKhoeRang nvarchar(100),
 	TinhTrangDiUng nvarchar(100),
+<<<<<<< HEAD
 	GiayGioiThieu nvarchar(100),
+=======
+>>>>>>> trong2
 	MaBenhNhan int,
 	MaNVQL int
 	primary key (MaBenhAn)
@@ -113,8 +116,12 @@ create table RANG
 (
 	MaRang int identity(1,1),
 	SoRang int not null
+<<<<<<< HEAD
 	primary key (MaRang),
 	unique(SoRang)
+=======
+	primary key (MaRang)
+>>>>>>> trong2
 )
 
 create table RANG_BEMAT
@@ -233,7 +240,11 @@ alter table KEHOACHDIEUTRI add
 	constraint FK_KEHOACHDIEUTRI_TROKHAM foreign key (MaTroKham) references NHASI(MaNhaSi)
 
 alter table RANG_BEMAT add
+<<<<<<< HEAD
 	constraint FK_RANG_BEMAT_RANG foreign key (MaRang) references RANG(SoRang),
+=======
+	constraint FK_RANG_BEMAT_RANG foreign key (MaRang) references RANG(MaRang),
+>>>>>>> trong2
 	constraint FK_RANG_BEMAT_BEMATRANG foreign key (MaBeMat) references BEMATRANG(MaBeMat)
 
 alter table GIAIDOAN add
