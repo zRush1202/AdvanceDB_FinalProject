@@ -2,37 +2,26 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-<<<<<<< HEAD
-=======
 using System.Data.SqlClient;
->>>>>>> trong
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
-=======
 using WinFormsApp1;
->>>>>>> trong
 
 namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 {
     public partial class QUANTRIVIEN : Form
     {
-<<<<<<< HEAD
-=======
         ConnectionTester conn = new ConnectionTester();
         private int numConn = -1;
         private bool isNumConnInitialized = false;
 
->>>>>>> trong
         public QUANTRIVIEN()
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-=======
 
         private int testConnect()
         {
@@ -118,6 +107,5 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             ThemThuoc tt = new ThemThuoc();
             tt.ShowDialog();
         }
->>>>>>> trong
     }
 }

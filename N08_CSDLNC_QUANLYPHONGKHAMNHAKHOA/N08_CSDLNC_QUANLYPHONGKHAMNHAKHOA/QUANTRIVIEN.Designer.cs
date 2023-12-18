@@ -28,15 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "QUANTRIVIEN";
-        }
-
-        #endregion
-=======
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -230,6 +221,5 @@
         private System.Windows.Forms.DataGridView dgv_DSThuoc;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
->>>>>>> trong
     }
 }

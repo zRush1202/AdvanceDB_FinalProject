@@ -46,15 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Compile Include="CapNhatSLTK.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CapNhatSLTK.Designer.cs">
       <DependentUpon>CapNhatSLTK.cs</DependentUpon>
     </Compile>
->>>>>>> trong
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,8 +110,6 @@
     <Compile Include="SIGN_UP.Designer.cs">
       <DependentUpon>SIGN_UP.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
     <Compile Include="ThemThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,19 +119,15 @@
     <EmbeddedResource Include="CapNhatSLTK.resx">
       <DependentUpon>CapNhatSLTK.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> trong
     <EmbeddedResource Include="DATLICHHEN.resx">
       <DependentUpon>DATLICHHEN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HOME.resx">
       <DependentUpon>HOME.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-=======
     <EmbeddedResource Include="QUANTRIVIEN.resx">
       <DependentUpon>QUANTRIVIEN.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> trong
     <EmbeddedResource Include="SIGN_IN.resx">
       <DependentUpon>SIGN_IN.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,12 +141,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-<<<<<<< HEAD
-=======
     <EmbeddedResource Include="ThemThuoc.resx">
       <DependentUpon>ThemThuoc.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> trong
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
