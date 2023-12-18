@@ -78,6 +78,7 @@ create table HOSOBENHNHAN
 	TongTienThanhToan bigint,
 	SucKhoeRang nvarchar(100),
 	TinhTrangDiUng nvarchar(100),
+	GiayGioiThieu nvarchar(100),
 	MaBenhNhan int,
 	MaNVQL int
 	primary key (MaBenhAn)
