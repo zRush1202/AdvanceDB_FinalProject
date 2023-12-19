@@ -71,13 +71,15 @@ begin
 	from BENHNHAN
 	where HoTenBN = @hoten 
 
-	insert into CH_YEUCAU(TinhTrangBenh, ThoiGianYC, MaBenhNhan, MaNhanVien) values
+	insert into CH_YEUCAU(TinhTrangBenh, ThoiGianYC, MaBenhNhan) values
 		(@tinhtrangbenh, @thoigianYC, @mabn)
 
 	if @@ERROR <>0
 	begin
+		print N'Đã có lỗi xảy ra, xin quý khách đặt lại'
 		return 
 	end
+	print N'ĐẶT LỊCH HẸN THÀNH CÔNG'
 	return
 end
 
