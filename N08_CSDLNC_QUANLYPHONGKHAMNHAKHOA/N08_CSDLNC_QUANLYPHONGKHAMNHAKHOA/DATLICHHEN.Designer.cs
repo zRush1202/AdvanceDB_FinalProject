@@ -38,7 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tb_tinhtrang = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -47,15 +47,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dp_appointment = new System.Windows.Forms.DateTimePicker();
+            this.tb_email = new System.Windows.Forms.TextBox();
+            this.rb_nu = new System.Windows.Forms.RadioButton();
+            this.rb_nam = new System.Windows.Forms.RadioButton();
+            this.tb_diachi = new System.Windows.Forms.TextBox();
+            this.tb_dienthoai = new System.Windows.Forms.TextBox();
+            this.dp_birth = new System.Windows.Forms.DateTimePicker();
+            this.tb_hoten = new System.Windows.Forms.TextBox();
+            this.b_datlich = new System.Windows.Forms.Button();
+            this.b_quaylai = new System.Windows.Forms.Button();
             this.panel_cyan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -148,7 +149,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.textBox5);
+            this.panel2.Controls.Add(this.tb_tinhtrang);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
@@ -157,30 +158,32 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.dateTimePicker2);
-            this.panel2.Controls.Add(this.textBox4);
-            this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Controls.Add(this.radioButton1);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.dateTimePicker1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.dp_appointment);
+            this.panel2.Controls.Add(this.tb_email);
+            this.panel2.Controls.Add(this.rb_nu);
+            this.panel2.Controls.Add(this.rb_nam);
+            this.panel2.Controls.Add(this.tb_diachi);
+            this.panel2.Controls.Add(this.tb_dienthoai);
+            this.panel2.Controls.Add(this.dp_birth);
+            this.panel2.Controls.Add(this.tb_hoten);
             this.panel2.Location = new System.Drawing.Point(64, 193);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(419, 365);
             this.panel2.TabIndex = 4;
             // 
-            // textBox5
+            // tb_tinhtrang
             // 
-            this.textBox5.Location = new System.Drawing.Point(184, 305);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 18;
+            this.tb_tinhtrang.Location = new System.Drawing.Point(184, 305);
+            this.tb_tinhtrang.Name = "tb_tinhtrang";
+            this.tb_tinhtrang.Size = new System.Drawing.Size(200, 20);
+            this.tb_tinhtrang.TabIndex = 18;
+            this.tb_tinhtrang.TextChanged += new System.EventHandler(this.tb_tinhtrang_TextChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(42, 305);
+            this.label12.MaximumSize = new System.Drawing.Size(120, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(116, 13);
             this.label12.TabIndex = 17;
@@ -225,7 +228,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(41, 144);
+            this.label7.Location = new System.Drawing.Point(42, 147);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 12;
@@ -249,90 +252,114 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Họ và tên:";
             // 
-            // dateTimePicker2
+            // dp_appointment
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(184, 266);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 8;
+            this.dp_appointment.Location = new System.Drawing.Point(184, 266);
+            this.dp_appointment.Name = "dp_appointment";
+            this.dp_appointment.Size = new System.Drawing.Size(200, 20);
+            this.dp_appointment.TabIndex = 8;
+            this.dp_appointment.ValueChanged += new System.EventHandler(this.dp_appointment_ValueChanged);
             // 
-            // textBox4
+            // tb_email
             // 
-            this.textBox4.Location = new System.Drawing.Point(184, 223);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 7;
+            this.tb_email.Location = new System.Drawing.Point(184, 223);
+            this.tb_email.Name = "tb_email";
+            this.tb_email.Size = new System.Drawing.Size(200, 20);
+            this.tb_email.TabIndex = 7;
+            this.tb_email.TextChanged += new System.EventHandler(this.tb_email_TextChanged);
             // 
-            // radioButton2
+            // rb_nu
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(259, 70);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(39, 17);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Nữ";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb_nu.AutoSize = true;
+            this.rb_nu.Location = new System.Drawing.Point(259, 70);
+            this.rb_nu.Name = "rb_nu";
+            this.rb_nu.Size = new System.Drawing.Size(39, 17);
+            this.rb_nu.TabIndex = 6;
+            this.rb_nu.TabStop = true;
+            this.rb_nu.Text = "Nữ";
+            this.rb_nu.UseVisualStyleBackColor = true;
+            this.rb_nu.CheckedChanged += new System.EventHandler(this.rb_nu_CheckedChanged);
             // 
-            // radioButton1
+            // rb_nam
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(184, 70);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(47, 17);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Nam";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rb_nam.AutoSize = true;
+            this.rb_nam.Location = new System.Drawing.Point(184, 70);
+            this.rb_nam.Name = "rb_nam";
+            this.rb_nam.Size = new System.Drawing.Size(47, 17);
+            this.rb_nam.TabIndex = 5;
+            this.rb_nam.TabStop = true;
+            this.rb_nam.Text = "Nam";
+            this.rb_nam.UseVisualStyleBackColor = true;
+            this.rb_nam.CheckedChanged += new System.EventHandler(this.rb_nam_CheckedChanged);
             // 
-            // textBox3
+            // tb_diachi
             // 
-            this.textBox3.Location = new System.Drawing.Point(184, 183);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 4;
+            this.tb_diachi.Location = new System.Drawing.Point(184, 183);
+            this.tb_diachi.Name = "tb_diachi";
+            this.tb_diachi.Size = new System.Drawing.Size(200, 20);
+            this.tb_diachi.TabIndex = 4;
+            this.tb_diachi.TextChanged += new System.EventHandler(this.tb_diachi_TextChanged);
             // 
-            // textBox2
+            // tb_dienthoai
             // 
-            this.textBox2.Location = new System.Drawing.Point(184, 147);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 3;
+            this.tb_dienthoai.Location = new System.Drawing.Point(184, 147);
+            this.tb_dienthoai.Name = "tb_dienthoai";
+            this.tb_dienthoai.Size = new System.Drawing.Size(200, 20);
+            this.tb_dienthoai.TabIndex = 3;
+            this.tb_dienthoai.TextChanged += new System.EventHandler(this.tb_dienthoai_TextChanged);
             // 
-            // dateTimePicker1
+            // dp_birth
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(184, 111);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dp_birth.Location = new System.Drawing.Point(184, 111);
+            this.dp_birth.Name = "dp_birth";
+            this.dp_birth.Size = new System.Drawing.Size(200, 20);
+            this.dp_birth.TabIndex = 2;
+            this.dp_birth.ValueChanged += new System.EventHandler(this.dp_birth_ValueChanged);
             // 
-            // textBox1
+            // tb_hoten
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(184, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 0;
+            this.tb_hoten.BackColor = System.Drawing.Color.White;
+            this.tb_hoten.Location = new System.Drawing.Point(184, 33);
+            this.tb_hoten.Name = "tb_hoten";
+            this.tb_hoten.Size = new System.Drawing.Size(200, 20);
+            this.tb_hoten.TabIndex = 0;
+            this.tb_hoten.TextChanged += new System.EventHandler(this.tb_hoten_TextChanged);
             // 
-            // button1
+            // b_datlich
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(203, 576);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 46);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "ĐẶT LỊCH HẸN";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.b_datlich.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.b_datlich.Cursor = System.Windows.Forms.Cursors.No;
+            this.b_datlich.Enabled = false;
+            this.b_datlich.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_datlich.ForeColor = System.Drawing.Color.White;
+            this.b_datlich.Location = new System.Drawing.Point(317, 577);
+            this.b_datlich.Name = "b_datlich";
+            this.b_datlich.Size = new System.Drawing.Size(131, 46);
+            this.b_datlich.TabIndex = 19;
+            this.b_datlich.Text = "ĐẶT LỊCH HẸN";
+            this.b_datlich.UseVisualStyleBackColor = false;
+            this.b_datlich.Click += new System.EventHandler(this.b_datlich_Click);
+            // 
+            // b_quaylai
+            // 
+            this.b_quaylai.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.b_quaylai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_quaylai.ForeColor = System.Drawing.Color.Black;
+            this.b_quaylai.Location = new System.Drawing.Point(91, 577);
+            this.b_quaylai.Name = "b_quaylai";
+            this.b_quaylai.Size = new System.Drawing.Size(131, 46);
+            this.b_quaylai.TabIndex = 19;
+            this.b_quaylai.Text = "QUAY LẠI";
+            this.b_quaylai.UseVisualStyleBackColor = false;
+            this.b_quaylai.Click += new System.EventHandler(this.b_quaylai_Click);
             // 
             // DATLICHHEN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 669);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.b_quaylai);
+            this.Controls.Add(this.b_datlich);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_cyan);
             this.Controls.Add(this.panel1);
@@ -362,14 +389,14 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tb_hoten;
+        private System.Windows.Forms.DateTimePicker dp_birth;
+        private System.Windows.Forms.TextBox tb_dienthoai;
+        private System.Windows.Forms.TextBox tb_diachi;
+        private System.Windows.Forms.RadioButton rb_nam;
+        private System.Windows.Forms.RadioButton rb_nu;
+        private System.Windows.Forms.DateTimePicker dp_appointment;
+        private System.Windows.Forms.TextBox tb_email;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -378,7 +405,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tb_tinhtrang;
+        private System.Windows.Forms.Button b_datlich;
+        private System.Windows.Forms.Button b_quaylai;
     }
 }

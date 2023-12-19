@@ -1,7 +1,7 @@
 ﻿use CSDLNC_QLPhongKham
 go
 
---- Xác thực tài khoản đăng nhập hợp lệ
+--- Xác thực tài khoản đăng nhập hợp lệ --- Commands completed successfully.
 create or alter proc sp_XacThucTaiKhoan 
     @sdt varchar(10), @matkhau varchar(50), @loaivt int out
 as 
@@ -19,6 +19,7 @@ as
     )
     begin
         set @loaivt = 0
+		print N'TÀI KHOẢN KHÔNG TỒN TẠI! HÃY THỬ LẠI'
         return @loaivt
     end
     else
@@ -29,6 +30,7 @@ as
             if (@ttrang = 'disable')
                 begin
                     set @loaivt = -1
+					print N'TÀI KHOẢN ĐÃ BỊ KHÓA !!!'
                     return @loaivt
                 end
             else 
@@ -47,11 +49,13 @@ as
         end
 go
 
---- KHÁCH HÀNG: Khách hàng đặt online cuộc hẹn yêu cầu trên hệ thống
+
+
+--- KHÁCH HÀNG: Khách hàng đặt online cuộc hẹn yêu cầu trên hệ thống ---  Commands completed successfully.
 create or alter proc sp_ThemCuocHenYeuCau 
 					@hoten nvarchar(50), @ngsinh date, @diachi nvarchar(100),
 					@phone varchar(10), @email varchar(50), @gender nvarchar(4),
-					@tinhtrangbenh nvarchar(100), @thoigianYC date, @manvql int 
+					@tinhtrangbenh nvarchar(100), @thoigianYC date
 as
 
 begin
@@ -68,7 +72,7 @@ begin
 	where HoTenBN = @hoten 
 
 	insert into CH_YEUCAU(TinhTrangBenh, ThoiGianYC, MaBenhNhan, MaNhanVien) values
-		(@tinhtrangbenh, @thoigianYC, @mabn, @manvql)
+		(@tinhtrangbenh, @thoigianYC, @mabn)
 
 	if @@ERROR <>0
 	begin
@@ -79,7 +83,7 @@ end
 
 go
 
--- QUẢN TRỊ VIÊN: Thêm loại thuốc mới
+-- QUẢN TRỊ VIÊN: Thêm loại thuốc mới -- Commands completed successfully.
 create or alter proc sp_ThemThuocMoi @tenthuoc nvarchar(100), @donvi nvarchar(10), @chongchidinh nvarchar(100), @ngayhethan date
 as
 begin
@@ -109,7 +113,7 @@ begin
 end
 go
 
--- QUẢN TRỊ VIÊN: Cập nhật số lượng tồn kho của thuốc
+-- QUẢN TRỊ VIÊN: Cập nhật số lượng tồn kho của thuốc -- Commands completed successfully.
 create or alter proc sp_CapNhatSLTK @mathuoc int, @soluong int
 as
 begin
@@ -135,7 +139,7 @@ end
 go
 
 
--- QUẢN TRỊ VIÊN: Thêm tài khoản cho nhân viên và nha sĩ
+-- QUẢN TRỊ VIÊN: Thêm tài khoản cho nhân viên và nha sĩ  --- Commands completed successfully. 
 CREATE OR ALTER PROC sp_ThemTaiKhoan
     @tendangnhap VARCHAR(10),
     @matkhau VARCHAR(50),
@@ -180,9 +184,24 @@ BEGIN
     END
 END
 
+go
+
+-- NHÂN VIÊN: Duyệt cuộc hẹn yêu cầu của bệnh nhân
+create or alter proc sp_DuyetCHYC @machyc int
+as
+begin
+	if not exists(select * from CH_YEUCAU where MaCHYC = @machyc)
+	begin
+		return 0 -- không tồn tại tại CHYC này
+	end
+
+	-- insert into HOSOBENHNHAN(TongTienDieuTri, TongTienThanhToan, MaBenhNhan)
+
+	delete from CH_YEUCAU where MaCHYC = MaCHYC
+end
+-- NHÂN VIÊN: Xóa cuộc hẹn yêu cầu của bệnh nhân
 
 -- NHÂN VIÊN: tạo kế hoạch điều trị cho bệnh nhân
-
 
 
 
