@@ -30,6 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button7 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -59,9 +63,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button12 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.tbxTenThuoc = new System.Windows.Forms.TextBox();
+            this.tbxMaThuoc = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -82,12 +86,9 @@
             this.button16 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSNhaSi)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -96,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSThuoc)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -126,6 +126,48 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Trang chủ";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button17
+            // 
+            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.Location = new System.Drawing.Point(463, 451);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(155, 30);
+            this.button17.TabIndex = 7;
+            this.button17.Text = "Đăng xuất";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button15
+            // 
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Location = new System.Drawing.Point(285, 451);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(155, 30);
+            this.button15.TabIndex = 6;
+            this.button15.Text = "Đổi mật khẩu";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Blue;
+            this.label19.Location = new System.Drawing.Point(332, 19);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(231, 32);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "QUẢN TRỊ VIÊN";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA.Properties.Resources.admin;
+            this.pictureBox1.Location = new System.Drawing.Point(265, 82);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(374, 346);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // tabPage2
             // 
@@ -427,9 +469,9 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button12);
-            this.tabPage4.Controls.Add(this.textBox8);
-            this.tabPage4.Controls.Add(this.textBox9);
+            this.tabPage4.Controls.Add(this.btnTimKiem);
+            this.tabPage4.Controls.Add(this.tbxTenThuoc);
+            this.tabPage4.Controls.Add(this.tbxMaThuoc);
             this.tabPage4.Controls.Add(this.label13);
             this.tabPage4.Controls.Add(this.label14);
             this.tabPage4.Controls.Add(this.label15);
@@ -446,29 +488,30 @@
             this.tabPage4.Text = "Thuốc";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnTimKiem
             // 
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(654, 61);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 62);
-            this.button12.TabIndex = 29;
-            this.button12.Text = "Tìm kiếm";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Location = new System.Drawing.Point(654, 61);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 62);
+            this.btnTimKiem.TabIndex = 29;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // textBox8
+            // tbxTenThuoc
             // 
-            this.textBox8.Location = new System.Drawing.Point(449, 82);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(172, 22);
-            this.textBox8.TabIndex = 27;
+            this.tbxTenThuoc.Location = new System.Drawing.Point(449, 82);
+            this.tbxTenThuoc.Name = "tbxTenThuoc";
+            this.tbxTenThuoc.Size = new System.Drawing.Size(172, 22);
+            this.tbxTenThuoc.TabIndex = 27;
             // 
-            // textBox9
+            // tbxMaThuoc
             // 
-            this.textBox9.Location = new System.Drawing.Point(261, 82);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(90, 22);
-            this.textBox9.TabIndex = 26;
+            this.tbxMaThuoc.Location = new System.Drawing.Point(261, 82);
+            this.tbxMaThuoc.Name = "tbxMaThuoc";
+            this.tbxMaThuoc.Size = new System.Drawing.Size(90, 22);
+            this.tbxMaThuoc.TabIndex = 26;
             // 
             // label13
             // 
@@ -680,48 +723,6 @@
             this.tabPage6.Text = "Lịch hẹn";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA.Properties.Resources.admin;
-            this.pictureBox1.Location = new System.Drawing.Point(265, 82);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(374, 346);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Blue;
-            this.label19.Location = new System.Drawing.Point(332, 19);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(231, 32);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "QUẢN TRỊ VIÊN";
-            // 
-            // button15
-            // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(285, 451);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(155, 30);
-            this.button15.TabIndex = 6;
-            this.button15.Text = "Đổi mật khẩu";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button17
-            // 
-            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.Location = new System.Drawing.Point(463, 451);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(155, 30);
-            this.button17.TabIndex = 7;
-            this.button17.Text = "Đăng xuất";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
             // QUANTRIVIEN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -735,6 +736,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DSNhaSi)).EndInit();
@@ -747,7 +749,6 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -790,9 +791,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Button btnTimKiem;
+        private System.Windows.Forms.TextBox tbxTenThuoc;
+        private System.Windows.Forms.TextBox tbxMaThuoc;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;

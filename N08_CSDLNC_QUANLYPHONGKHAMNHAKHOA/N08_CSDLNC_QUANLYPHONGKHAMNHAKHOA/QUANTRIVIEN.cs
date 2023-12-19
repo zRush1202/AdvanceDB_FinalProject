@@ -202,5 +202,41 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             h.ShowDialog();
             this.Close();
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+            string query = "";
+            DataSet data = new DataSet();
+            if (tbxTenThuoc.Text == "" && tbxMaThuoc.Text == "") {
+                MessageBox.Show("Cần nhập thông tin đề tìm kiếm!");
+                return;
+            }
+            if (tbxTenThuoc.Text == "" && tbxMaThuoc.Text != "")
+            {
+                query = $"select* from THUOC where MaThuoc = {int.Parse(tbxMaThuoc.Text)}";
+            }
+            if (tbxTenThuoc.Text != "" && tbxMaThuoc.Text == "")
+            {
+                query = $"select* from THUOC where TenThuoc LIKE N'{tbxTenThuoc.Text}'";
+            }
+            if (tbxTenThuoc.Text != "" && tbxMaThuoc.Text != "")
+            {
+                query = $"select* from THUOC where TenThuoc = N'{tbxTenThuoc.Text}' and MaThuoc = {int.Parse(tbxMaThuoc.Text)}";
+            }
+            //MessageBox.Show(query);
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+                //connection.InfoMessage += Connection_InfoMessage;
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            dgv_DSThuoc.AutoGenerateColumns = true;
+            dgv_DSThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_DSThuoc.DataSource = data.Tables[0];
+            dgv_DSThuoc.Refresh();
+        }
     }
 }
