@@ -17,7 +17,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         public HOME()
         {
             InitializeComponent();
-            dtgv_DIEUTRI.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_DIEUTRI.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dtgv_DIEUTRI.DataSource = LoadData_DieuTri().Tables[0];
         }
@@ -62,8 +62,16 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dtgv_DIEUTRI.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_DIEUTRI.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgv_DIEUTRI.DataSource = LoadData_DieuTri().Tables[0];
+        }
+
+        private void btn_DangNhap_Click(object sender, EventArgs e)
+        {
+            SIGN_IN sIGN = new SIGN_IN();
+            this.Hide();
+            sIGN.ShowDialog();
+            this.Close();
         }
     }
 }
