@@ -70,7 +70,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@username", this.username);
+                command.Parameters.AddWithValue("@username", username);
                 try
                 {
                     connection.Open();
@@ -102,6 +102,14 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         private void NHASI_Load(object sender, EventArgs e)
         {
             LoadDataToTextBoxes();
+        }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            SIGN_IN f = new SIGN_IN();
+            this.Hide();
+            f.ShowDialog();
+            this.Close();
         }
     }
 }
