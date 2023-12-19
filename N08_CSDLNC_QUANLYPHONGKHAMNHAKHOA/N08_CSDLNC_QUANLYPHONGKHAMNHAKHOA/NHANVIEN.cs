@@ -25,7 +25,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         public NHANVIEN()
         {
-            
+
+            InitializeComponent();
 
         }
 
@@ -78,12 +79,12 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             
         }
 
-        
 
         private void btn_XoaYC_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this.username);
         }
+
     }
 
 
