@@ -201,11 +201,57 @@ begin
 
 	delete from CH_YEUCAU where MaCHYC = MaCHYC
 end
+go
 -- NHÂN VIÊN: Xóa cuộc hẹn yêu cầu của bệnh nhân
 
 -- NHÂN VIÊN: tạo kế hoạch điều trị cho bệnh nhân
 
 
 
+-- DUNNO: Thống kê lịch hẹn yêu cầu theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng)
+create or alter proc sp_ThongKeLichHenYeuCauTheoNgay @NgayBD datetime, @NgayKT datetime
+as
+	begin
+		select DATEPART(day, ThoiGianYC) as N'Ngày', COUNT(*) as N'Số lượng cuộc hẹn yêu cầu'
+		from CH_YEUCAU
+		where ThoiGianYC between @NgayBD and @NgayKT
+		group by DATEPART(day, ThoiGianYC)
+		order by DATEPART(day, ThoiGianYC)
+	end
+go
 
+-- DUNNO: Thống kê lịch hẹn yêu cầu theo THÁNG (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 năm)
+create or alter proc sp_ThongKeLichHenYeuCauTheoThang @NgayBD datetime, @NgayKT datetime
+as
+	begin
+		select DATEPART(month, ThoiGianYC) as N'Tháng', COUNT(*) as N'Số lượng cuộc hẹn yêu cầu'
+		from CH_YEUCAU
+		where ThoiGianYC between @NgayBD and @NgayKT
+		group by DATEPART(month, ThoiGianYC)
+		order by DATEPART(month, ThoiGianYC)
+	end
+go
 
+-- DUNNO: Thống kê lịch hẹn khám trong ngày theo từng NHA SĨ (trong một ngày được chỉ định)
+create or alter proc sp_ThongKeLichHenKhamTrongNgayTheoTungNhaSi @NgayThongKe datetime
+as
+	begin
+		select MaNhaSi as N'Mã nha sĩ', count(*) as N'Số lượng lịch hẹn khám'
+		from CUOCHEN CH join CH_BENHNHAN CHBN on CH.MaCuocHen = CHBN.MaCHBN and LoaiCuocHen = N'bệnh nhân'
+		where cast(NgayGioHen as date) = cast(@NgayThongKe as date)
+		GROUP BY MaNhaSi
+		ORDER BY MaNhaSi
+	end
+go
+
+-- DUNNO: Thống kê lịch hẹn khám theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng) 
+create or alter proc sp_ThongKeLichHenKhamTheoNgay @NgayBD datetime, @NgayKT datetime
+as
+	begin
+		select DATEPART(day, NgayGioHen) as N'Ngày', count(*) as N'Số lượng lịch hẹn khám'
+		from CUOCHEN CH join CH_BENHNHAN CHBN on CH.MaCuocHen = CHBN.MaCHBN and LoaiCuocHen = N'bệnh nhân'
+		where NgayGioHen between @NgayBD and @NgayKT
+		GROUP BY DATEPART(day, NgayGioHen)
+		ORDER BY DATEPART(day, NgayGioHen)
+	end
+go
