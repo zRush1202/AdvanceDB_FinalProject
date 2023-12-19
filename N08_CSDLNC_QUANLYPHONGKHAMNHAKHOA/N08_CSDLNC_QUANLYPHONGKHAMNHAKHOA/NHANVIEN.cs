@@ -15,14 +15,20 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
     public partial class NHANVIEN : Form
     {
         private string username;
-
-        public NHANVIEN()
+        public NHANVIEN(string username)
         {
             InitializeComponent();
             dtgv_CHYC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgv_CHYC.DataSource = LoadData_CHYC_BENHNHAN().Tables[0];
+            this.username = username;
+        }
+
+        public NHANVIEN()
+        {
+            
 
         }
+
 
         ConnectionTester conn = new ConnectionTester();
         private int numConn = -1;
@@ -72,9 +78,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             
         }
 
-        public NHANVIEN(string username)
+        
+
+        private void btn_XoaYC_Click(object sender, EventArgs e)
         {
-            this.username = username;
+            MessageBox.Show(this.username);
         }
     }
 
