@@ -98,14 +98,14 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
             else if (loaiVT == 2)
             {
-                NHASI nHASI = new NHASI();
+                NHASI nHASI = new NHASI(username);
                 this.Hide();
                 nHASI.ShowDialog();
                 this.Close();
             }
             else if (loaiVT == 3)
             {
-                NHANVIEN nHANVIEN = new NHANVIEN();
+                NHANVIEN nHANVIEN = new NHANVIEN(username);
                 this.Hide();
                 nHANVIEN.ShowDialog();
                 this.Close();

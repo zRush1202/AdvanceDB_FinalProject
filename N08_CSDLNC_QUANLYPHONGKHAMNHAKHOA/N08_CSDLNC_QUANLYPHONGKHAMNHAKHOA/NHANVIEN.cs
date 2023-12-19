@@ -12,9 +12,16 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 {
     public partial class NHANVIEN : Form
     {
+        private string username;
+
         public NHANVIEN()
         {
             InitializeComponent();
+        }
+
+        public NHANVIEN(string username)
+        {
+            this.username = username;
         }
     }
 }
