@@ -55,9 +55,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button8 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbxSdtNV = new System.Windows.Forms.TextBox();
+            this.tbxTenNV = new System.Windows.Forms.TextBox();
+            this.tbxMaNV = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -147,6 +147,7 @@
             this.button15.TabIndex = 6;
             this.button15.Text = "Đổi mật khẩu";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click_1);
             // 
             // label19
             // 
@@ -201,6 +202,7 @@
             this.button7.TabIndex = 13;
             this.button7.Text = "Tìm kiếm";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // textBox3
             // 
@@ -293,6 +295,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Refresh";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label2
             // 
@@ -322,9 +325,9 @@
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.dataGridView1);
             this.tabPage3.Controls.Add(this.button8);
-            this.tabPage3.Controls.Add(this.textBox4);
-            this.tabPage3.Controls.Add(this.textBox5);
-            this.tabPage3.Controls.Add(this.textBox6);
+            this.tabPage3.Controls.Add(this.tbxSdtNV);
+            this.tabPage3.Controls.Add(this.tbxTenNV);
+            this.tabPage3.Controls.Add(this.tbxMaNV);
             this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.label8);
             this.tabPage3.Controls.Add(this.label9);
@@ -367,6 +370,7 @@
             this.button11.TabIndex = 24;
             this.button11.Text = "Refresh";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // label11
             // 
@@ -399,29 +403,29 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // textBox4
+            // tbxSdtNV
             // 
-            this.textBox4.Location = new System.Drawing.Point(632, 69);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(141, 22);
-            this.textBox4.TabIndex = 20;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.tbxSdtNV.Location = new System.Drawing.Point(632, 69);
+            this.tbxSdtNV.Name = "tbxSdtNV";
+            this.tbxSdtNV.Size = new System.Drawing.Size(141, 22);
+            this.tbxSdtNV.TabIndex = 20;
+            this.tbxSdtNV.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox5
+            // tbxTenNV
             // 
-            this.textBox5.Location = new System.Drawing.Point(342, 69);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(172, 22);
-            this.textBox5.TabIndex = 19;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.tbxTenNV.Location = new System.Drawing.Point(342, 69);
+            this.tbxTenNV.Name = "tbxTenNV";
+            this.tbxTenNV.Size = new System.Drawing.Size(172, 22);
+            this.tbxTenNV.TabIndex = 19;
+            this.tbxTenNV.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // textBox6
+            // tbxMaNV
             // 
-            this.textBox6.Location = new System.Drawing.Point(130, 69);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(90, 22);
-            this.textBox6.TabIndex = 18;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.tbxMaNV.Location = new System.Drawing.Point(130, 69);
+            this.tbxMaNV.Name = "tbxMaNV";
+            this.tbxMaNV.Size = new System.Drawing.Size(90, 22);
+            this.tbxMaNV.TabIndex = 18;
+            this.tbxMaNV.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label7
             // 
@@ -784,9 +788,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbxSdtNV;
+        private System.Windows.Forms.TextBox tbxTenNV;
+        private System.Windows.Forms.TextBox tbxMaNV;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

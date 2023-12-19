@@ -6,7 +6,7 @@ create or alter proc sp_XacThucTaiKhoan
     @sdt varchar(10), @matkhau varchar(50), @loaivt int out
 as 
     --Kiem tra Quan Tri Vien
-    if (@sdt = '0123456789' and @matkhau = '123')
+    if (@sdt = '0123456789' and @matkhau = (select MatKhauQTV from QUANTRIVIEN where @sdt = TenDangNhapQTV))
         begin
             set @loaivt = 1
             return @loaivt

@@ -17,10 +17,19 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         ConnectionTester conn = new ConnectionTester();
         private int numConn = -1;
         private bool isNumConnInitialized = false;
+        private string username;
+        private string password;
 
         public QUANTRIVIEN()
         {
             InitializeComponent();
+        }
+
+        public QUANTRIVIEN(string username, string password)
+        {
+            InitializeComponent();
+            this.username = username;
+            this.password = password;
         }
 
         private int testConnect()
@@ -46,7 +55,9 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             DataSet data = new DataSet();
 
             //sql connection
-            string query = "select * from NHASI where MaNhaSi < 200";
+            string query = "select MaNhaSi as N'Mã Nha Sĩ', HoTenNS as 'Họ và tên', NgSinhNS " +
+                "as N'Ngày sinh', DiaChiNS as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', " +
+                "TinhTrang as N'Tình trạng' from NHASI ns, TAIKHOAN tk where ns.MaNhaSi < 200 and tk.MaTaiKhoan = ns.MaNhaSi";
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
                 connection.Open();
@@ -66,7 +77,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             DataSet data = new DataSet();
 
             //sql connection
-            string query = "select * from THUOC";
+            string query = "select MaThuoc as N'Mã thuốc', TenThuoc as N'Tên thuốc', DonVi as N'Đơn vị', " +
+                "ChongChiDinh as N'Chống chỉ định', SLTK, NgayHetHan as N'Ngày hết hạn' from THUOC";
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
                 connection.Open();
@@ -86,7 +98,9 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             DataSet data = new DataSet();
 
             //sql connection
-            string query = "select * from NHANVIEN where MaNhanVien < 200";
+            string query = "select MaNhanVien as N'Mã Nhân Viên', HoTenNV as 'Họ và tên', NgSinhNV as" +
+                " N'Ngày sinh', DiaChiNV as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', " +
+                "TinhTrang as N'Tình trạng' from NHANVIEN nv, TAIKHOAN tk where nv.MaNhanVien < 200 and tk.MaTaiKhoan = nv.MaNhanVien";
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
                 connection.Open();
@@ -106,7 +120,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             DataSet data = new DataSet();
 
             //sql connection
-            string query = "select * from DIEUTRI";
+            string query = "select MaDieuTri as N'Mã điều trị', TenDieuTri as N'Tên điều trị', MoTa as N'Mô tả', " +
+                "PhiDieuTri as N'Phí điều trị' from DIEUTRI";
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
                 connection.Open();
@@ -188,7 +203,39 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            int nConn = GetNumConn();
+            string query = "";
+            DataSet data = new DataSet();
+            if (tbxMaNV.Text == "" && tbxTenNV.Text == "" && tbxSdtNV.Text == "")
+            {
+                MessageBox.Show("Cần nhập thông tin đề tìm kiếm!");
+                return;
+            }
+            if (tbxMaNV.Text != "" && tbxTenNV.Text == "" && tbxSdtNV.Text == "")
+            {
+                query = $"select MaNhanVien as N'Mã Nhân Viên', HoTenNV as 'Họ và tên', NgSinhNV as N'Ngày sinh', DiaChiNV as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', TinhTrang as N'Tình trạng' from NHANVIEN nv, TAIKHOAN tk where nv.MaNhanVien = '{tbxMaNV.Text}' and tk.MaTaiKhoan = nv.MaNhanVien";
+            }
+            if (tbxMaNV.Text == "" && tbxTenNV.Text != "" && tbxSdtNV.Text == "")
+            {
+                query = $"select MaNhanVien as N'Mã Nhân Viên', HoTenNV as 'Họ và tên', NgSinhNV as N'Ngày sinh', DiaChiNV as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', TinhTrang as N'Tình trạng' from NHANVIEN nv, TAIKHOAN tk where nv.HoTenNV LIKE N'%{tbxTenNV.Text}%' and tk.MaTaiKhoan = nv.MaNhanVien";
+            }
+            if (tbxMaNV.Text == "" && tbxTenNV.Text == "" && tbxSdtNV.Text != "")
+            {
+                query = $"select MaNhanVien as N'Mã Nhân Viên', HoTenNV as 'Họ và tên', NgSinhNV as N'Ngày sinh', DiaChiNV as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', TinhTrang as N'Tình trạng' from NHANVIEN nv, TAIKHOAN tk where nv.DienThoaiNV = '{tbxSdtNV.Text}' and tk.MaTaiKhoan = nv.MaNhanVien";
+            }
+            //MessageBox.Show(query);
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+                //connection.InfoMessage += Connection_InfoMessage;
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.DataSource = data.Tables[0];
+            dataGridView1.Refresh();
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -218,7 +265,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
             if (tbxTenThuoc.Text != "" && tbxMaThuoc.Text == "")
             {
-                query = $"select* from THUOC where TenThuoc LIKE N'{tbxTenThuoc.Text}'";
+                query = $"select* from THUOC where TenThuoc LIKE N'%{tbxTenThuoc.Text}%'";
             }
             if (tbxTenThuoc.Text != "" && tbxMaThuoc.Text != "")
             {
@@ -237,6 +284,61 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dgv_DSThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_DSThuoc.DataSource = data.Tables[0];
             dgv_DSThuoc.Refresh();
+        }
+
+        private void button15_Click_1(object sender, EventArgs e)
+        {
+            ChangePassword chpass = new ChangePassword(this.username, this.password);
+            chpass.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dgv_DSNhaSi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_DSNhaSi.DataSource = LoadData_NhaSi().Tables[0];
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+            string query = "";
+            DataSet data = new DataSet();
+            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "")
+            {
+                MessageBox.Show("Cần nhập thông tin đề tìm kiếm!");
+                return;
+            }
+            if (textBox1.Text != "" && textBox2.Text == "" && textBox3.Text == "")
+            {
+                query = $"select MaNhaSi as N'Mã Nha Sĩ', HoTenNS as 'Họ và tên', NgSinhNS as N'Ngày sinh', DiaChiNS as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', TinhTrang as N'Tình trạng' from NHASI ns, TAIKHOAN tk where ns.MaNhaSi = {textBox1.Text} and tk.MaTaiKhoan = ns.MaNhaSi";
+            }
+            if (textBox1.Text == "" && textBox2.Text != "" && textBox3.Text == "")
+            {
+                query = $"select MaNhaSi as N'Mã Nha Sĩ', HoTenNS as 'Họ và tên', NgSinhNS as N'Ngày sinh', DiaChiNS as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', TinhTrang as N'Tình trạng' from NHASI ns, TAIKHOAN tk where ns.HoTenNS LIKE N'%{textBox2.Text}%' and tk.MaTaiKhoan = ns.MaNhaSi";
+            }
+            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text != "")
+            {
+                query = $"select MaNhaSi as N'Mã Nha Sĩ', HoTenNS as 'Họ và tên', NgSinhNS as N'Ngày sinh', DiaChiNS as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', TinhTrang as N'Tình trạng' from NHASI ns, TAIKHOAN tk where ns.DienThoaiNS = '{textBox3.Text}' and tk.MaTaiKhoan = ns.MaNhaSi";
+            }
+            //MessageBox.Show(query);
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+                //connection.InfoMessage += Connection_InfoMessage;
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            dgv_DSNhaSi.AutoGenerateColumns = true;
+            dgv_DSNhaSi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_DSNhaSi.DataSource = data.Tables[0];
+            dgv_DSNhaSi.Refresh();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.DataSource = LoadData_NhanVien().Tables[0];
         }
     }
 }

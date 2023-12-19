@@ -87,11 +87,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                     loaiVT = Convert.ToInt32(cmd.Parameters["@loaivt"].Value);
                 }
             }
-            if (loaiVT == 0)
-                MessageBox.Show("TÀI KHOẢN KHÔNG TỒN TẠI!!! HÃY THỬ LẠI");
+            if (loaiVT == 0) { }
+            //MessageBox.Show("TÀI KHOẢN KHÔNG TỒN TẠI!!! HÃY THỬ LẠI");
             else if (loaiVT == 1)
             {
-                QUANTRIVIEN qUANTRIVIEN = new QUANTRIVIEN();
+                QUANTRIVIEN qUANTRIVIEN = new QUANTRIVIEN(username, password);
                 this.Hide();
                 qUANTRIVIEN.ShowDialog();
                 this.Close();

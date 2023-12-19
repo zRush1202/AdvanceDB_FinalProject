@@ -119,6 +119,9 @@
     <EmbeddedResource Include="CapNhatSLTK.resx">
       <DependentUpon>CapNhatSLTK.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DATLICHHEN.resx">
       <DependentUpon>DATLICHHEN.cs</DependentUpon>
     </EmbeddedResource>
