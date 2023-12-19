@@ -18,7 +18,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             InitializeComponent();
             dtgv_DIEUTRI.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             dtgv_DIEUTRI.DataSource = LoadData_DieuTri().Tables[0];
         }
 

@@ -49,11 +49,13 @@ as
         end
 go
 
+
+
 --- KHÁCH HÀNG: Khách hàng đặt online cuộc hẹn yêu cầu trên hệ thống ---  Commands completed successfully.
 create or alter proc sp_ThemCuocHenYeuCau 
 					@hoten nvarchar(50), @ngsinh date, @diachi nvarchar(100),
 					@phone varchar(10), @email varchar(50), @gender nvarchar(4),
-					@tinhtrangbenh nvarchar(100), @thoigianYC date, @manvql int 
+					@tinhtrangbenh nvarchar(100), @thoigianYC date
 as
 
 begin
@@ -70,7 +72,7 @@ begin
 	where HoTenBN = @hoten 
 
 	insert into CH_YEUCAU(TinhTrangBenh, ThoiGianYC, MaBenhNhan, MaNhanVien) values
-		(@tinhtrangbenh, @thoigianYC, @mabn, @manvql)
+		(@tinhtrangbenh, @thoigianYC, @mabn)
 
 	if @@ERROR <>0
 	begin
@@ -182,6 +184,22 @@ BEGIN
     END
 END
 
+go
+
+-- NHÂN VIÊN: Duyệt cuộc hẹn yêu cầu của bệnh nhân
+create or alter proc sp_DuyetCHYC @machyc int
+as
+begin
+	if not exists(select * from CH_YEUCAU where MaCHYC = @machyc)
+	begin
+		return 0 -- không tồn tại tại CHYC này
+	end
+
+	-- insert into HOSOBENHNHAN(TongTienDieuTri, TongTienThanhToan, MaBenhNhan)
+
+	delete from CH_YEUCAU where MaCHYC = MaCHYC
+end
+-- NHÂN VIÊN: Xóa cuộc hẹn yêu cầu của bệnh nhân
 
 -- NHÂN VIÊN: tạo kế hoạch điều trị cho bệnh nhân
 

@@ -16,7 +16,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SIGN_IN());
+            Application.Run(new NHANVIEN());
         }
     }
 }
