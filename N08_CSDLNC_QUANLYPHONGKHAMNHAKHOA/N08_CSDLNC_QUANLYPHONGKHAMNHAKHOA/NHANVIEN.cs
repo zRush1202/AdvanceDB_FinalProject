@@ -14,6 +14,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 {
     public partial class NHANVIEN : Form
     {
+        private string username;
+
         public NHANVIEN()
         {
             InitializeComponent();
@@ -68,6 +70,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dtgv_CHYC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgv_CHYC.DataSource = LoadData_CHYC_BENHNHAN().Tables[0];
             
+        }
+
+        public NHANVIEN(string username)
+        {
+            this.username = username;
         }
     }
 

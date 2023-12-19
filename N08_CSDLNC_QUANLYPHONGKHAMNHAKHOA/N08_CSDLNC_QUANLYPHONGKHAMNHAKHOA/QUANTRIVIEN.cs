@@ -80,6 +80,46 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             return data;
         }
 
+        DataSet LoadData_NhanVien()
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = "select * from NHANVIEN where MaNhanVien < 200";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            //sql dataAdapter
+            return data;
+        }
+
+        DataSet LoadData_DieuTri()
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = "select * from DIEUTRI";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            //sql dataAdapter
+            return data;
+        }
+
 
         private void QUANTRIVIEN_Load(object sender, EventArgs e)
         {
@@ -87,10 +127,13 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dgv_DSNhaSi.DataSource = LoadData_NhaSi().Tables[0];
             dgv_DSThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_DSThuoc.DataSource = LoadData_Thuoc().Tables[0];
-
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.DataSource = LoadData_NhanVien().Tables[0];
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.DataSource = LoadData_DieuTri().Tables[0];
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             dgv_DSThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_DSThuoc.DataSource = LoadData_Thuoc().Tables[0];
@@ -106,6 +149,94 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             ThemThuoc tt = new ThemThuoc();
             tt.ShowDialog();
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            HOME h = new HOME();
+            h.ShowDialog();
+            this.Close();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+            string query = "";
+            DataSet data = new DataSet();
+            if (tbxTenThuoc.Text == "" && tbxMaThuoc.Text == "") {
+                MessageBox.Show("Cần nhập thông tin đề tìm kiếm!");
+                return;
+            }
+            if (tbxTenThuoc.Text == "" && tbxMaThuoc.Text != "")
+            {
+                query = $"select* from THUOC where MaThuoc = {int.Parse(tbxMaThuoc.Text)}";
+            }
+            if (tbxTenThuoc.Text != "" && tbxMaThuoc.Text == "")
+            {
+                query = $"select* from THUOC where TenThuoc LIKE N'{tbxTenThuoc.Text}'";
+            }
+            if (tbxTenThuoc.Text != "" && tbxMaThuoc.Text != "")
+            {
+                query = $"select* from THUOC where TenThuoc = N'{tbxTenThuoc.Text}' and MaThuoc = {int.Parse(tbxMaThuoc.Text)}";
+            }
+            //MessageBox.Show(query);
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+                //connection.InfoMessage += Connection_InfoMessage;
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            dgv_DSThuoc.AutoGenerateColumns = true;
+            dgv_DSThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_DSThuoc.DataSource = data.Tables[0];
+            dgv_DSThuoc.Refresh();
         }
     }
 }
