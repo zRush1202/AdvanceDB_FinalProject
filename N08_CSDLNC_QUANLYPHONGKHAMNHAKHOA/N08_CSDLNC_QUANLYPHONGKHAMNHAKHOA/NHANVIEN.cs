@@ -23,6 +23,13 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dtgv_CHYC.DataSource = LoadData_CHYC_BENHNHAN().Tables[0];
 
         }
+        public NHANVIEN(string username)
+        {
+            this.username = username;
+            InitializeComponent();
+            dtgv_CHYC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_CHYC.DataSource = LoadData_CHYC_BENHNHAN().Tables[0];
+        }
 
         ConnectionTester conn = new ConnectionTester();
         private int numConn = -1;
@@ -72,10 +79,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             
         }
 
-        public NHANVIEN(string username)
-        {
-            this.username = username;
-        }
     }
 
 
