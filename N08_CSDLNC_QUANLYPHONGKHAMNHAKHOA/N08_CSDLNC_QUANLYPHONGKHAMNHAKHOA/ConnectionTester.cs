@@ -46,25 +46,38 @@ namespace WinFormsApp1
 
         private int TestSingleConnection(int index)
         {
-            SqlConnection connection = new SqlConnection(connectionStrings[index]);
-            try
+            string connectionString = connectionStrings[index];
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-                if (connection.State == System.Data.ConnectionState.Open)
+                try
                 {
-                    connection.Close();
-                    return index;
+                    connection.Open();
+                    if (connection.State == System.Data.ConnectionState.Open)
+                    {
+                        // Perform necessary operations here
+
+                        return index;
+                    }
                 }
-                else
+                catch (SqlException ex)
                 {
-                    connection.Close();
+                    // Log or handle the exception appropriately
+                    Console.WriteLine("SQL Exception: " + ex.Message);
+                }
+                finally
+                {
+                    if (connection.State != System.Data.ConnectionState.Closed)
+                    {
+                        connection.Close();
+                    }
                 }
             }
-            catch (SqlException)
-            {
-                connection.Close();
-            }
+
             return -1;
         }
+                    
+
+
     }
 }
