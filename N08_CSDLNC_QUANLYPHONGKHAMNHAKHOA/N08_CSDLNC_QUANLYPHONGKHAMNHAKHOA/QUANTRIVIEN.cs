@@ -340,5 +340,44 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.DataSource = LoadData_NhanVien().Tables[0];
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+            string query = "";
+            DataSet data = new DataSet();
+            if (tbxMaDieuTri.Text == "" && tbxTenDieuTri.Text == "")
+            {
+                MessageBox.Show("Cần nhập thông tin đề tìm kiếm!");
+                return;
+            }
+            if (tbxMaDieuTri.Text != "" && tbxTenDieuTri.Text == "")
+            {
+                query = $"select MaDieuTri as N'Mã điều trị', TenDieuTri as N'Tên điều trị', MoTa as N'Mô tả', PhiDieuTri as N'Phí điều trị' from DIEUTRI where MaDieuTri = {tbxMaDieuTri.Text}";
+            }
+            if (tbxMaDieuTri.Text == "" && tbxTenDieuTri.Text != "")
+            {
+                query = $"select MaDieuTri as N'Mã điều trị', TenDieuTri as N'Tên điều trị', MoTa as N'Mô tả', PhiDieuTri as N'Phí điều trị' from DIEUTRI where TenDieuTri LIKE N'%{tbxTenDieuTri.Text}%'";
+            }
+            //MessageBox.Show(query);
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+                //connection.InfoMessage += Connection_InfoMessage;
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            dataGridView2.AutoGenerateColumns = true;
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView2.DataSource = data.Tables[0];
+            dataGridView2.Refresh();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView2.DataSource = LoadData_DieuTri().Tables[0];
+        }
     }
 }
