@@ -382,6 +382,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dataGridView2.DataSource = LoadData_DieuTri().Tables[0];
         }
 
+<<<<<<< Updated upstream
         private void button5_Click(object sender, EventArgs e)
         {
             dgv_DSNhaSi_SelectionChanged(sender, e);
@@ -499,5 +500,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             ThemDieuTri tdt = new ThemDieuTri();    
             tdt.ShowDialog();
         }
+=======
+>>>>>>> Stashed changes
     }
 }
