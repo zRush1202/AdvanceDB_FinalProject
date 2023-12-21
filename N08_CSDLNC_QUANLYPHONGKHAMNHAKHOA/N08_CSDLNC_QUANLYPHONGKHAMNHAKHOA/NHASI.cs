@@ -21,16 +21,19 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         private int numConn = -1;
         private bool isNumConnInitialized = false;
         private string username;
+        private string password;
+
 
         public NHASI()
         {
             InitializeComponent();
         }
 
-        public NHASI(string username)
+        public NHASI(string username, string password)
         {
             InitializeComponent();
             this.username = username;
+            this.password = password;
         }
 
         private int GetNumConn()

@@ -110,6 +110,12 @@
     <Compile Include="SIGN_UP.Designer.cs">
       <DependentUpon>SIGN_UP.cs</DependentUpon>
     </Compile>
+    <Compile Include="TaoLichHenBenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaoLichHenBenhNhan.Designer.cs">
+      <DependentUpon>TaoLichHenBenhNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemDieuTri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dentist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NHANVIEN1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
