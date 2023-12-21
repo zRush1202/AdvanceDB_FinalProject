@@ -59,6 +59,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             int nConn = GetNumConn();
             string query = "";
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+            {
+                MessageBox.Show("Cần nhập đầy đủ thông tin để đổi mật khẩu!!!");
+                return;
+            }
             if (textBox1.Text != this.password)
             {
                 MessageBox.Show("Mật khẩu cũ không chính xác. Hãy thử lại!!!");
