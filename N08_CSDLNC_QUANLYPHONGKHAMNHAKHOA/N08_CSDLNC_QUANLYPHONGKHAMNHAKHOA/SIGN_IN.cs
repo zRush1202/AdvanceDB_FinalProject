@@ -110,8 +110,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 nHANVIEN.ShowDialog();
                 this.Close();
             }
-            else
-                MessageBox.Show("TÀI KHOẢN ĐANG BỊ KHÓA !!!");
+            //else
+            //    MessageBox.Show("TÀI KHOẢN ĐANG BỊ KHÓA !!!");
 
 
         }

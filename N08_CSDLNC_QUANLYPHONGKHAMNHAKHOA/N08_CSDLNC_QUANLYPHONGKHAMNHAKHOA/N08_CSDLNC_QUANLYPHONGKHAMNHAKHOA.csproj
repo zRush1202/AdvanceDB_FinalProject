@@ -110,6 +110,18 @@
     <Compile Include="SIGN_UP.Designer.cs">
       <DependentUpon>SIGN_UP.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThemDieuTri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemDieuTri.Designer.cs">
+      <DependentUpon>ThemDieuTri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThemTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemTaiKhoan.Designer.cs">
+      <DependentUpon>ThemTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +162,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ThemDieuTri.resx">
+      <DependentUpon>ThemDieuTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThemTaiKhoan.resx">
+      <DependentUpon>ThemTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThemThuoc.resx">
       <DependentUpon>ThemThuoc.cs</DependentUpon>
     </EmbeddedResource>

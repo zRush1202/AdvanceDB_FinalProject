@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -246,6 +247,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         private void button17_Click(object sender, EventArgs e)
         {
             HOME h = new HOME();
+            this.Hide();
             h.ShowDialog();
             this.Close();
         }
@@ -378,6 +380,124 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView2.DataSource = LoadData_DieuTri().Tables[0];
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dgv_DSNhaSi_SelectionChanged(sender, e);
+        }
+
+        private void dgv_DSNhaSi_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgv_DSNhaSi.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgv_DSNhaSi.SelectedRows[0];
+                int colTT = dgv_DSNhaSi.Columns["Tình trạng"].Index;
+                int colID = dgv_DSNhaSi.Columns["Mã Nha Sĩ"].Index;
+                int idNS = int.Parse(selectedRow.Cells[colID].Value?.ToString());  
+                string ttrang = selectedRow.Cells[colTT].Value?.ToString();
+                int nConn = GetNumConn();
+                string query = "";  
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    if (ttrang == "enable")
+                    {
+                        //selectedRow.Cells[colTT].Value = "disable";
+                        query = $"update TAIKHOAN set tinhtrang = 'disable' where MaTaiKhoan = {idNS}";
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        dgv_DSNhaSi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dgv_DSNhaSi.DataSource = LoadData_NhaSi().Tables[0];
+                        return;
+                    }
+                    else
+                    {
+                        //selectedRow.Cells[colTT].Value = "enable";
+                        query = $"update TAIKHOAN set tinhtrang = 'enable' where MaTaiKhoan = {idNS}";
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        dgv_DSNhaSi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dgv_DSNhaSi.DataSource = LoadData_NhaSi().Tables[0];
+                        return;
+                    }
+                    
+                }
+            }
+            else
+            {
+                MessageBox.Show("Phải chọn 1 dòng để khóa hoặc hủy khóa!!!");
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            dgv_DSNhanVien_SelectionChanged(sender, e);
+        }
+
+        private void dgv_DSNhanVien_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                int colTT = dataGridView1.Columns["Tình trạng"].Index;
+                int colID = dataGridView1.Columns["Mã Nhân Viên"].Index;
+                int idNV = int.Parse(selectedRow.Cells[colID].Value?.ToString());
+                string ttrang = selectedRow.Cells[colTT].Value?.ToString();
+                int nConn = GetNumConn();
+                string query = "";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    if (ttrang == "enable")
+                    {
+                        //selectedRow.Cells[colTT].Value = "disable";
+                        query = $"update TAIKHOAN set tinhtrang = 'disable' where MaTaiKhoan = {idNV}";
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dataGridView1.DataSource = LoadData_NhanVien().Tables[0];
+                        return;
+                    }
+                    else
+                    {
+                        //selectedRow.Cells[colTT].Value = "enable";
+                        query = $"update TAIKHOAN set tinhtrang = 'enable' where MaTaiKhoan = {idNV}";
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                        dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                        dataGridView1.DataSource = LoadData_NhanVien().Tables[0];
+                        return;
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Phải chọn 1 dòng để khóa hoặc hủy khóa!!!");
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ThemTaiKhoan ttk = new ThemTaiKhoan();
+            ttk.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            ThemTaiKhoan ttk = new ThemTaiKhoan();
+            ttk.ShowDialog();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            ThemDieuTri tdt = new ThemDieuTri();    
+            tdt.ShowDialog();
         }
     }
 }
