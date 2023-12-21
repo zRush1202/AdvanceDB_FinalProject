@@ -1,7 +1,7 @@
 ﻿use CSDLNC_QLPhongKham
 go
 
---- Xác thực tài khoản đăng nhập hợp lệ --- Commands completed successfully.
+--- PHÂN HỆ CHUNG: Xác thực tài khoản đăng nhập hợp lệ --- Commands completed successfully.
 create or alter proc sp_XacThucTaiKhoan 
     @sdt varchar(10), @matkhau varchar(50), @loaivt int out
 as 
@@ -188,27 +188,8 @@ END
 
 go
 
--- NHÂN VIÊN: Duyệt cuộc hẹn yêu cầu của bệnh nhân
-create or alter proc sp_DuyetCHYC @machyc int
-as
-begin
-	if not exists(select * from CH_YEUCAU where MaCHYC = @machyc)
-	begin
-		return 0 -- không tồn tại tại CHYC này
-	end
 
-	-- insert into HOSOBENHNHAN(TongTienDieuTri, TongTienThanhToan, MaBenhNhan)
-
-	delete from CH_YEUCAU where MaCHYC = MaCHYC
-end
-go
--- NHÂN VIÊN: Xóa cuộc hẹn yêu cầu của bệnh nhân
-
--- NHÂN VIÊN: tạo kế hoạch điều trị cho bệnh nhân
-
-
-
--- DUNNO: Thống kê lịch hẹn yêu cầu theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng)
+-- QUANTRIVIEN: Thống kê lịch hẹn yêu cầu theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng)
 create or alter proc sp_ThongKeLichHenYeuCauTheoNgay @NgayBD datetime, @NgayKT datetime
 as
 	begin
@@ -220,7 +201,7 @@ as
 	end
 go
 
--- DUNNO: Thống kê lịch hẹn yêu cầu theo THÁNG (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 năm)
+-- QUANTRIVIEN: Thống kê lịch hẹn yêu cầu theo THÁNG (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 năm)
 create or alter proc sp_ThongKeLichHenYeuCauTheoThang @NgayBD datetime, @NgayKT datetime
 as
 	begin
@@ -232,7 +213,7 @@ as
 	end
 go
 
--- DUNNO: Thống kê lịch hẹn khám trong ngày theo từng NHA SĨ (trong một ngày được chỉ định)
+-- QUANTRIVIEN: Thống kê lịch hẹn khám trong ngày theo từng NHA SĨ (trong một ngày được chỉ định)
 create or alter proc sp_ThongKeLichHenKhamTrongNgayTheoTungNhaSi @NgayThongKe datetime
 as
 	begin
@@ -244,7 +225,7 @@ as
 	end
 go
 
--- DUNNO: Thống kê lịch hẹn khám theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng) 
+-- QUANTRIVIEN: Thống kê lịch hẹn khám theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng) 
 create or alter proc sp_ThongKeLichHenKhamTheoNgay @NgayBD datetime, @NgayKT datetime
 as
 	begin
@@ -255,3 +236,85 @@ as
 		ORDER BY DATEPART(day, NgayGioHen)
 	end
 go
+
+-- QUANTRIVIEN: Thêm cuộc hẹn làm việc của nha sĩ
+CREATE OR ALTER PROC ADD_LICHHEN_NHASI 
+    @MaNhaSi int,
+    @NgayGioBan datetime,
+    @MoTaHD nvarchar(100)
+AS
+BEGIN
+    BEGIN TRY
+		IF EXISTS (SELECT * 
+					FROM CUOCHEN
+					WHERE @NgayGioBan = NgayGioHen
+					)
+				BEGIN
+					PRINT N'Đã có khách hàng đặt lịch. Vui lòng chọn thời gian khác!'
+					ROLLBACK TRAN
+					RETURN
+				END
+			ELSE
+				BEGIN
+					DECLARE @MaCHCN INT
+					INSERT INTO CUOCHEN (NgayGioHen, LoaiCuocHen, MaNVQL, MaNhaSi)
+								VALUES (@NgayGioBan, N'cá nhân', NULL, @MaNhaSi)
+					SET @MaCHCN = (SELECT TOP 1 MaCuocHen
+										FROM CUOCHEN
+										WHERE NgayGioHen = @NgayGioBan)
+					INSERT INTO CH_CANHAN(MaCHCN, MoTaHD, MaQTV) VALUES (@MaCHCN, @MoTaHD, 1)
+				END
+    END TRY
+    BEGIN CATCH
+        IF @@ERROR <> 0
+            RETURN;
+		PRINT N'Có lỗi trong quá trình thực hiện'
+    END CATCH
+END
+GO
+
+-- NHASI: 
+
+-- NHÂN VIÊN: Duyệt cuộc hẹn yêu cầu của bệnh nhân
+create or alter proc sp_DuyetCHYC @machyc int
+as
+begin
+	if not exists(select * from CH_YEUCAU where MaCHYC = @machyc)
+	begin
+		print N'Mã cuộc hẹn yêu cầu không tồn tại' 
+		return -- không tồn tại tại CHYC này
+	end
+	-- Lấy mã bệnh nhân
+	declare @mabn int
+	select @mabn = MaBenhNhan
+	from CH_YEUCAU
+	where @machyc = MaCHYC
+
+	-- trường hợp bệnh nhân mới
+	if not exists (select * from HOSOBENHNHAN where MaBenhNhan = @mabn)
+	begin 
+		insert into HOSOBENHNHAN(TongTienDieuTri, TongTienThanhToan, MaBenhNhan) values (0,0, @mabn)
+	end
+	delete from CH_YEUCAU where MaCHYC = MaCHYC
+	print N'Duyệt cuộc hẹn thành công'
+	return
+end
+
+go
+-- NHÂN VIÊN: Xóa cuộc hẹn yêu cầu của bệnh nhân
+create or alter proc sp_XoaCHYC @machyc int
+as
+begin
+	if not exists(select * from CH_YEUCAU where MaCHYC = @machyc)
+	begin
+		print N'Mã cuộc hẹn yêu cầu không tồn tại'
+		return
+	end
+
+	delete from CH_YEUCAU where MaCHYC = @machyc
+end
+go
+
+
+-- NHÂN VIÊN: Tạo cuộc hẹn với nha sĩ cho bệnh nhân
+-- NHÂN VIÊN: Tạo kế hoạch điều trị cho bệnh nhân
