@@ -277,5 +277,9 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
         }
 
+        private void lb_titleKHDT_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
