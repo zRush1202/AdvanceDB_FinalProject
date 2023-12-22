@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -136,6 +137,71 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             return data;
         }
 
+        DataSet LoadData_LHCN()
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = "select MaCHCN as N'Mã cuộc hẹn', MaNhaSi as N'Mã nha sĩ',NgayGioHen as N'Thời gian', " +
+                "MoTaHD as N'Mô tả' from CH_CANHAN, CUOCHEN where MaCHCN = MaCuocHen";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            //sql dataAdapter
+            return data;
+        }
+
+        DataSet LoadData_KHDT()
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = "select MaBenhAn as N'Mã bệnh án', MaRangKham as N'Mã răng', MoTa as N'Mô tả', NgayDieuTri as" +
+                " N'Ngày điều trị', GhiChu as N'Ghi chú', MaThanhToan as N'Mã thanh toán', MaNhaSi as N'Mã nha sĩ', MaTroKham" +
+                " as N'Mã trợ khám' from KEHOACHDIEUTRI where convert(DATE, NgayDieuTri) = convert(date, GETDATE())";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            //sql dataAdapter
+            return data;
+        }
+
+        DataSet LoadData_LHBN()
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = "select MaCHBN as N'Mã cuộc hẹn', MaNhaSi as N'Mã nha sĩ', MaBenhNhan as N'Mã bệnh nhân',MaPhongKham" +
+                " as N'Phòng khám', ThuTuKham as N'Thứ tự khám', NgayGioHen as N'Ngày giờ hẹn', MaNVQL as N'Nhân viên tiếp nhận' " +
+                "from CH_BENHNHAN, CUOCHEN where MaCuocHen = MaCHBN and convert(DATE, NgayGioHen) = convert(date, GETDATE())";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            //sql dataAdapter
+            return data;
+        }
+
 
         private void QUANTRIVIEN_Load(object sender, EventArgs e)
         {
@@ -147,6 +213,13 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dataGridView1.DataSource = LoadData_NhanVien().Tables[0];
             dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView2.DataSource = LoadData_DieuTri().Tables[0];
+            dgv_LHCN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_LHCN.DataSource = LoadData_LHCN().Tables[0];
+            //dgvKHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dgvKHDT.DataSource = LoadData_KHDT().Tables[0];
+            //dgvLH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dgvLH.DataSource = LoadData_LHBN().Tables[0];
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -500,5 +573,198 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             tdt.ShowDialog();
         }
 
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+                tbxMaDieuTri.Text = selectedRow.Cells["Mã điều trị"].Value.ToString();
+                tbxTenDieuTri.Text = selectedRow.Cells["Tên điều trị"].Value.ToString();
+                tbxPhiDieuTri.Text = selectedRow.Cells["Phí điều trị"].Value.ToString();
+                btnDoiPhiDT.Visible = true;
+            }
+        }
+
+        private void btnDoiPhiDT_Click(object sender, EventArgs e)
+        {
+            lbPhimoi.Visible = true;
+            tbxPhimoi.Visible = true;
+            btnXacnhan.Visible = true;
+        }
+
+        private void btnXacnhan_Click(object sender, EventArgs e)
+        {
+            if (tbxMaDieuTri.Text == "" || tbxTenDieuTri.Text == "" || tbxPhiDieuTri.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                int nConn = GetNumConn();
+                string query = $"exec sp_capNhatGiaDieuTri N'{tbxTenDieuTri.Text}', {int.Parse(tbxPhimoi.Text)}";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    connection.InfoMessage += Connection_InfoMessage;
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+                lbPhimoi.Visible = false;
+                tbxPhimoi.Visible = false;
+                btnXacnhan.Visible = false;
+                btnDoiPhiDT.Visible = false;
+            }
+        }
+
+        private void Connection_InfoMessage(object sender, SqlInfoMessageEventArgs e)
+        {
+            // Xử lý thông điệp được in ra từ SQL Server (bằng PRINT)
+            foreach (SqlError error in e.Errors)
+            {
+                MessageBox.Show(error.Message); // Hiển thị thông điệp trong MessageBox
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            ThemLHCN themLHCN = new ThemLHCN();
+            themLHCN.ShowDialog();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            dgv_LHCN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_LHCN.DataSource = LoadData_LHCN().Tables[0];
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+            string query = "";
+            DataSet data = new DataSet();
+            if (dtpkKHDT1.Value.Date == dtpkKHDT2.Value.Date) 
+            {
+                query = $"exec sp_ThongKeKeHoachDieuTriTrongNgayTheoTungNhaSi '{dtpkKHDT1.Value.ToString("yyyy-MM-dd")}'";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(data);
+                    connection.Close();
+                }
+                dgvKHDT.AutoGenerateColumns = true;
+                dgvKHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvKHDT.DataSource = data.Tables[0];
+                dgvKHDT.Refresh();
+                return;
+            }
+            else if (dtpkKHDT1.Value.Date < dtpkKHDT2.Value.Date)
+            {
+                if (dtpkKHDT1.Value.Day != dtpkKHDT2.Value.Day && dtpkKHDT1.Value.Month == dtpkKHDT2.Value.Month && dtpkKHDT1.Value.Year == dtpkKHDT2.Value.Year)
+                {
+                    query = $"exec sp_ThongKeKeHoachDieuTriTheoNgay '{dtpkKHDT1.Value.ToString("yyyy-MM-dd")}', '{dtpkKHDT2.Value.ToString("yyyy-MM-dd")}'";
+                    using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(data);
+                    connection.Close();
+                }
+                dgvKHDT.AutoGenerateColumns = true;
+                dgvKHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvKHDT.DataSource = data.Tables[0];
+                dgvKHDT.Refresh();
+                return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
+                dtpkKHDT1.Value = DateTime.Now;
+                dtpkKHDT2.Value = DateTime.Now;
+            }
+            
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+            string query = "";
+            DataSet data = new DataSet();
+            if (dtpkLH1.Value.Date == dtpkLH2.Value.Date)
+            {
+                query = $"exec sp_ThongKeLichHenKhamTrongNgayTheoTungNhaSi '{dtpkLH1.Value.ToString("yyyy-MM-dd")}'";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(data);
+                    connection.Close();
+                }
+                dgvLH.AutoGenerateColumns = true;
+                dgvLH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvLH.DataSource = data.Tables[0];
+                dgvLH.Refresh();
+                return;
+            }
+            else if (dtpkLH1.Value.Date < dtpkLH2.Value.Date)
+            {
+                if (dtpkLH1.Value.Day != dtpkLH2.Value.Day && dtpkLH1.Value.Month == dtpkLH2.Value.Month && dtpkLH1.Value.Year == dtpkLH2.Value.Year)
+                {
+                    query = $"exec sp_ThongKeLichHenKhamTheoNgay '{dtpkLH1.Value.ToString("yyyy-MM-dd")}', '{dtpkLH2.Value.ToString("yyyy-MM-dd")}'";
+                    using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                        adapter.Fill(data);
+                        connection.Close();
+                    }
+                    dgvLH.AutoGenerateColumns = true;
+                    dgvLH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvLH.DataSource = data.Tables[0];
+                    dgvLH.Refresh();
+                    return;
+                }
+                if (dtpkLH1.Value.Month != dtpkLH2.Value.Month && dtpkLH1.Value.Year == dtpkLH2.Value.Year)
+                {
+                    query = $"exec sp_ThongKeLichHenKhamTheoThang '{dtpkLH1.Value.ToString("yyyy-MM-dd")}', '{dtpkLH2.Value.ToString("yyyy-MM-dd")}'";
+                    using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                        adapter.Fill(data);
+                        connection.Close();
+                    }
+                    dgvLH.AutoGenerateColumns = true;
+                    dgvLH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvLH.DataSource = data.Tables[0];
+                    dgvLH.Refresh();
+                    return;
+                }
+                if (dtpkLH1.Value.Year != dtpkLH2.Value.Year)
+                {
+                    query = $"exec sp_ThongKeLichHenKhamTheoNam '{dtpkLH1.Value.ToString("yyyy-MM-dd")}', '{dtpkLH2.Value.ToString("yyyy-MM-dd")}'";
+                    using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                    {
+                        connection.Open();
+                        SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                        adapter.Fill(data);
+                        connection.Close();
+                    }
+                    dgvLH.AutoGenerateColumns = true;
+                    dgvLH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dgvLH.DataSource = data.Tables[0];
+                    dgvLH.Refresh();
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
+                dtpkLH1.Value = DateTime.Now;
+                dtpkLH2.Value = DateTime.Now;
+            }
+        }
     }
 }
