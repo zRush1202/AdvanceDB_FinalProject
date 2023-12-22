@@ -58,11 +58,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 string query = "";
                 if (rbtnNS.Checked)
                 {
-                    query = $"exec sp_ThemTaiKhoan '{tbxUsername.Text}', '{tbxPass.Text}', N'{tbxName.Text}', null, null, 'NS'";
+                    query = $"exec sp_ThemTaiKhoan '{tbxUsername.Text}', '{tbxPass.Text}', N'{tbxName.Text}', '', '', 'NS'";
                 }
                 else
                 {
-                    query = $"exec sp_ThemTaiKhoan '{tbxUsername.Text}', '{tbxPass.Text}', N'{tbxName.Text}', null, null, 'NV'";
+                    query = $"exec sp_ThemTaiKhoan '{tbxUsername.Text}', '{tbxPass.Text}', N'{tbxName.Text}', '', '', 'NV'";
                 }
                 using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
                 {

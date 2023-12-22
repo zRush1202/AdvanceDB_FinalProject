@@ -24,10 +24,9 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         //private string username;
         private string password;
 
-
-
         public string username { get; set; }
         public string MaNhaSi { get; set; }
+        public string MaBenhAn { get; set; }
 
 
         public NHASI()
@@ -40,6 +39,13 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             InitializeComponent();
             this.username = username;
             this.password = password;
+            this.MaNhaSi = GetMaNhaSiFromDatabase(username);
+        }
+
+        public NHASI(string username)
+        {
+            InitializeComponent();
+            this.username = username;
             this.MaNhaSi = GetMaNhaSiFromDatabase(username);
         }
 
@@ -163,6 +169,47 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
             return data;
         }
+
+        DataSet LoadData_THUOC_HSBN(string mabenhan)
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+            string query = @"SELECT
+                    T.MaThuoc AS 'Mã Thuốc',
+                    T.TenThuoc AS 'Tên Thuốc',
+                    T.ChongChiDinh AS 'Chống Chỉ Định',
+                    T.NgayHetHan AS 'Ngày Hết Hạn',
+                    T.DonVi AS 'Đơn Vị',
+                    T.SLTK AS 'Số Lượng Tồn Kho'
+                FROM
+                    THUOC T, TOATHUOC TT
+                WHERE
+                    T.MaThuoc = TT.MaThuoc AND TT.MaBenhAn = @mabenhan";
+
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@mabenhan", mabenhan);
+                try
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+            return data;
+        }
+
+
         private void NHASI_Load(object sender, EventArgs e)
         {
             LoadDataToTextBoxes();
@@ -218,15 +265,28 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             if (e.RowIndex >= 0 && e.RowIndex < dgv_HSBN.Rows.Count)
             {
                 DataGridViewRow row = dgv_HSBN.Rows[e.RowIndex];
+                MaBenhAn = row.Cells["Mã Bệnh Án"].Value?.ToString() ?? string.Empty;
+                txt_maBA.Text = MaBenhAn;
+                txt_TenBN.Text = row.Cells["Tên Bệnh Nhân"].Value?.ToString() ?? string.Empty;
+                txt_Tuoi.Text = row.Cells["Tuổi"].Value?.ToString() ?? string.Empty;
+                txt_GioiTinh.Text = row.Cells["Giới tính"].Value?.ToString() ?? string.Empty;
+                txt_Tuoi.Text = row.Cells["Tuổi"].Value?.ToString() ?? string.Empty;
+                txt_PayTotalDieuTri.Text = row.Cells["Tổng Tiền Điều Trị"].Value?.ToString() ?? string.Empty;
+                txt_TotalDieuTri.Text = row.Cells["Tổng Tiền Thanh Toán"].Value?.ToString() ?? string.Empty;
+                txt_SucKhoeRangMieng.Text = row.Cells["Sức Khỏe Răng"].Value?.ToString() ?? string.Empty;
+                txt_TinhTrangDiUng.Text = row.Cells["Tình Trạng Dị Ứng"].Value?.ToString() ?? string.Empty;
+                txt_GiayGioiThieu.Text = row.Cells["Giấy Giới Thiệu"].Value?.ToString() ?? string.Empty;
 
-                txt_TenBN.Text = row.Cells["Tên Bệnh Nhân"].Value.ToString();
-                txt_Tuoi.Text = row.Cells["Tuổi"].Value.ToString();
-                txt_GioiTinh.Text = row.Cells["Giới tính"].Value.ToString();
-                txt_Tuoi.Text = row.Cells["Tuổi"].Value.ToString();
-
+                dgv_ThuocKeDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgv_ThuocKeDon.Columns.Clear();
+                dgv_ThuocKeDon.DataSource = LoadData_THUOC_HSBN(MaBenhAn).Tables[0];
             }
         }
 
-
+        private void btn_ToaThuoc_Click(object sender, EventArgs e)
+        {
+            TOATHUOC toa = new TOATHUOC(MaBenhAn);
+            toa.ShowDialog();
+        }
     }
 }

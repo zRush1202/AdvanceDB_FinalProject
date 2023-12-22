@@ -434,7 +434,10 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             ThanhToan_KHDT.DataSource = LoadData_KHDT_BENHNHAN(phoneNumber).Tables[0];
         }
 
-        
+        private void NHANVIEN_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
