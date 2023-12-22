@@ -303,6 +303,35 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             return data;
         }
 
+        private void dtgv_DanhSachBenhNhan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtgv_DanhSachBenhNhan.Rows.Count)
+            {
+                DataGridViewRow row = dtgv_DanhSachBenhNhan.Rows[e.RowIndex];
+                tb1_DSBN.Text = row.Cells["HoTenBN"].Value?.ToString() ?? string.Empty;
+                tb2_DSBN.Text = row.Cells["NgSinhBN"].Value?.ToString() ?? string.Empty;
+                tb3_DSBN.Text = row.Cells["DiaChiBN"].Value?.ToString() ?? string.Empty;
+                tb4_DSBN.Text = row.Cells["DienThoaiBN"].Value?.ToString() ?? string.Empty;
+                tb5_DSBN.Text = row.Cells["GioiTinhBN"].Value?.ToString() ?? string.Empty;
+                tb6_DSBN.Text = row.Cells["EmailBN"].Value?.ToString() ?? string.Empty;
+
+            }
+        }
+
+        private void btn_TaoKHDT_Click(object sender, EventArgs e)
+        {
+            TaoKeHoachDieuTri taoKHDT = new TaoKeHoachDieuTri();
+            taoKHDT.ShowDialog();
+        }
+
+
+
+
+
+
+
+
+
 
 
         /// KIÊN: THANH TOÁN

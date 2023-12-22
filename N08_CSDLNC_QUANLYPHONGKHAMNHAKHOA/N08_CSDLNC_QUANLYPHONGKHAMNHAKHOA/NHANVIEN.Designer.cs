@@ -43,6 +43,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_HoSo = new System.Windows.Forms.TabPage();
+            this.btn_ChinhSuaTT = new System.Windows.Forms.Button();
             this.lb_HoTen = new System.Windows.Forms.Label();
             this.lb_NamSinh = new System.Windows.Forms.Label();
             this.lb_DiaChi = new System.Windows.Forms.Label();
@@ -53,8 +54,19 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tab_QLBN = new System.Windows.Forms.TabPage();
+            this.tb6_DSBN = new System.Windows.Forms.TextBox();
+            this.tb5_DSBN = new System.Windows.Forms.TextBox();
+            this.tb4_DSBN = new System.Windows.Forms.TextBox();
+            this.tb3_DSBN = new System.Windows.Forms.TextBox();
+            this.tb2_DSBN = new System.Windows.Forms.TextBox();
+            this.tb1_DSBN = new System.Windows.Forms.TextBox();
+            this.lb_mailDSBN = new System.Windows.Forms.Label();
+            this.lb_GioiTinhDSBN = new System.Windows.Forms.Label();
+            this.lb_DienThoaiDSBN = new System.Windows.Forms.Label();
+            this.lb_DiaChiDSBN = new System.Windows.Forms.Label();
+            this.lb_NamSinhDSBN = new System.Windows.Forms.Label();
+            this.lb_tenDSBN = new System.Windows.Forms.Label();
             this.btn_Refresh_DSBN = new System.Windows.Forms.Button();
             this.btn_TimKiem_DSBN = new System.Windows.Forms.Button();
             this.lb_QLBN = new System.Windows.Forms.Label();
@@ -62,8 +74,13 @@
             this.dtgv_DanhSachBenhNhan = new System.Windows.Forms.DataGridView();
             this.lb_DSBN = new System.Windows.Forms.Label();
             this.tab_KHDT = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btn_TaoKHDT = new System.Windows.Forms.Button();
+            this.btn_RefreshDSKHDT = new System.Windows.Forms.Button();
+            this.btn_TimKiemDSKHDT = new System.Windows.Forms.Button();
+            this.lb_SDT_DSKHDT = new System.Windows.Forms.Label();
+            this.tb_SDT_DSKHDT = new System.Windows.Forms.TextBox();
+            this.dtgv_DSKHDT = new System.Windows.Forms.DataGridView();
+            this.lb_TitleDSKHDT = new System.Windows.Forms.Label();
             this.tab_HSBN = new System.Windows.Forms.TabPage();
             this.btn_RefreshQLHSBN = new System.Windows.Forms.Button();
             this.btn_TimKiemQLHSBN = new System.Windows.Forms.Button();
@@ -97,16 +114,18 @@
             this.ThanhToan_KHDT = new System.Windows.Forms.DataGridView();
             this.timKiem_KHDT = new System.Windows.Forms.Button();
             this.txt_SDT_BN = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dtgv_GIAIDOAN = new System.Windows.Forms.DataGridView();
+            this.gb_TTCTGD = new System.Windows.Forms.GroupBox();
             this.tab_TaoLH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_LHBN)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tab_HoSo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tab_QLBN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DanhSachBenhNhan)).BeginInit();
             this.tab_KHDT.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DSKHDT)).BeginInit();
             this.tab_HSBN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_BenhNhan)).BeginInit();
             this.tab_CHYC.SuspendLayout();
@@ -115,6 +134,9 @@
             this.tab_ThanhToan.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThanhToan_KHDT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_GIAIDOAN)).BeginInit();
+            this.gb_TTCTGD.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_TaoLH
@@ -130,7 +152,7 @@
             this.tab_TaoLH.Controls.Add(this.lb_DSLHBN);
             this.tab_TaoLH.Location = new System.Drawing.Point(4, 22);
             this.tab_TaoLH.Name = "tab_TaoLH";
-            this.tab_TaoLH.Size = new System.Drawing.Size(1128, 708);
+            this.tab_TaoLH.Size = new System.Drawing.Size(1128, 693);
             this.tab_TaoLH.TabIndex = 5;
             this.tab_TaoLH.Text = "Tạo Lịch Hẹn";
             this.tab_TaoLH.UseVisualStyleBackColor = true;
@@ -287,6 +309,7 @@
             // 
             // tab_HoSo
             // 
+            this.tab_HoSo.Controls.Add(this.btn_ChinhSuaTT);
             this.tab_HoSo.Controls.Add(this.lb_HoTen);
             this.tab_HoSo.Controls.Add(this.lb_NamSinh);
             this.tab_HoSo.Controls.Add(this.lb_DiaChi);
@@ -301,10 +324,20 @@
             this.tab_HoSo.Location = new System.Drawing.Point(4, 22);
             this.tab_HoSo.Name = "tab_HoSo";
             this.tab_HoSo.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_HoSo.Size = new System.Drawing.Size(1128, 694);
+            this.tab_HoSo.Size = new System.Drawing.Size(1128, 693);
             this.tab_HoSo.TabIndex = 0;
             this.tab_HoSo.Text = "Hồ Sơ";
             this.tab_HoSo.UseVisualStyleBackColor = true;
+            // 
+            // btn_ChinhSuaTT
+            // 
+            this.btn_ChinhSuaTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ChinhSuaTT.Location = new System.Drawing.Point(655, 482);
+            this.btn_ChinhSuaTT.Name = "btn_ChinhSuaTT";
+            this.btn_ChinhSuaTT.Size = new System.Drawing.Size(226, 39);
+            this.btn_ChinhSuaTT.TabIndex = 17;
+            this.btn_ChinhSuaTT.Text = "Chỉnh sửa thông tin cá nhân";
+            this.btn_ChinhSuaTT.UseVisualStyleBackColor = true;
             // 
             // lb_HoTen
             // 
@@ -404,18 +437,20 @@
             this.label15.TabIndex = 6;
             this.label15.Text = "Số điện thoại:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA.Properties.Resources.NHANVIEN;
-            this.pictureBox1.Location = new System.Drawing.Point(167, 170);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 351);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // tab_QLBN
             // 
+            this.tab_QLBN.Controls.Add(this.tb6_DSBN);
+            this.tab_QLBN.Controls.Add(this.tb5_DSBN);
+            this.tab_QLBN.Controls.Add(this.tb4_DSBN);
+            this.tab_QLBN.Controls.Add(this.tb3_DSBN);
+            this.tab_QLBN.Controls.Add(this.tb2_DSBN);
+            this.tab_QLBN.Controls.Add(this.tb1_DSBN);
+            this.tab_QLBN.Controls.Add(this.lb_mailDSBN);
+            this.tab_QLBN.Controls.Add(this.lb_GioiTinhDSBN);
+            this.tab_QLBN.Controls.Add(this.lb_DienThoaiDSBN);
+            this.tab_QLBN.Controls.Add(this.lb_DiaChiDSBN);
+            this.tab_QLBN.Controls.Add(this.lb_NamSinhDSBN);
+            this.tab_QLBN.Controls.Add(this.lb_tenDSBN);
             this.tab_QLBN.Controls.Add(this.btn_Refresh_DSBN);
             this.tab_QLBN.Controls.Add(this.btn_TimKiem_DSBN);
             this.tab_QLBN.Controls.Add(this.lb_QLBN);
@@ -424,15 +459,129 @@
             this.tab_QLBN.Controls.Add(this.lb_DSBN);
             this.tab_QLBN.Location = new System.Drawing.Point(4, 22);
             this.tab_QLBN.Name = "tab_QLBN";
-            this.tab_QLBN.Size = new System.Drawing.Size(1128, 694);
+            this.tab_QLBN.Size = new System.Drawing.Size(1128, 693);
             this.tab_QLBN.TabIndex = 6;
             this.tab_QLBN.Text = "Bệnh Nhân";
             this.tab_QLBN.UseVisualStyleBackColor = true;
             // 
+            // tb6_DSBN
+            // 
+            this.tb6_DSBN.Enabled = false;
+            this.tb6_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb6_DSBN.Location = new System.Drawing.Point(715, 256);
+            this.tb6_DSBN.Name = "tb6_DSBN";
+            this.tb6_DSBN.Size = new System.Drawing.Size(170, 22);
+            this.tb6_DSBN.TabIndex = 24;
+            // 
+            // tb5_DSBN
+            // 
+            this.tb5_DSBN.Enabled = false;
+            this.tb5_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb5_DSBN.Location = new System.Drawing.Point(715, 192);
+            this.tb5_DSBN.Name = "tb5_DSBN";
+            this.tb5_DSBN.Size = new System.Drawing.Size(170, 22);
+            this.tb5_DSBN.TabIndex = 23;
+            // 
+            // tb4_DSBN
+            // 
+            this.tb4_DSBN.Enabled = false;
+            this.tb4_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb4_DSBN.Location = new System.Drawing.Point(715, 126);
+            this.tb4_DSBN.Name = "tb4_DSBN";
+            this.tb4_DSBN.Size = new System.Drawing.Size(170, 22);
+            this.tb4_DSBN.TabIndex = 22;
+            // 
+            // tb3_DSBN
+            // 
+            this.tb3_DSBN.Enabled = false;
+            this.tb3_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb3_DSBN.Location = new System.Drawing.Point(337, 256);
+            this.tb3_DSBN.Name = "tb3_DSBN";
+            this.tb3_DSBN.Size = new System.Drawing.Size(170, 22);
+            this.tb3_DSBN.TabIndex = 21;
+            // 
+            // tb2_DSBN
+            // 
+            this.tb2_DSBN.Enabled = false;
+            this.tb2_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb2_DSBN.Location = new System.Drawing.Point(337, 192);
+            this.tb2_DSBN.Name = "tb2_DSBN";
+            this.tb2_DSBN.Size = new System.Drawing.Size(170, 22);
+            this.tb2_DSBN.TabIndex = 20;
+            // 
+            // tb1_DSBN
+            // 
+            this.tb1_DSBN.Enabled = false;
+            this.tb1_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb1_DSBN.Location = new System.Drawing.Point(337, 126);
+            this.tb1_DSBN.Name = "tb1_DSBN";
+            this.tb1_DSBN.Size = new System.Drawing.Size(170, 22);
+            this.tb1_DSBN.TabIndex = 19;
+            // 
+            // lb_mailDSBN
+            // 
+            this.lb_mailDSBN.AutoSize = true;
+            this.lb_mailDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_mailDSBN.Location = new System.Drawing.Point(631, 255);
+            this.lb_mailDSBN.Name = "lb_mailDSBN";
+            this.lb_mailDSBN.Size = new System.Drawing.Size(49, 18);
+            this.lb_mailDSBN.TabIndex = 18;
+            this.lb_mailDSBN.Text = "Email:";
+            // 
+            // lb_GioiTinhDSBN
+            // 
+            this.lb_GioiTinhDSBN.AutoSize = true;
+            this.lb_GioiTinhDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_GioiTinhDSBN.Location = new System.Drawing.Point(631, 191);
+            this.lb_GioiTinhDSBN.Name = "lb_GioiTinhDSBN";
+            this.lb_GioiTinhDSBN.Size = new System.Drawing.Size(71, 18);
+            this.lb_GioiTinhDSBN.TabIndex = 17;
+            this.lb_GioiTinhDSBN.Text = "Giới Tính:";
+            // 
+            // lb_DienThoaiDSBN
+            // 
+            this.lb_DienThoaiDSBN.AutoSize = true;
+            this.lb_DienThoaiDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_DienThoaiDSBN.Location = new System.Drawing.Point(631, 125);
+            this.lb_DienThoaiDSBN.Name = "lb_DienThoaiDSBN";
+            this.lb_DienThoaiDSBN.Size = new System.Drawing.Size(78, 18);
+            this.lb_DienThoaiDSBN.TabIndex = 16;
+            this.lb_DienThoaiDSBN.Text = "Điện thoại:";
+            // 
+            // lb_DiaChiDSBN
+            // 
+            this.lb_DiaChiDSBN.AutoSize = true;
+            this.lb_DiaChiDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_DiaChiDSBN.Location = new System.Drawing.Point(253, 255);
+            this.lb_DiaChiDSBN.Name = "lb_DiaChiDSBN";
+            this.lb_DiaChiDSBN.Size = new System.Drawing.Size(60, 18);
+            this.lb_DiaChiDSBN.TabIndex = 15;
+            this.lb_DiaChiDSBN.Text = "Địa Chỉ:";
+            // 
+            // lb_NamSinhDSBN
+            // 
+            this.lb_NamSinhDSBN.AutoSize = true;
+            this.lb_NamSinhDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NamSinhDSBN.Location = new System.Drawing.Point(250, 191);
+            this.lb_NamSinhDSBN.Name = "lb_NamSinhDSBN";
+            this.lb_NamSinhDSBN.Size = new System.Drawing.Size(77, 18);
+            this.lb_NamSinhDSBN.TabIndex = 14;
+            this.lb_NamSinhDSBN.Text = "Năm Sinh:";
+            // 
+            // lb_tenDSBN
+            // 
+            this.lb_tenDSBN.AutoSize = true;
+            this.lb_tenDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_tenDSBN.Location = new System.Drawing.Point(253, 125);
+            this.lb_tenDSBN.Name = "lb_tenDSBN";
+            this.lb_tenDSBN.Size = new System.Drawing.Size(56, 18);
+            this.lb_tenDSBN.TabIndex = 13;
+            this.lb_tenDSBN.Text = "Họ tên:";
+            // 
             // btn_Refresh_DSBN
             // 
             this.btn_Refresh_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Refresh_DSBN.Location = new System.Drawing.Point(876, 194);
+            this.btn_Refresh_DSBN.Location = new System.Drawing.Point(891, 346);
             this.btn_Refresh_DSBN.Name = "btn_Refresh_DSBN";
             this.btn_Refresh_DSBN.Size = new System.Drawing.Size(75, 23);
             this.btn_Refresh_DSBN.TabIndex = 12;
@@ -443,7 +592,7 @@
             // btn_TimKiem_DSBN
             // 
             this.btn_TimKiem_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TimKiem_DSBN.Location = new System.Drawing.Point(372, 193);
+            this.btn_TimKiem_DSBN.Location = new System.Drawing.Point(387, 345);
             this.btn_TimKiem_DSBN.Name = "btn_TimKiem_DSBN";
             this.btn_TimKiem_DSBN.Size = new System.Drawing.Size(75, 23);
             this.btn_TimKiem_DSBN.TabIndex = 11;
@@ -455,7 +604,7 @@
             // 
             this.lb_QLBN.AutoSize = true;
             this.lb_QLBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_QLBN.Location = new System.Drawing.Point(167, 173);
+            this.lb_QLBN.Location = new System.Drawing.Point(182, 325);
             this.lb_QLBN.Name = "lb_QLBN";
             this.lb_QLBN.Size = new System.Drawing.Size(203, 18);
             this.lb_QLBN.TabIndex = 10;
@@ -463,7 +612,7 @@
             // 
             // tb_SDT_QLBN
             // 
-            this.tb_SDT_QLBN.Location = new System.Drawing.Point(170, 196);
+            this.tb_SDT_QLBN.Location = new System.Drawing.Point(185, 348);
             this.tb_SDT_QLBN.Name = "tb_SDT_QLBN";
             this.tb_SDT_QLBN.Size = new System.Drawing.Size(196, 20);
             this.tb_SDT_QLBN.TabIndex = 9;
@@ -475,18 +624,19 @@
             this.dtgv_DanhSachBenhNhan.AllowUserToDeleteRows = false;
             this.dtgv_DanhSachBenhNhan.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_DanhSachBenhNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_DanhSachBenhNhan.Location = new System.Drawing.Point(170, 223);
+            this.dtgv_DanhSachBenhNhan.Location = new System.Drawing.Point(185, 375);
             this.dtgv_DanhSachBenhNhan.Name = "dtgv_DanhSachBenhNhan";
             this.dtgv_DanhSachBenhNhan.ReadOnly = true;
-            this.dtgv_DanhSachBenhNhan.Size = new System.Drawing.Size(781, 338);
+            this.dtgv_DanhSachBenhNhan.Size = new System.Drawing.Size(781, 263);
             this.dtgv_DanhSachBenhNhan.TabIndex = 8;
+            this.dtgv_DanhSachBenhNhan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DanhSachBenhNhan_CellClick);
             // 
             // lb_DSBN
             // 
             this.lb_DSBN.AutoSize = true;
             this.lb_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_DSBN.ForeColor = System.Drawing.Color.Blue;
-            this.lb_DSBN.Location = new System.Drawing.Point(413, 68);
+            this.lb_DSBN.Location = new System.Drawing.Point(445, 36);
             this.lb_DSBN.Name = "lb_DSBN";
             this.lb_DSBN.Size = new System.Drawing.Size(269, 25);
             this.lb_DSBN.TabIndex = 7;
@@ -494,39 +644,95 @@
             // 
             // tab_KHDT
             // 
-            this.tab_KHDT.Controls.Add(this.dataGridView1);
-            this.tab_KHDT.Controls.Add(this.label1);
+            this.tab_KHDT.Controls.Add(this.gb_TTCTGD);
+            this.tab_KHDT.Controls.Add(this.btn_TaoKHDT);
+            this.tab_KHDT.Controls.Add(this.btn_RefreshDSKHDT);
+            this.tab_KHDT.Controls.Add(this.btn_TimKiemDSKHDT);
+            this.tab_KHDT.Controls.Add(this.lb_SDT_DSKHDT);
+            this.tab_KHDT.Controls.Add(this.tb_SDT_DSKHDT);
+            this.tab_KHDT.Controls.Add(this.dtgv_DSKHDT);
+            this.tab_KHDT.Controls.Add(this.lb_TitleDSKHDT);
             this.tab_KHDT.Location = new System.Drawing.Point(4, 22);
             this.tab_KHDT.Name = "tab_KHDT";
             this.tab_KHDT.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_KHDT.Size = new System.Drawing.Size(1128, 708);
+            this.tab_KHDT.Size = new System.Drawing.Size(1128, 693);
             this.tab_KHDT.TabIndex = 1;
             this.tab_KHDT.Text = "Kế hoạch điều trị";
             this.tab_KHDT.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // btn_TaoKHDT
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 129);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(303, 150);
-            this.dataGridView1.TabIndex = 1;
+            this.btn_TaoKHDT.BackColor = System.Drawing.Color.Tomato;
+            this.btn_TaoKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TaoKHDT.Location = new System.Drawing.Point(852, 47);
+            this.btn_TaoKHDT.Name = "btn_TaoKHDT";
+            this.btn_TaoKHDT.Size = new System.Drawing.Size(234, 64);
+            this.btn_TaoKHDT.TabIndex = 10;
+            this.btn_TaoKHDT.Text = "Tạo Kế Hoạch Điều Trị";
+            this.btn_TaoKHDT.UseVisualStyleBackColor = false;
+            this.btn_TaoKHDT.Click += new System.EventHandler(this.btn_TaoKHDT_Click);
             // 
-            // label1
+            // btn_RefreshDSKHDT
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(303, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Danh Sách Kế Hoạch Điều Trị";
+            this.btn_RefreshDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RefreshDSKHDT.Location = new System.Drawing.Point(585, 308);
+            this.btn_RefreshDSKHDT.Name = "btn_RefreshDSKHDT";
+            this.btn_RefreshDSKHDT.Size = new System.Drawing.Size(75, 23);
+            this.btn_RefreshDSKHDT.TabIndex = 9;
+            this.btn_RefreshDSKHDT.Text = "Refresh";
+            this.btn_RefreshDSKHDT.UseVisualStyleBackColor = true;
+            // 
+            // btn_TimKiemDSKHDT
+            // 
+            this.btn_TimKiemDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TimKiemDSKHDT.Location = new System.Drawing.Point(235, 308);
+            this.btn_TimKiemDSKHDT.Name = "btn_TimKiemDSKHDT";
+            this.btn_TimKiemDSKHDT.Size = new System.Drawing.Size(75, 23);
+            this.btn_TimKiemDSKHDT.TabIndex = 8;
+            this.btn_TimKiemDSKHDT.Text = "Tìm kiếm";
+            this.btn_TimKiemDSKHDT.UseVisualStyleBackColor = true;
+            // 
+            // lb_SDT_DSKHDT
+            // 
+            this.lb_SDT_DSKHDT.AutoSize = true;
+            this.lb_SDT_DSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_SDT_DSKHDT.Location = new System.Drawing.Point(30, 288);
+            this.lb_SDT_DSKHDT.Name = "lb_SDT_DSKHDT";
+            this.lb_SDT_DSKHDT.Size = new System.Drawing.Size(203, 18);
+            this.lb_SDT_DSKHDT.TabIndex = 7;
+            this.lb_SDT_DSKHDT.Text = "Nhập số điện thoại bệnh nhân";
+            // 
+            // tb_SDT_DSKHDT
+            // 
+            this.tb_SDT_DSKHDT.Location = new System.Drawing.Point(33, 311);
+            this.tb_SDT_DSKHDT.Name = "tb_SDT_DSKHDT";
+            this.tb_SDT_DSKHDT.Size = new System.Drawing.Size(196, 20);
+            this.tb_SDT_DSKHDT.TabIndex = 6;
+            this.tb_SDT_DSKHDT.Tag = "PLace";
+            // 
+            // dtgv_DSKHDT
+            // 
+            this.dtgv_DSKHDT.AllowUserToAddRows = false;
+            this.dtgv_DSKHDT.AllowUserToDeleteRows = false;
+            this.dtgv_DSKHDT.BackgroundColor = System.Drawing.Color.White;
+            this.dtgv_DSKHDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_DSKHDT.GridColor = System.Drawing.Color.White;
+            this.dtgv_DSKHDT.Location = new System.Drawing.Point(35, 337);
+            this.dtgv_DSKHDT.Name = "dtgv_DSKHDT";
+            this.dtgv_DSKHDT.ReadOnly = true;
+            this.dtgv_DSKHDT.Size = new System.Drawing.Size(625, 313);
+            this.dtgv_DSKHDT.TabIndex = 1;
+            // 
+            // lb_TitleDSKHDT
+            // 
+            this.lb_TitleDSKHDT.AutoSize = true;
+            this.lb_TitleDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TitleDSKHDT.ForeColor = System.Drawing.Color.Blue;
+            this.lb_TitleDSKHDT.Location = new System.Drawing.Point(162, 47);
+            this.lb_TitleDSKHDT.Name = "lb_TitleDSKHDT";
+            this.lb_TitleDSKHDT.Size = new System.Drawing.Size(294, 25);
+            this.lb_TitleDSKHDT.TabIndex = 0;
+            this.lb_TitleDSKHDT.Text = "Thông Tin Kế Hoạch Điều Trị";
             // 
             // tab_HSBN
             // 
@@ -539,7 +745,7 @@
             this.tab_HSBN.Location = new System.Drawing.Point(4, 22);
             this.tab_HSBN.Name = "tab_HSBN";
             this.tab_HSBN.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_HSBN.Size = new System.Drawing.Size(1128, 708);
+            this.tab_HSBN.Size = new System.Drawing.Size(1128, 693);
             this.tab_HSBN.TabIndex = 2;
             this.tab_HSBN.Text = "Hồ Sơ Bệnh Nhân";
             this.tab_HSBN.UseVisualStyleBackColor = true;
@@ -616,7 +822,7 @@
             this.tab_CHYC.Location = new System.Drawing.Point(4, 22);
             this.tab_CHYC.Name = "tab_CHYC";
             this.tab_CHYC.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_CHYC.Size = new System.Drawing.Size(1128, 708);
+            this.tab_CHYC.Size = new System.Drawing.Size(1128, 693);
             this.tab_CHYC.TabIndex = 3;
             this.tab_CHYC.Text = "Cuộc Hẹn Yêu Cầu";
             this.tab_CHYC.UseVisualStyleBackColor = true;
@@ -896,6 +1102,38 @@
             this.txt_SDT_BN.TabIndex = 2;
             this.txt_SDT_BN.TextChanged += new System.EventHandler(this.txt_SDT_BN_TextChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA.Properties.Resources.NHANVIEN;
+            this.pictureBox1.Location = new System.Drawing.Point(167, 170);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(350, 351);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dtgv_GIAIDOAN
+            // 
+            this.dtgv_GIAIDOAN.AllowUserToAddRows = false;
+            this.dtgv_GIAIDOAN.AllowUserToDeleteRows = false;
+            this.dtgv_GIAIDOAN.BackgroundColor = System.Drawing.Color.White;
+            this.dtgv_GIAIDOAN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_GIAIDOAN.Location = new System.Drawing.Point(13, 16);
+            this.dtgv_GIAIDOAN.Name = "dtgv_GIAIDOAN";
+            this.dtgv_GIAIDOAN.ReadOnly = true;
+            this.dtgv_GIAIDOAN.Size = new System.Drawing.Size(351, 150);
+            this.dtgv_GIAIDOAN.TabIndex = 11;
+            // 
+            // gb_TTCTGD
+            // 
+            this.gb_TTCTGD.Controls.Add(this.dtgv_GIAIDOAN);
+            this.gb_TTCTGD.Location = new System.Drawing.Point(722, 321);
+            this.gb_TTCTGD.Name = "gb_TTCTGD";
+            this.gb_TTCTGD.Size = new System.Drawing.Size(380, 179);
+            this.gb_TTCTGD.TabIndex = 12;
+            this.gb_TTCTGD.TabStop = false;
+            this.gb_TTCTGD.Text = "THÔNG TIN CÁC GIAI ĐOẠN";
+            // 
             // NHANVIEN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -912,13 +1150,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tab_HoSo.ResumeLayout(false);
             this.tab_HoSo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tab_QLBN.ResumeLayout(false);
             this.tab_QLBN.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DanhSachBenhNhan)).EndInit();
             this.tab_KHDT.ResumeLayout(false);
             this.tab_KHDT.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DSKHDT)).EndInit();
             this.tab_HSBN.ResumeLayout(false);
             this.tab_HSBN.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_BenhNhan)).EndInit();
@@ -931,6 +1168,9 @@
             this.tab_ThanhToan.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ThanhToan_KHDT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_GIAIDOAN)).EndInit();
+            this.gb_TTCTGD.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -940,8 +1180,8 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tab_HoSo;
         private System.Windows.Forms.TabPage tab_KHDT;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lb_TitleDSKHDT;
+        private System.Windows.Forms.DataGridView dtgv_DSKHDT;
         private System.Windows.Forms.TabPage tab_HSBN;
         private System.Windows.Forms.TabPage tab_CHYC;
         private System.Windows.Forms.TabPage tab_ThanhToan;
@@ -1018,5 +1258,25 @@
         private System.Windows.Forms.TextBox tb_SDT_QLBN;
         private System.Windows.Forms.DataGridView dtgv_DanhSachBenhNhan;
         private System.Windows.Forms.Label lb_DSBN;
+        private System.Windows.Forms.Button btn_ChinhSuaTT;
+        private System.Windows.Forms.Button btn_TimKiemDSKHDT;
+        private System.Windows.Forms.Label lb_SDT_DSKHDT;
+        private System.Windows.Forms.TextBox tb_SDT_DSKHDT;
+        private System.Windows.Forms.Button btn_RefreshDSKHDT;
+        private System.Windows.Forms.Button btn_TaoKHDT;
+        private System.Windows.Forms.Label lb_mailDSBN;
+        private System.Windows.Forms.Label lb_GioiTinhDSBN;
+        private System.Windows.Forms.Label lb_DienThoaiDSBN;
+        private System.Windows.Forms.Label lb_DiaChiDSBN;
+        private System.Windows.Forms.Label lb_NamSinhDSBN;
+        private System.Windows.Forms.Label lb_tenDSBN;
+        private System.Windows.Forms.TextBox tb6_DSBN;
+        private System.Windows.Forms.TextBox tb5_DSBN;
+        private System.Windows.Forms.TextBox tb4_DSBN;
+        private System.Windows.Forms.TextBox tb3_DSBN;
+        private System.Windows.Forms.TextBox tb2_DSBN;
+        private System.Windows.Forms.TextBox tb1_DSBN;
+        private System.Windows.Forms.DataGridView dtgv_GIAIDOAN;
+        private System.Windows.Forms.GroupBox gb_TTCTGD;
     }
 }
