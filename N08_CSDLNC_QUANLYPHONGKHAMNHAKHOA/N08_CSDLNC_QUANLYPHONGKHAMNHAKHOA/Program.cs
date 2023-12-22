@@ -16,13 +16,10 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< Updated upstream
-            Application.Run(new QUANTRIVIEN());
-=======
-            Application.Run(new TOATHUOC("1"));
+            Application.Run(new HOME());
+            //Application.Run(new TOATHUOC("1"));
 
             //Application.Run(new NHASI("0752717429"));
->>>>>>> Stashed changes
         }
     }
 }
