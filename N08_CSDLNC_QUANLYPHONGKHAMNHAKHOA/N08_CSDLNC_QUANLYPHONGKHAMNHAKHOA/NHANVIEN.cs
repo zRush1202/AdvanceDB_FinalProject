@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp1;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
@@ -332,7 +333,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             DataSet data = new DataSet();
 
             //sql connection
-            string query = $"select khdt.mabenhan, khdt.marangkham, tt.*" +
+            string query = $"select khdt.mabenhan, khdt.marangkham, khdt.trangthaidieutri, tt.*" +
                 $"from thanhtoan tt, kehoachdieutri khdt, hosobenhnhan hsbn, benhnhan bn " +
                 $"where bn.dienthoaibn = '{phone}' and bn.mabenhnhan = hsbn.mabenhnhan and hsbn.mabenhan = khdt.mabenhan and khdt.mathanhtoan = tt.mathanhtoan";
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[numConn]))
@@ -354,14 +355,25 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             phoneNumber = txt_SDT_BN.Text;
             ThanhToan_KHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ThanhToan_KHDT.DataSource = LoadData_KHDT_BENHNHAN(phoneNumber).Tables[0];
+            //if (timKiem_KHDT.Enabled == false)
+            //{
+            //    button_XuatHD.Enabled = false;
+            //}
+            //else button_XuatHD.Enabled = true;
         }
         private int mathanhtoan;
+        private bool checkTrangThai =false;
         private void ThanhToan_KHDT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
             if (e.RowIndex >= 0 && e.RowIndex < this.ThanhToan_KHDT.Rows.Count) // Make sure user select at least 1 row 
-            {
+            { 
                 DataGridViewRow row = this.ThanhToan_KHDT.Rows[e.RowIndex];
+                if (row.Cells["TienCanThanhToan"].Value.ToString() == "đã hoàn thành")
+                {
+                    checkTrangThai = false;
+                }
+                else checkTrangThai = true;
                 if (row.Cells["NgayGiaoDich"].Value is DBNull)
                 {
                     date_NgayGiaoDich.Value = DateTime.Today;
@@ -371,17 +383,40 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                     date_NgayGiaoDich.Value = (DateTime)row.Cells["NgayGiaoDich"].Value;
                 }
                 mathanhtoan = (int)row.Cells["MaThanhToan"].Value;
+                radio_cas.Enabled = true;
+                radio_credit.Enabled = true;
+                if (row.Cells["LoaiThanhToan"].Value.ToString() == "")
+                {
+                    radio_cas.Checked = false;
+                    radio_credit.Checked = false;
+                }
+                //else if (row.Cells["LoaiThanhToan"].Value.ToString() == "cash")
+                //{
+                //    radio_cas.Checked = true;
+                //    radio_credit.Checked = false;
+                //}
+                //else if (row.Cells["LoaiThanhToan"].Value.ToString() == "credit")
+                //{
+                //    radio_cas.Checked = false;
+                //    radio_credit.Checked = true;
+                //}
+                
                 txt_TienCanTT.Text = row.Cells["TienCanThanhToan"].Value.ToString(); // Replace "ColumnName" with the column name you want to access
                 txt_tienThoi.Text = row.Cells["TienThoi"].Value.ToString();
+                txt_TienDaTra.ReadOnly = false;
+                //button_XuatHD.Enabled = true;
             }
+            
+            
         }
-
-        private void buton_XuatHD_Click(object sender, EventArgs e)
+        private string hoTenBN;
+        private string hoTenNV;
+        private void button_XuatHD_Click(object sender, EventArgs e)
         {
 
             string date = date_NgayGiaoDich.Value.ToString("yyyy-MM-dd");
             string tienDaTra = txt_TienDaTra.Text;
-            string tienThoi = txt_tienThoi.Text;
+            string tienThoi = (Int64.Parse(txt_TienDaTra.Text) - Int64.Parse(txt_TienCanTT.Text)).ToString(); 
             string loaiThanhToan = null;
 
             if (radio_credit.Checked)
@@ -392,20 +427,107 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             {
                 loaiThanhToan = "cash";
             }
-            string query = $"update thanhtoan set ngaygiaodich = '{date}', tiendatra = '{tienDaTra}', tienthoi = '{tienThoi}', loaithanhtoan = '{loaiThanhToan}' where mathanhtoan = '{mathanhtoan}'";
             int nConn = GetNumConn();
-            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[ nConn]))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                command.ExecuteNonQuery();
+
+                // First query
+                string query = $"update thanhtoan set ngaygiaodich = '{date}', tiendatra = '{tienDaTra}', tienthoi = '{tienThoi}', loaithanhtoan = '{loaiThanhToan}' where mathanhtoan = '{mathanhtoan}'";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+                // Second query
+                string query1 = $"update kehoachdieutri set trangthaidieutri = N'đã hoàn thành' where MaThanhToan = '{mathanhtoan}'";
+                using (SqlCommand command = new SqlCommand(query1, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+                // Third query
+                string query2 = $"select bn.HoTenBN, nv.HotenNV from kehoachdieutri khdt, HOSOBENHNHAN hsbn, benhnhan bn, nhanvien nv " +
+                    $"where khdt.mathanhtoan = '{mathanhtoan}' and khdt.mabenhan = hsbn.mabenhan and hsbn.mabenhnhan = bn.mabenhnhan and nv.manhanvien = '{MaNVQL}'";
+                using (SqlCommand command = new SqlCommand(query2, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Check if there are any results
+                        if (reader.HasRows)
+                        {
+                            // Read the results
+                            while (reader.Read())
+                            {
+                                string hoTenBN = reader["HoTenBN"].ToString();
+                                string hoTenNV = reader["HotenNV"].ToString();
+
+                                // Use the data as desired
+                                // For example, display it on the form
+                                this.hoTenBN = hoTenBN;
+                                this.hoTenNV = hoTenNV;
+                            }
+                        }
+                    }
+                }
+
                 connection.Close();
             }
-            ThanhToan_KHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ThanhToan_KHDT.DataSource = LoadData_KHDT_BENHNHAN(phoneNumber).Tables[0];
+            HoaDon h = new HoaDon(this.hoTenBN, this.hoTenNV, date,txt_TienCanTT.Text, tienDaTra,tienThoi);
+            h.ShowDialog();
+            this.Close();
         }
 
-        
+        private bool checkTienDaTra = false;
+        private void txt_TienDaTra_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = sender as System.Windows.Forms.TextBox;
+            if (textBox != null)
+            {
+                var text = textBox.Text;
+                bool isNumber = System.Text.RegularExpressions.Regex.IsMatch(text, @"^\d+$");
+                if (isNumber && text.Length < 20)
+                {
+                    if (Int64.Parse(txt_TienCanTT.Text) < Int64.Parse(txt_TienDaTra.Text))
+                    {
+                        checkTienDaTra = true;
+                    }
+                    else checkTienDaTra = false;
+                }
+                else checkTienDaTra = false;
+            }
+            checkenablebutton();
+        }
+
+        private bool checkradio = false;
+        private void radio_cas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.radio_cas.Checked && !this.radio_credit.Checked && Int64.Parse(txt_TienCanTT.Text) != 0)
+            {
+                checkradio = true;
+            }
+            else checkradio = false;
+            checkenablebutton();
+        }
+        private void radio_credit_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!this.radio_cas.Checked && this.radio_credit.Checked && Int64.Parse(txt_TienCanTT.Text) != 0)
+            {
+                checkradio = true;
+            }
+            else checkradio = false;
+            checkenablebutton();
+        }
+
+        private void checkenablebutton()
+        {
+            if ((checkradio && checkTienDaTra ) && checkTrangThai)
+            {
+                button_XuatHD.Enabled = true;
+            }
+            else button_XuatHD.Enabled = false;
+        }
+
     }
 
 
