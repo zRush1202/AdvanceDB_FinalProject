@@ -561,6 +561,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
 
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
