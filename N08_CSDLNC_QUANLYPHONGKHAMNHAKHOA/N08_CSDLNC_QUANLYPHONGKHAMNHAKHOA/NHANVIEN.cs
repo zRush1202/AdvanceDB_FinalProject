@@ -21,21 +21,25 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         private bool isNumConnInitialized = false;
         private string username;
         private string password;
+        private int MaNVQL;
 
         public NHANVIEN(string username, string password)
         {
             InitializeComponent();
             dtgv_CHYC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgv_CHYC.DataSource = LoadData_CHYC_BENHNHAN().Tables[0];
+            dtgv_BenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_BenhNhan.DataSource = Load_HoSoBenhNhan("*").Tables[0];
+            dtgv_DanhSachBenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_DanhSachBenhNhan.DataSource = Load_DSBenhNhan("*").Tables[0];
             this.username = username;
             this.password = password;
 
             int nConn = GetNumConn();
-            string query = $"select HoTenNV, NgSinhNV, DiaChiNV, DienThoaiNV from TAIKHOAN, NHANVIEN WHERE DienThoaiNV='{username}'";
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
                 connection.Open();
-
+                string query = $"select HoTenNV, NgSinhNV, DiaChiNV, DienThoaiNV from TAIKHOAN, NHANVIEN WHERE DienThoaiNV='{username}'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -60,10 +64,25 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                         }
                     }
                 }
+
+                string query_TimMaNVQL = $"select MaNhanVien from NHANVIEN where DienThoaiNV = '{username}'";
+                using (SqlCommand command = new SqlCommand(query_TimMaNVQL, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Kiểm tra xem có dữ liệu không
+                        if (reader.HasRows)
+                        {
+                            // Đọc dữ liệu từ SqlDataReader
+                            while (reader.Read())
+                            {
+                                this.MaNVQL = int.Parse(reader["MaNhanVien"].ToString());
+                            }
+                        }
+                    }
+                }
                 connection.Close();
-
             }
-
         }
 
         public NHANVIEN()
@@ -118,17 +137,49 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         }
 
+        private void Connection_InfoMessage(object sender, SqlInfoMessageEventArgs e)
+        {
+            // Xử lý thông điệp được in ra từ SQL Server (bằng PRINT)
+            foreach (SqlError error in e.Errors)
+            {
+                MessageBox.Show(error.Message); // Hiển thị thông điệp trong MessageBox
+            }
+        }
+
 
         private void btn_XoaYC_Click(object sender, EventArgs e)
         {
             int nConn = GetNumConn();
-            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            if(textBox2.Text != "")
             {
-                connection.Open();
-                string query = $"exec sp_XoaCHYC {int.Parse(textBox2.Text)}";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
+                int machyc = int.Parse(textBox2.Text);
+                    string query = $"exec sp_XoaCHYC {machyc}";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    connection.InfoMessage += Connection_InfoMessage;
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btn_DuyetYC_Click(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+            if (textBox2.Text != "")
+            {
+                int machyc = int.Parse(textBox2.Text);
+                string query = $"exec sp_DuyetCHYC {machyc}, {this.MaNVQL}";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    connection.InfoMessage += Connection_InfoMessage;
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
             }
         }
 
@@ -150,6 +201,102 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             this.Hide();
             hOME.ShowDialog();
             this.Close();
+        }
+
+        private void btn_RefreshQLHSBN_Click(object sender, EventArgs e)
+        {
+            dtgv_BenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_BenhNhan.DataSource = Load_HoSoBenhNhan("*").Tables[0];
+        }
+
+        private void btn_TimKiemQLHSBN_Click(object sender, EventArgs e)
+        {
+            if(tb_SDT_QLHSBN.Text != "")
+            {
+                dtgv_BenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dtgv_BenhNhan.DataSource = Load_HoSoBenhNhan(tb_SDT_QLHSBN.Text).Tables[0];
+            }    
+        }
+
+        DataSet Load_HoSoBenhNhan(string type)
+        {
+            int numConn = testConnect();
+            DataSet data = new DataSet();
+            if (type == "*")
+            {
+                string query = "select top 100 * from HOSOBENHNHAN";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[numConn]))
+                {
+                    connection.Open();
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(data);
+
+                    connection.Close();
+                }
+            }   
+            else
+            {
+                string query = $"select bn.HoTenBN, hs.* from HOSOBENHNHAN hs, BENHNHAN bn WHERE bn.MaBenhNhan = hs.MaBenhNhan and bn.DienThoaiBN = N'{type}'";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[numConn]))
+                {
+                    connection.Open();
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(data);
+
+                    connection.Close();
+                }
+            }
+            return data;
+        }
+
+        private void btn_Refresh_DSBN_Click(object sender, EventArgs e)
+        {
+            dtgv_DanhSachBenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_DanhSachBenhNhan.DataSource = Load_DSBenhNhan("*").Tables[0];
+        }
+
+        private void btn_TimKiem_DSBN_Click(object sender, EventArgs e)
+        {
+            if (tb_SDT_QLBN.Text != "")
+            {
+                dtgv_DanhSachBenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dtgv_DanhSachBenhNhan.DataSource = Load_DSBenhNhan(tb_SDT_QLBN.Text).Tables[0];
+            }
+        }
+
+        DataSet Load_DSBenhNhan(string type)
+        {
+            int numConn = testConnect();
+            DataSet data = new DataSet();
+            if (type == "*")
+            {
+                string query = "select top 200 * from BENHNHAN";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[numConn]))
+                {
+                    connection.Open();
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(data);
+
+                    connection.Close();
+                }
+            }
+            else
+            {
+                string query = $"select * from BENHNHAN WHERE DienThoaiBN = N'{type}'";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[numConn]))
+                {
+                    connection.Open();
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(data);
+
+                    connection.Close();
+                }
+            }
+            return data;
         }
 
 
@@ -253,6 +400,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             ThanhToan_KHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ThanhToan_KHDT.DataSource = LoadData_KHDT_BENHNHAN(phoneNumber).Tables[0];
         }
+
+        
     }
 
 

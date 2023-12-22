@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.tab_TaoLH = new System.Windows.Forms.TabPage();
+            this.lb_DSLBS = new System.Windows.Forms.Label();
+            this.lb_HienThiTheo_2 = new System.Windows.Forms.Label();
             this.lb_HienThiTheo_1 = new System.Windows.Forms.Label();
             this.cb_LNS = new System.Windows.Forms.ComboBox();
             this.cb_LHBN = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dtgv_LHBN = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lb_DSLHBN = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -56,10 +58,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tab_HSBN = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_RefreshQLHSBN = new System.Windows.Forms.Button();
+            this.btn_TimKiemQLHSBN = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_SDT_QLHSBN = new System.Windows.Forms.TextBox();
             this.dtgv_BenhNhan = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tab_CHYC = new System.Windows.Forms.TabPage();
@@ -88,7 +90,13 @@
             this.ThanhToan_KHDT = new System.Windows.Forms.DataGridView();
             this.timKiem_KHDT = new System.Windows.Forms.Button();
             this.txt_SDT_BN = new System.Windows.Forms.TextBox();
-            this.lb_HienThiTheo_2 = new System.Windows.Forms.Label();
+            this.tab_QLBN = new System.Windows.Forms.TabPage();
+            this.btn_Refresh_DSBN = new System.Windows.Forms.Button();
+            this.btn_TimKiem_DSBN = new System.Windows.Forms.Button();
+            this.lb_QLBN = new System.Windows.Forms.Label();
+            this.tb_SDT_QLBN = new System.Windows.Forms.TextBox();
+            this.dtgv_DanhSachBenhNhan = new System.Windows.Forms.DataGridView();
+            this.lb_DSBN = new System.Windows.Forms.Label();
             this.tab_TaoLH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_LHBN)).BeginInit();
@@ -105,10 +113,13 @@
             this.tab_ThanhToan.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThanhToan_KHDT)).BeginInit();
+            this.tab_QLBN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DanhSachBenhNhan)).BeginInit();
             this.SuspendLayout();
             // 
             // tab_TaoLH
             // 
+            this.tab_TaoLH.Controls.Add(this.lb_DSLBS);
             this.tab_TaoLH.Controls.Add(this.lb_HienThiTheo_2);
             this.tab_TaoLH.Controls.Add(this.lb_HienThiTheo_1);
             this.tab_TaoLH.Controls.Add(this.cb_LNS);
@@ -116,13 +127,34 @@
             this.tab_TaoLH.Controls.Add(this.button4);
             this.tab_TaoLH.Controls.Add(this.dataGridView2);
             this.tab_TaoLH.Controls.Add(this.dtgv_LHBN);
-            this.tab_TaoLH.Controls.Add(this.label7);
+            this.tab_TaoLH.Controls.Add(this.lb_DSLHBN);
             this.tab_TaoLH.Location = new System.Drawing.Point(4, 22);
             this.tab_TaoLH.Name = "tab_TaoLH";
             this.tab_TaoLH.Size = new System.Drawing.Size(1128, 694);
             this.tab_TaoLH.TabIndex = 5;
             this.tab_TaoLH.Text = "Tạo Lịch Hẹn";
             this.tab_TaoLH.UseVisualStyleBackColor = true;
+            // 
+            // lb_DSLBS
+            // 
+            this.lb_DSLBS.AutoSize = true;
+            this.lb_DSLBS.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_DSLBS.ForeColor = System.Drawing.Color.Blue;
+            this.lb_DSLBS.Location = new System.Drawing.Point(23, 455);
+            this.lb_DSLBS.Name = "lb_DSLBS";
+            this.lb_DSLBS.Size = new System.Drawing.Size(330, 25);
+            this.lb_DSLBS.TabIndex = 11;
+            this.lb_DSLBS.Text = "Danh Sách Lịch Làm Việc Bác Sĩ";
+            // 
+            // lb_HienThiTheo_2
+            // 
+            this.lb_HienThiTheo_2.AutoSize = true;
+            this.lb_HienThiTheo_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_HienThiTheo_2.Location = new System.Drawing.Point(890, 456);
+            this.lb_HienThiTheo_2.Name = "lb_HienThiTheo_2";
+            this.lb_HienThiTheo_2.Size = new System.Drawing.Size(83, 16);
+            this.lb_HienThiTheo_2.TabIndex = 10;
+            this.lb_HienThiTheo_2.Text = "Hiển thị theo:";
             // 
             // lb_HienThiTheo_1
             // 
@@ -195,16 +227,16 @@
             this.dtgv_LHBN.Size = new System.Drawing.Size(1073, 170);
             this.dtgv_LHBN.TabIndex = 1;
             // 
-            // label7
+            // lb_DSLHBN
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(22, 179);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(323, 25);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Danh Sách Lịch Hẹn Bệnh Nhân";
+            this.lb_DSLHBN.AutoSize = true;
+            this.lb_DSLHBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_DSLHBN.ForeColor = System.Drawing.Color.Blue;
+            this.lb_DSLHBN.Location = new System.Drawing.Point(22, 179);
+            this.lb_DSLHBN.Name = "lb_DSLHBN";
+            this.lb_DSLHBN.Size = new System.Drawing.Size(323, 25);
+            this.lb_DSLHBN.TabIndex = 0;
+            this.lb_DSLHBN.Text = "Danh Sách Lịch Hẹn Bệnh Nhân";
             // 
             // label10
             // 
@@ -241,6 +273,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tab_HoSo);
+            this.tabControl1.Controls.Add(this.tab_QLBN);
             this.tabControl1.Controls.Add(this.tab_KHDT);
             this.tabControl1.Controls.Add(this.tab_HSBN);
             this.tabControl1.Controls.Add(this.tab_CHYC);
@@ -419,10 +452,10 @@
             // 
             // tab_HSBN
             // 
-            this.tab_HSBN.Controls.Add(this.button2);
-            this.tab_HSBN.Controls.Add(this.button1);
+            this.tab_HSBN.Controls.Add(this.btn_RefreshQLHSBN);
+            this.tab_HSBN.Controls.Add(this.btn_TimKiemQLHSBN);
             this.tab_HSBN.Controls.Add(this.label3);
-            this.tab_HSBN.Controls.Add(this.textBox1);
+            this.tab_HSBN.Controls.Add(this.tb_SDT_QLHSBN);
             this.tab_HSBN.Controls.Add(this.dtgv_BenhNhan);
             this.tab_HSBN.Controls.Add(this.label2);
             this.tab_HSBN.Location = new System.Drawing.Point(4, 22);
@@ -433,43 +466,45 @@
             this.tab_HSBN.Text = "Hồ Sơ Bệnh Nhân";
             this.tab_HSBN.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_RefreshQLHSBN
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(583, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Refresh";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_RefreshQLHSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RefreshQLHSBN.Location = new System.Drawing.Point(881, 168);
+            this.btn_RefreshQLHSBN.Name = "btn_RefreshQLHSBN";
+            this.btn_RefreshQLHSBN.Size = new System.Drawing.Size(75, 23);
+            this.btn_RefreshQLHSBN.TabIndex = 6;
+            this.btn_RefreshQLHSBN.Text = "Refresh";
+            this.btn_RefreshQLHSBN.UseVisualStyleBackColor = true;
+            this.btn_RefreshQLHSBN.Click += new System.EventHandler(this.btn_RefreshQLHSBN_Click);
             // 
-            // button1
+            // btn_TimKiemQLHSBN
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(345, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Tìm kiếm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_TimKiemQLHSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TimKiemQLHSBN.Location = new System.Drawing.Point(377, 167);
+            this.btn_TimKiemQLHSBN.Name = "btn_TimKiemQLHSBN";
+            this.btn_TimKiemQLHSBN.Size = new System.Drawing.Size(75, 23);
+            this.btn_TimKiemQLHSBN.TabIndex = 5;
+            this.btn_TimKiemQLHSBN.Text = "Tìm kiếm";
+            this.btn_TimKiemQLHSBN.UseVisualStyleBackColor = true;
+            this.btn_TimKiemQLHSBN.Click += new System.EventHandler(this.btn_TimKiemQLHSBN_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(155, 141);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(172, 147);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(184, 16);
+            this.label3.Size = new System.Drawing.Size(203, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "Nhập số điện thoại bệnh nhân";
             // 
-            // textBox1
+            // tb_SDT_QLHSBN
             // 
-            this.textBox1.Location = new System.Drawing.Point(158, 157);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 20);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Tag = "PLace";
+            this.tb_SDT_QLHSBN.Location = new System.Drawing.Point(175, 170);
+            this.tb_SDT_QLHSBN.Name = "tb_SDT_QLHSBN";
+            this.tb_SDT_QLHSBN.Size = new System.Drawing.Size(196, 20);
+            this.tb_SDT_QLHSBN.TabIndex = 3;
+            this.tb_SDT_QLHSBN.Tag = "PLace";
             // 
             // dtgv_BenhNhan
             // 
@@ -477,10 +512,10 @@
             this.dtgv_BenhNhan.AllowUserToDeleteRows = false;
             this.dtgv_BenhNhan.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_BenhNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_BenhNhan.Location = new System.Drawing.Point(158, 184);
+            this.dtgv_BenhNhan.Location = new System.Drawing.Point(175, 197);
             this.dtgv_BenhNhan.Name = "dtgv_BenhNhan";
             this.dtgv_BenhNhan.ReadOnly = true;
-            this.dtgv_BenhNhan.Size = new System.Drawing.Size(500, 338);
+            this.dtgv_BenhNhan.Size = new System.Drawing.Size(781, 338);
             this.dtgv_BenhNhan.TabIndex = 1;
             // 
             // label2
@@ -488,7 +523,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(287, 45);
+            this.label2.Location = new System.Drawing.Point(418, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(312, 25);
             this.label2.TabIndex = 0;
@@ -571,6 +606,7 @@
             this.btn_DuyetYC.TabIndex = 3;
             this.btn_DuyetYC.Text = "Duyệt";
             this.btn_DuyetYC.UseVisualStyleBackColor = false;
+            this.btn_DuyetYC.Click += new System.EventHandler(this.btn_DuyetYC_Click);
             // 
             // button3
             // 
@@ -781,15 +817,83 @@
             this.txt_SDT_BN.TabIndex = 2;
             this.txt_SDT_BN.TextChanged += new System.EventHandler(this.txt_SDT_BN_TextChanged);
             // 
-            // lb_HienThiTheo_2
+            // tab_QLBN
             // 
-            this.lb_HienThiTheo_2.AutoSize = true;
-            this.lb_HienThiTheo_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_HienThiTheo_2.Location = new System.Drawing.Point(890, 456);
-            this.lb_HienThiTheo_2.Name = "lb_HienThiTheo_2";
-            this.lb_HienThiTheo_2.Size = new System.Drawing.Size(83, 16);
-            this.lb_HienThiTheo_2.TabIndex = 10;
-            this.lb_HienThiTheo_2.Text = "Hiển thị theo:";
+            this.tab_QLBN.Controls.Add(this.btn_Refresh_DSBN);
+            this.tab_QLBN.Controls.Add(this.btn_TimKiem_DSBN);
+            this.tab_QLBN.Controls.Add(this.lb_QLBN);
+            this.tab_QLBN.Controls.Add(this.tb_SDT_QLBN);
+            this.tab_QLBN.Controls.Add(this.dtgv_DanhSachBenhNhan);
+            this.tab_QLBN.Controls.Add(this.lb_DSBN);
+            this.tab_QLBN.Location = new System.Drawing.Point(4, 22);
+            this.tab_QLBN.Name = "tab_QLBN";
+            this.tab_QLBN.Size = new System.Drawing.Size(1128, 694);
+            this.tab_QLBN.TabIndex = 6;
+            this.tab_QLBN.Text = "Bệnh Nhân";
+            this.tab_QLBN.UseVisualStyleBackColor = true;
+            // 
+            // btn_Refresh_DSBN
+            // 
+            this.btn_Refresh_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Refresh_DSBN.Location = new System.Drawing.Point(876, 194);
+            this.btn_Refresh_DSBN.Name = "btn_Refresh_DSBN";
+            this.btn_Refresh_DSBN.Size = new System.Drawing.Size(75, 23);
+            this.btn_Refresh_DSBN.TabIndex = 12;
+            this.btn_Refresh_DSBN.Text = "Refresh";
+            this.btn_Refresh_DSBN.UseVisualStyleBackColor = true;
+            this.btn_Refresh_DSBN.Click += new System.EventHandler(this.btn_Refresh_DSBN_Click);
+            // 
+            // btn_TimKiem_DSBN
+            // 
+            this.btn_TimKiem_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TimKiem_DSBN.Location = new System.Drawing.Point(372, 193);
+            this.btn_TimKiem_DSBN.Name = "btn_TimKiem_DSBN";
+            this.btn_TimKiem_DSBN.Size = new System.Drawing.Size(75, 23);
+            this.btn_TimKiem_DSBN.TabIndex = 11;
+            this.btn_TimKiem_DSBN.Text = "Tìm kiếm";
+            this.btn_TimKiem_DSBN.UseVisualStyleBackColor = true;
+            this.btn_TimKiem_DSBN.Click += new System.EventHandler(this.btn_TimKiem_DSBN_Click);
+            // 
+            // lb_QLBN
+            // 
+            this.lb_QLBN.AutoSize = true;
+            this.lb_QLBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_QLBN.Location = new System.Drawing.Point(167, 173);
+            this.lb_QLBN.Name = "lb_QLBN";
+            this.lb_QLBN.Size = new System.Drawing.Size(203, 18);
+            this.lb_QLBN.TabIndex = 10;
+            this.lb_QLBN.Text = "Nhập số điện thoại bệnh nhân";
+            // 
+            // tb_SDT_QLBN
+            // 
+            this.tb_SDT_QLBN.Location = new System.Drawing.Point(170, 196);
+            this.tb_SDT_QLBN.Name = "tb_SDT_QLBN";
+            this.tb_SDT_QLBN.Size = new System.Drawing.Size(196, 20);
+            this.tb_SDT_QLBN.TabIndex = 9;
+            this.tb_SDT_QLBN.Tag = "PLace";
+            // 
+            // dtgv_DanhSachBenhNhan
+            // 
+            this.dtgv_DanhSachBenhNhan.AllowUserToAddRows = false;
+            this.dtgv_DanhSachBenhNhan.AllowUserToDeleteRows = false;
+            this.dtgv_DanhSachBenhNhan.BackgroundColor = System.Drawing.Color.White;
+            this.dtgv_DanhSachBenhNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_DanhSachBenhNhan.Location = new System.Drawing.Point(170, 223);
+            this.dtgv_DanhSachBenhNhan.Name = "dtgv_DanhSachBenhNhan";
+            this.dtgv_DanhSachBenhNhan.ReadOnly = true;
+            this.dtgv_DanhSachBenhNhan.Size = new System.Drawing.Size(781, 338);
+            this.dtgv_DanhSachBenhNhan.TabIndex = 8;
+            // 
+            // lb_DSBN
+            // 
+            this.lb_DSBN.AutoSize = true;
+            this.lb_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_DSBN.ForeColor = System.Drawing.Color.Blue;
+            this.lb_DSBN.Location = new System.Drawing.Point(413, 68);
+            this.lb_DSBN.Name = "lb_DSBN";
+            this.lb_DSBN.Size = new System.Drawing.Size(269, 25);
+            this.lb_DSBN.TabIndex = 7;
+            this.lb_DSBN.Text = "DANH SÁCH BỆNH NHÂN";
             // 
             // NHANVIEN
             // 
@@ -823,6 +927,9 @@
             this.tab_ThanhToan.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ThanhToan_KHDT)).EndInit();
+            this.tab_QLBN.ResumeLayout(false);
+            this.tab_QLBN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_DanhSachBenhNhan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -839,10 +946,10 @@
         private System.Windows.Forms.TabPage tab_ThanhToan;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dtgv_BenhNhan;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_SDT_QLHSBN;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_TimKiemQLHSBN;
+        private System.Windows.Forms.Button btn_RefreshQLHSBN;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dtgv_CHYC;
         private System.Windows.Forms.Button button3;
@@ -852,7 +959,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lb_DSLHBN;
         private System.Windows.Forms.DataGridView dtgv_LHBN;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label8;
@@ -902,5 +1009,13 @@
         private System.Windows.Forms.Label lb_HoTen;
         private System.Windows.Forms.Label lb_HienThiTheo_1;
         private System.Windows.Forms.Label lb_HienThiTheo_2;
+        private System.Windows.Forms.Label lb_DSLBS;
+        private System.Windows.Forms.TabPage tab_QLBN;
+        private System.Windows.Forms.Button btn_Refresh_DSBN;
+        private System.Windows.Forms.Button btn_TimKiem_DSBN;
+        private System.Windows.Forms.Label lb_QLBN;
+        private System.Windows.Forms.TextBox tb_SDT_QLBN;
+        private System.Windows.Forms.DataGridView dtgv_DanhSachBenhNhan;
+        private System.Windows.Forms.Label lb_DSBN;
     }
 }

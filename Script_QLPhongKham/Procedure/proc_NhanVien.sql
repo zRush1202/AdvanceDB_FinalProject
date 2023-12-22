@@ -22,7 +22,7 @@ begin
 		insert into HOSOBENHNHAN(TongTienDieuTri, TongTienThanhToan, MaBenhNhan, MaNVQL) values (0,0, @mabn, @manvql)
 		print N'Đã lập hồ sơ cho bệnh nhân này'
 	end
-	delete from CH_YEUCAU where MaCHYC = MaCHYC
+	delete from CH_YEUCAU where MaCHYC = @machyc;
 	return
 end
 
@@ -36,8 +36,8 @@ begin
 		print N'Mã cuộc hẹn yêu cầu không tồn tại'
 		return
 	end
-
 	delete from CH_YEUCAU where MaCHYC = @machyc
+	print N'Xóa cuộc hẹn yêu cầu thành công !!'
 end
 go
 
