@@ -90,6 +90,12 @@
     <Compile Include="NHASI.Designer.cs">
       <DependentUpon>NHASI.cs</DependentUpon>
     </Compile>
+    <Compile Include="NS_THEMTHUOC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NS_THEMTHUOC.Designer.cs">
+      <DependentUpon>NS_THEMTHUOC.cs</DependentUpon>
+    </Compile>
     <Compile Include="QUANTRIVIEN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     <Compile Include="ThemThuoc.Designer.cs">
       <DependentUpon>ThemThuoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="TOATHUOC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TOATHUOC.Designer.cs">
+      <DependentUpon>TOATHUOC.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CapNhatSLTK.resx">
       <DependentUpon>CapNhatSLTK.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NHASI.resx">
       <DependentUpon>NHASI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NS_THEMTHUOC.resx">
+      <DependentUpon>NS_THEMTHUOC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QUANTRIVIEN.resx">
       <DependentUpon>QUANTRIVIEN.cs</DependentUpon>
@@ -188,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThemThuoc.resx">
       <DependentUpon>ThemThuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TOATHUOC.resx">
+      <DependentUpon>TOATHUOC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -167,6 +167,7 @@
             this.Name = "ThemThuoc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThemThuoc";
+            this.Load += new System.EventHandler(this.ThemThuoc_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

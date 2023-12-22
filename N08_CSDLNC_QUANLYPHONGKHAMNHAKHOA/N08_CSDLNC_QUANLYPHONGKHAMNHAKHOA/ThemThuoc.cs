@@ -77,5 +77,10 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 MessageBox.Show(error.Message); // Hiển thị thông điệp trong MessageBox
             }
         }
+
+        private void ThemThuoc_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
