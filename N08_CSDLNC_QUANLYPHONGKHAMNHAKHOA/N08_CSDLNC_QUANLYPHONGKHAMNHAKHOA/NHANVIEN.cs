@@ -51,13 +51,17 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                             while (reader.Read())
                             {
                                 string hoTenNV = reader["HoTenNV"].ToString();
-                                DateTime ngSinhNV = Convert.ToDateTime(reader["NgSinhNV"]);
+                                //DateTime ngSinhNV = Convert.ToDateTime(reader["NgSinhNV"]);
+                                string ngSinhNV = reader["NgSinhNV"].ToString();
+
                                 string diaChiNV = reader["DiaChiNV"].ToString();
                                 string dienThoaiNV = reader["DienThoaiNV"].ToString();
 
                                 // Sử dụng dữ liệu như mong muốn (ví dụ: hiển thị lên các controls trên form)
+                                int viTriKhoangTrang = ngSinhNV.IndexOf(' ');
+
                                 textBox3.Text = hoTenNV;
-                                textBox4.Text = ngSinhNV.ToShortDateString();
+                                textBox4.Text = ngSinhNV.Substring(0, viTriKhoangTrang);
                                 textBox5.Text = diaChiNV;
                                 textBox6.Text = dienThoaiNV;
                             }
