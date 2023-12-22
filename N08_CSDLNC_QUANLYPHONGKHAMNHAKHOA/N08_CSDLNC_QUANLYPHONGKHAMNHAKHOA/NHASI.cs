@@ -20,15 +20,15 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         ConnectionTester conn = new ConnectionTester();
         private int numConn = -1;
         private bool isNumConnInitialized = false;
-<<<<<<< Updated upstream
-        private string username;
+
+        //private string username;
         private string password;
 
-=======
+
 
         public string username { get; set; }
         public string MaNhaSi { get; set; }
->>>>>>> Stashed changes
+
 
         public NHASI()
         {
@@ -39,9 +39,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             InitializeComponent();
             this.username = username;
-<<<<<<< Updated upstream
             this.password = password;
-=======
             this.MaNhaSi = GetMaNhaSiFromDatabase(username);
         }
 
@@ -75,7 +73,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 }
             }
             return maNhaSi;
->>>>>>> Stashed changes
         }
 
         private int GetNumConn()
@@ -128,21 +125,21 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             int nConn = GetNumConn();
             DataSet data = new DataSet();
             string query = @"SELECT
-	HSBN.MaBenhAn AS [Mã Bệnh Án],
-	BN.HoTenBN AS [Tên Bệnh Nhân],
-	DATEDIFF(YEAR, BN.NgSinhBN, GETDATE()) AS [Tuổi],
-	BN.GioiTinhBN AS [Giới tính],
-    HSBN.TongTienDieuTri AS [Tổng Tiền Điều Trị],
-    HSBN.TongTienThanhToan AS [Tổng Tiền Thanh Toán],
-    HSBN.SucKhoeRang AS [Sức Khỏe Răng],
-    HSBN.TinhTrangDiUng AS [Tình Trạng Dị Ứng],
-    HSBN.GiayGioiThieu AS [Giấy Giới Thiệu]
-FROM
-    HOSOBENHNHAN HSBN
-INNER JOIN KEHOACHDIEUTRI KHDT ON HSBN.MaBenhAn = KHDT.MaBenhAn
-INNER JOIN BENHNHAN BN ON BN.MaBenhNhan = HSBN.MaBenhNhan
-WHERE
-    KHDT.MaNhaSi = @MaNhaSi";
+	                HSBN.MaBenhAn AS [Mã Bệnh Án],
+	                BN.HoTenBN AS [Tên Bệnh Nhân],
+	                DATEDIFF(YEAR, BN.NgSinhBN, GETDATE()) AS [Tuổi],
+	                BN.GioiTinhBN AS [Giới tính],
+                    HSBN.TongTienDieuTri AS [Tổng Tiền Điều Trị],
+                    HSBN.TongTienThanhToan AS [Tổng Tiền Thanh Toán],
+                    HSBN.SucKhoeRang AS [Sức Khỏe Răng],
+                    HSBN.TinhTrangDiUng AS [Tình Trạng Dị Ứng],
+                    HSBN.GiayGioiThieu AS [Giấy Giới Thiệu]
+                FROM
+                    HOSOBENHNHAN HSBN
+                INNER JOIN KEHOACHDIEUTRI KHDT ON HSBN.MaBenhAn = KHDT.MaBenhAn
+                INNER JOIN BENHNHAN BN ON BN.MaBenhNhan = HSBN.MaBenhNhan
+                WHERE
+                    KHDT.MaNhaSi = @MaNhaSi";
 
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {

@@ -74,7 +74,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         }
 
 
-
         private int testConnect()
         {
             // Kiểm tra các kết nối và lấy vị trí của connectionString mà kết nối thành công
@@ -151,6 +150,108 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             this.Hide();
             hOME.ShowDialog();
             this.Close();
+        }
+
+
+
+        /// KIÊN: THANH TOÁN
+
+        private void txt_SDT_BN_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = sender as System.Windows.Forms.TextBox;
+            if (textBox != null)
+            {
+                var text = textBox.Text;
+                bool isPhoneNumber = System.Text.RegularExpressions.Regex.IsMatch(text, @"^\d+$");
+                if (!isPhoneNumber)
+                {
+                    timKiem_KHDT.Enabled = false;
+                }
+                else
+                {
+                    timKiem_KHDT.Enabled = true;
+                }
+            }
+        }
+
+
+        DataSet LoadData_KHDT_BENHNHAN(string phone)
+        {
+            int numConn = testConnect();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = $"select khdt.mabenhan, khdt.marangkham, tt.*" +
+                $"from thanhtoan tt, kehoachdieutri khdt, hosobenhnhan hsbn, benhnhan bn " +
+                $"where bn.dienthoaibn = '{phone}' and bn.mabenhnhan = hsbn.mabenhnhan and hsbn.mabenhan = khdt.mabenhan and khdt.mathanhtoan = tt.mathanhtoan";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[numConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            //sql dataAdapter
+            return data;
+        }
+
+        private string phoneNumber;
+        private void timKiem_KHDT_Click(object sender, EventArgs e)
+        {
+            phoneNumber = txt_SDT_BN.Text;
+            ThanhToan_KHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ThanhToan_KHDT.DataSource = LoadData_KHDT_BENHNHAN(phoneNumber).Tables[0];
+        }
+        private int mathanhtoan;
+        private void ThanhToan_KHDT_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0 && e.RowIndex < this.ThanhToan_KHDT.Rows.Count) // Make sure user select at least 1 row 
+            {
+                DataGridViewRow row = this.ThanhToan_KHDT.Rows[e.RowIndex];
+                if (row.Cells["NgayGiaoDich"].Value is DBNull)
+                {
+                    date_NgayGiaoDich.Value = DateTime.Today;
+                }
+                else
+                {
+                    date_NgayGiaoDich.Value = (DateTime)row.Cells["NgayGiaoDich"].Value;
+                }
+                mathanhtoan = (int)row.Cells["MaThanhToan"].Value;
+                txt_TienCanTT.Text = row.Cells["TienCanThanhToan"].Value.ToString(); // Replace "ColumnName" with the column name you want to access
+                txt_tienThoi.Text = row.Cells["TienThoi"].Value.ToString();
+            }
+        }
+
+        private void buton_XuatHD_Click(object sender, EventArgs e)
+        {
+
+            string date = date_NgayGiaoDich.Value.ToString("yyyy-MM-dd");
+            string tienDaTra = txt_TienDaTra.Text;
+            string tienThoi = txt_tienThoi.Text;
+            string loaiThanhToan = null;
+
+            if (radio_credit.Checked)
+            {
+                loaiThanhToan = "credit";
+            }
+            else if (radio_cas.Checked)
+            {
+                loaiThanhToan = "cash";
+            }
+            string query = $"update thanhtoan set ngaygiaodich = '{date}', tiendatra = '{tienDaTra}', tienthoi = '{tienThoi}', loaithanhtoan = '{loaiThanhToan}' where mathanhtoan = '{mathanhtoan}'";
+            int nConn = GetNumConn();
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            ThanhToan_KHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ThanhToan_KHDT.DataSource = LoadData_KHDT_BENHNHAN(phoneNumber).Tables[0];
         }
     }
 

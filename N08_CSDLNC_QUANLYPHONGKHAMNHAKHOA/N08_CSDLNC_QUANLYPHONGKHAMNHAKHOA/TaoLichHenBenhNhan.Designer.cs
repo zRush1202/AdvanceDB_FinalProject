@@ -86,9 +86,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(66, 182);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(173, 16);
+            this.label4.Size = new System.Drawing.Size(121, 16);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Danh Sách Nha Sĩ Phù Hợp";
+            this.label4.Text = "Danh Sách Nha Sĩ:";
             // 
             // dtgv_NSRanh
             // 

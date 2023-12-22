@@ -1,6 +1,8 @@
 ﻿use CSDLNC_QLPhongKham
 go
 
+
+-- NHA SĨ: cập nhật hồ sơ bẹnh nhân
 create or alter proc sp_capNhatHoSoBenhNhan @mabenhnhan int, @suckhoerang nvarchar(100), @tinhtrangdiung nvarchar(100)
 as
 begin
