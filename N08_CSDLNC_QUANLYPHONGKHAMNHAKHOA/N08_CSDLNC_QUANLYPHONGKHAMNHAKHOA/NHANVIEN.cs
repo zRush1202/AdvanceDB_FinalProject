@@ -398,42 +398,47 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             if (e.RowIndex >= 0 && e.RowIndex < this.ThanhToan_KHDT.Rows.Count) // Make sure user select at least 1 row 
             { 
                 DataGridViewRow row = this.ThanhToan_KHDT.Rows[e.RowIndex];
-                if (row.Cells["TienCanThanhToan"].Value.ToString() == "đã hoàn thành")
+                if (row.Cells["trangthaidieutri"].Value.ToString() == "đã hoàn thành")
                 {
                     checkTrangThai = false;
-                }
-                else checkTrangThai = true;
-                if (row.Cells["NgayGiaoDich"].Value is DBNull)
-                {
-                    date_NgayGiaoDich.Value = DateTime.Today;
+                    MessageBox.Show("Kế hoạch điều trị đã hoàn thành");
+
                 }
                 else
                 {
-                    date_NgayGiaoDich.Value = (DateTime)row.Cells["NgayGiaoDich"].Value;
+                    checkTrangThai = true;
+                    if (row.Cells["NgayGiaoDich"].Value is DBNull)
+                    {
+                        date_NgayGiaoDich.Value = DateTime.Today;
+                    }
+                    else
+                    {
+                        date_NgayGiaoDich.Value = (DateTime)row.Cells["NgayGiaoDich"].Value;
+                    }
+                    mathanhtoan = (int)row.Cells["MaThanhToan"].Value;
+                    radio_cas.Enabled = true;
+                    radio_credit.Enabled = true;
+                    if (row.Cells["LoaiThanhToan"].Value.ToString() == "")
+                    {
+                        radio_cas.Checked = false;
+                        radio_credit.Checked = false;
+                    }
+                    //else if (row.Cells["LoaiThanhToan"].Value.ToString() == "cash")
+                    //{
+                    //    radio_cas.Checked = true;
+                    //    radio_credit.Checked = false;
+                    //}
+                    //else if (row.Cells["LoaiThanhToan"].Value.ToString() == "credit")
+                    //{
+                    //    radio_cas.Checked = false;
+                    //    radio_credit.Checked = true;
+                    //}
+
+                    txt_TienCanTT.Text = row.Cells["TienCanThanhToan"].Value.ToString(); // Replace "ColumnName" with the column name you want to access
+                    txt_tienThoi.Text = row.Cells["TienThoi"].Value.ToString();
+                    txt_TienDaTra.ReadOnly = false;
+                    //button_XuatHD.Enabled = true;
                 }
-                mathanhtoan = (int)row.Cells["MaThanhToan"].Value;
-                radio_cas.Enabled = true;
-                radio_credit.Enabled = true;
-                if (row.Cells["LoaiThanhToan"].Value.ToString() == "")
-                {
-                    radio_cas.Checked = false;
-                    radio_credit.Checked = false;
-                }
-                //else if (row.Cells["LoaiThanhToan"].Value.ToString() == "cash")
-                //{
-                //    radio_cas.Checked = true;
-                //    radio_credit.Checked = false;
-                //}
-                //else if (row.Cells["LoaiThanhToan"].Value.ToString() == "credit")
-                //{
-                //    radio_cas.Checked = false;
-                //    radio_credit.Checked = true;
-                //}
-                
-                txt_TienCanTT.Text = row.Cells["TienCanThanhToan"].Value.ToString(); // Replace "ColumnName" with the column name you want to access
-                txt_tienThoi.Text = row.Cells["TienThoi"].Value.ToString();
-                txt_TienDaTra.ReadOnly = false;
-                //button_XuatHD.Enabled = true;
             }
             
             
