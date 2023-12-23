@@ -49,6 +49,15 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             this.MaNhaSi = GetMaNhaSiFromDatabase(username);
         }
 
+        private void Connection_InfoMessage(object sender, SqlInfoMessageEventArgs e)
+        {
+            // Xử lý thông điệp được in ra từ SQL Server (bằng PRINT)
+            foreach (SqlError error in e.Errors)
+            {
+                MessageBox.Show(error.Message); // Hiển thị thông điệp trong MessageBox
+            }
+        }
+
         private string GetMaNhaSiFromDatabase(string username)
         {
             string query = $"SELECT MaNhaSi FROM NHASI WHERE DienThoaiNS = {username}";
@@ -287,6 +296,61 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             TOATHUOC toa = new TOATHUOC(MaBenhAn);
             toa.ShowDialog();
+        }
+
+        private void btn_CapNhat_Click(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+
+            if (txt_TinhTrangDiUng.Text == "" && txt_SucKhoeRangMieng.Text == "")
+            {
+                MessageBox.Show("Không có thay đổi");
+                return;
+            }
+
+            string ttdu = txt_TinhTrangDiUng.Text;
+            string skrm = txt_SucKhoeRangMieng.Text;
+            string query = $"exec sp_CapNhatHoSoBenhNhan {MaBenhAn}, N'{skrm}', N'{ttdu}'";
+
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                try
+                {
+                    connection.InfoMessage += Connection_InfoMessage;
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+            dgv_HSBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_HSBN.Columns.Clear();
+            dgv_HSBN.DataSource = LoadData_HSBN().Tables[0];
+        }
+
+        private void btn_changePass_Click(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword(this.username, this.password);
+            changePassword.ShowDialog();
+        }
+
+        private void btn_ChinhSuaTT_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tab_LHCN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
