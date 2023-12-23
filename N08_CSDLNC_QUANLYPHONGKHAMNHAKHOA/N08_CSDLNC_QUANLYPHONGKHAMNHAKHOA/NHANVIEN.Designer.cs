@@ -75,6 +75,24 @@
             this.dtgv_DanhSachBenhNhan = new System.Windows.Forms.DataGridView();
             this.lb_DSBN = new System.Windows.Forms.Label();
             this.tab_KHDT = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lb9_KHDT = new System.Windows.Forms.Label();
+            this.tb8_KHDT = new System.Windows.Forms.TextBox();
+            this.lb8_KHDT = new System.Windows.Forms.Label();
+            this.tb7_KHDT = new System.Windows.Forms.TextBox();
+            this.lb7_KHDT = new System.Windows.Forms.Label();
+            this.tb6_KHDT = new System.Windows.Forms.TextBox();
+            this.tb3_KHDT = new System.Windows.Forms.TextBox();
+            this.tb5_KHDT = new System.Windows.Forms.TextBox();
+            this.tb4_KHDT = new System.Windows.Forms.TextBox();
+            this.tb1_KHDT = new System.Windows.Forms.TextBox();
+            this.tb2_KHDT = new System.Windows.Forms.TextBox();
+            this.lb6_KHDT = new System.Windows.Forms.Label();
+            this.lb3_KHDT = new System.Windows.Forms.Label();
+            this.lb5_KHDT = new System.Windows.Forms.Label();
+            this.lb4_KHDT = new System.Windows.Forms.Label();
+            this.lb1_KHDT = new System.Windows.Forms.Label();
+            this.lb2_KHDT = new System.Windows.Forms.Label();
             this.gb_TTCTGD = new System.Windows.Forms.GroupBox();
             this.dtgv_GIAIDOAN = new System.Windows.Forms.DataGridView();
             this.btn_TaoKHDT = new System.Windows.Forms.Button();
@@ -85,6 +103,16 @@
             this.dtgv_DSKHDT = new System.Windows.Forms.DataGridView();
             this.lb_TitleDSKHDT = new System.Windows.Forms.Label();
             this.tab_HSBN = new System.Windows.Forms.TabPage();
+            this.tb5_HSBN = new System.Windows.Forms.TextBox();
+            this.tb4_HSBN = new System.Windows.Forms.TextBox();
+            this.tb3_HSBN = new System.Windows.Forms.TextBox();
+            this.tb2_HSBN = new System.Windows.Forms.TextBox();
+            this.tb1_HSBN = new System.Windows.Forms.TextBox();
+            this.lb5_QLHSBN = new System.Windows.Forms.Label();
+            this.lb4_QLHSBN = new System.Windows.Forms.Label();
+            this.ln3_QLHSBN = new System.Windows.Forms.Label();
+            this.lb2_QLHSBN = new System.Windows.Forms.Label();
+            this.lb1_QLHSBN = new System.Windows.Forms.Label();
             this.btn_RefreshQLHSBN = new System.Windows.Forms.Button();
             this.btn_TimKiemQLHSBN = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -92,6 +120,18 @@
             this.dtgv_BenhNhan = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.tab_CHYC = new System.Windows.Forms.TabPage();
+            this.tb6_CHYC = new System.Windows.Forms.TextBox();
+            this.tb5_CHYC = new System.Windows.Forms.TextBox();
+            this.tb4_CHYC = new System.Windows.Forms.TextBox();
+            this.tb3_CHYC = new System.Windows.Forms.TextBox();
+            this.tb2_CHYC = new System.Windows.Forms.TextBox();
+            this.tb1_CHYC = new System.Windows.Forms.TextBox();
+            this.lb6_CHYC = new System.Windows.Forms.Label();
+            this.lb5_CHYC = new System.Windows.Forms.Label();
+            this.lb4_CHYC = new System.Windows.Forms.Label();
+            this.lb3_CHYC = new System.Windows.Forms.Label();
+            this.lb2_CHYC = new System.Windows.Forms.Label();
+            this.lb1_CHYC = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -326,7 +366,7 @@
             this.tab_HoSo.Controls.Add(this.pictureBox1);
             this.tab_HoSo.Location = new System.Drawing.Point(4, 22);
             this.tab_HoSo.Name = "tab_HoSo";
-            this.tab_HoSo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_HoSo.Padding = new System.Windows.Forms.Padding(2);
             this.tab_HoSo.Size = new System.Drawing.Size(1068, 653);
             this.tab_HoSo.TabIndex = 0;
             this.tab_HoSo.Text = "Hồ Sơ";
@@ -335,7 +375,7 @@
             // btn_ChinhSuaTT
             // 
             this.btn_ChinhSuaTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ChinhSuaTT.Location = new System.Drawing.Point(608, 419);
+            this.btn_ChinhSuaTT.Location = new System.Drawing.Point(646, 417);
             this.btn_ChinhSuaTT.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ChinhSuaTT.Name = "btn_ChinhSuaTT";
             this.btn_ChinhSuaTT.Size = new System.Drawing.Size(214, 42);
@@ -399,36 +439,36 @@
             // 
             this.textBox6.Enabled = false;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(684, 348);
+            this.textBox6.Location = new System.Drawing.Point(689, 348);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(168, 26);
+            this.textBox6.Size = new System.Drawing.Size(225, 26);
             this.textBox6.TabIndex = 10;
             // 
             // textBox5
             // 
             this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(684, 291);
+            this.textBox5.Location = new System.Drawing.Point(689, 291);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(168, 26);
+            this.textBox5.Size = new System.Drawing.Size(225, 26);
             this.textBox5.TabIndex = 9;
             // 
             // textBox4
             // 
             this.textBox4.Enabled = false;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(684, 233);
+            this.textBox4.Location = new System.Drawing.Point(689, 233);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(168, 26);
+            this.textBox4.Size = new System.Drawing.Size(225, 26);
             this.textBox4.TabIndex = 8;
             // 
             // textBox3
             // 
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(684, 178);
+            this.textBox3.Location = new System.Drawing.Point(689, 178);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(168, 26);
+            this.textBox3.Size = new System.Drawing.Size(225, 26);
             this.textBox3.TabIndex = 7;
             // 
             // label15
@@ -482,67 +522,67 @@
             // 
             this.tb6_DSBN.Enabled = false;
             this.tb6_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb6_DSBN.Location = new System.Drawing.Point(669, 203);
+            this.tb6_DSBN.Location = new System.Drawing.Point(638, 207);
             this.tb6_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb6_DSBN.Name = "tb6_DSBN";
-            this.tb6_DSBN.Size = new System.Drawing.Size(97, 22);
+            this.tb6_DSBN.Size = new System.Drawing.Size(166, 22);
             this.tb6_DSBN.TabIndex = 24;
             // 
             // tb5_DSBN
             // 
             this.tb5_DSBN.Enabled = false;
             this.tb5_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb5_DSBN.Location = new System.Drawing.Point(669, 160);
+            this.tb5_DSBN.Location = new System.Drawing.Point(638, 164);
             this.tb5_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb5_DSBN.Name = "tb5_DSBN";
-            this.tb5_DSBN.Size = new System.Drawing.Size(97, 22);
+            this.tb5_DSBN.Size = new System.Drawing.Size(166, 22);
             this.tb5_DSBN.TabIndex = 23;
             // 
             // tb4_DSBN
             // 
             this.tb4_DSBN.Enabled = false;
             this.tb4_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb4_DSBN.Location = new System.Drawing.Point(669, 116);
+            this.tb4_DSBN.Location = new System.Drawing.Point(638, 120);
             this.tb4_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb4_DSBN.Name = "tb4_DSBN";
-            this.tb4_DSBN.Size = new System.Drawing.Size(97, 22);
+            this.tb4_DSBN.Size = new System.Drawing.Size(166, 22);
             this.tb4_DSBN.TabIndex = 22;
             // 
             // tb3_DSBN
             // 
             this.tb3_DSBN.Enabled = false;
             this.tb3_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb3_DSBN.Location = new System.Drawing.Point(388, 202);
+            this.tb3_DSBN.Location = new System.Drawing.Point(357, 206);
             this.tb3_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb3_DSBN.Name = "tb3_DSBN";
-            this.tb3_DSBN.Size = new System.Drawing.Size(97, 22);
+            this.tb3_DSBN.Size = new System.Drawing.Size(166, 22);
             this.tb3_DSBN.TabIndex = 21;
             // 
             // tb2_DSBN
             // 
             this.tb2_DSBN.Enabled = false;
             this.tb2_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb2_DSBN.Location = new System.Drawing.Point(388, 159);
+            this.tb2_DSBN.Location = new System.Drawing.Point(357, 163);
             this.tb2_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb2_DSBN.Name = "tb2_DSBN";
-            this.tb2_DSBN.Size = new System.Drawing.Size(97, 22);
+            this.tb2_DSBN.Size = new System.Drawing.Size(166, 22);
             this.tb2_DSBN.TabIndex = 20;
             // 
             // tb1_DSBN
             // 
             this.tb1_DSBN.Enabled = false;
             this.tb1_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb1_DSBN.Location = new System.Drawing.Point(388, 116);
+            this.tb1_DSBN.Location = new System.Drawing.Point(357, 120);
             this.tb1_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb1_DSBN.Name = "tb1_DSBN";
-            this.tb1_DSBN.Size = new System.Drawing.Size(97, 22);
+            this.tb1_DSBN.Size = new System.Drawing.Size(166, 22);
             this.tb1_DSBN.TabIndex = 19;
             // 
             // lb_mailDSBN
             // 
             this.lb_mailDSBN.AutoSize = true;
             this.lb_mailDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_mailDSBN.Location = new System.Drawing.Point(588, 202);
+            this.lb_mailDSBN.Location = new System.Drawing.Point(557, 206);
             this.lb_mailDSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_mailDSBN.Name = "lb_mailDSBN";
             this.lb_mailDSBN.Size = new System.Drawing.Size(49, 18);
@@ -553,7 +593,7 @@
             // 
             this.lb_GioiTinhDSBN.AutoSize = true;
             this.lb_GioiTinhDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_GioiTinhDSBN.Location = new System.Drawing.Point(588, 160);
+            this.lb_GioiTinhDSBN.Location = new System.Drawing.Point(557, 164);
             this.lb_GioiTinhDSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_GioiTinhDSBN.Name = "lb_GioiTinhDSBN";
             this.lb_GioiTinhDSBN.Size = new System.Drawing.Size(71, 18);
@@ -564,7 +604,7 @@
             // 
             this.lb_DienThoaiDSBN.AutoSize = true;
             this.lb_DienThoaiDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DienThoaiDSBN.Location = new System.Drawing.Point(588, 117);
+            this.lb_DienThoaiDSBN.Location = new System.Drawing.Point(557, 121);
             this.lb_DienThoaiDSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_DienThoaiDSBN.Name = "lb_DienThoaiDSBN";
             this.lb_DienThoaiDSBN.Size = new System.Drawing.Size(78, 18);
@@ -575,7 +615,7 @@
             // 
             this.lb_DiaChiDSBN.AutoSize = true;
             this.lb_DiaChiDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DiaChiDSBN.Location = new System.Drawing.Point(302, 201);
+            this.lb_DiaChiDSBN.Location = new System.Drawing.Point(271, 205);
             this.lb_DiaChiDSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_DiaChiDSBN.Name = "lb_DiaChiDSBN";
             this.lb_DiaChiDSBN.Size = new System.Drawing.Size(60, 18);
@@ -586,7 +626,7 @@
             // 
             this.lb_NamSinhDSBN.AutoSize = true;
             this.lb_NamSinhDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NamSinhDSBN.Location = new System.Drawing.Point(300, 159);
+            this.lb_NamSinhDSBN.Location = new System.Drawing.Point(269, 163);
             this.lb_NamSinhDSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_NamSinhDSBN.Name = "lb_NamSinhDSBN";
             this.lb_NamSinhDSBN.Size = new System.Drawing.Size(77, 18);
@@ -597,7 +637,7 @@
             // 
             this.lb_tenDSBN.AutoSize = true;
             this.lb_tenDSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_tenDSBN.Location = new System.Drawing.Point(302, 116);
+            this.lb_tenDSBN.Location = new System.Drawing.Point(271, 120);
             this.lb_tenDSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_tenDSBN.Name = "lb_tenDSBN";
             this.lb_tenDSBN.Size = new System.Drawing.Size(56, 18);
@@ -607,7 +647,7 @@
             // btn_Refresh_DSBN
             // 
             this.btn_Refresh_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Refresh_DSBN.Location = new System.Drawing.Point(755, 290);
+            this.btn_Refresh_DSBN.Location = new System.Drawing.Point(825, 300);
             this.btn_Refresh_DSBN.Name = "btn_Refresh_DSBN";
             this.btn_Refresh_DSBN.Size = new System.Drawing.Size(75, 23);
             this.btn_Refresh_DSBN.TabIndex = 12;
@@ -618,7 +658,7 @@
             // btn_TimKiem_DSBN
             // 
             this.btn_TimKiem_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TimKiem_DSBN.Location = new System.Drawing.Point(448, 290);
+            this.btn_TimKiem_DSBN.Location = new System.Drawing.Point(414, 301);
             this.btn_TimKiem_DSBN.Name = "btn_TimKiem_DSBN";
             this.btn_TimKiem_DSBN.Size = new System.Drawing.Size(75, 23);
             this.btn_TimKiem_DSBN.TabIndex = 11;
@@ -630,7 +670,7 @@
             // 
             this.lb_QLBN.AutoSize = true;
             this.lb_QLBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_QLBN.Location = new System.Drawing.Point(239, 271);
+            this.lb_QLBN.Location = new System.Drawing.Point(205, 282);
             this.lb_QLBN.Name = "lb_QLBN";
             this.lb_QLBN.Size = new System.Drawing.Size(203, 18);
             this.lb_QLBN.TabIndex = 10;
@@ -638,7 +678,7 @@
             // 
             // tb_SDT_QLBN
             // 
-            this.tb_SDT_QLBN.Location = new System.Drawing.Point(242, 292);
+            this.tb_SDT_QLBN.Location = new System.Drawing.Point(208, 303);
             this.tb_SDT_QLBN.Name = "tb_SDT_QLBN";
             this.tb_SDT_QLBN.Size = new System.Drawing.Size(196, 20);
             this.tb_SDT_QLBN.TabIndex = 9;
@@ -650,11 +690,11 @@
             this.dtgv_DanhSachBenhNhan.AllowUserToDeleteRows = false;
             this.dtgv_DanhSachBenhNhan.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_DanhSachBenhNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_DanhSachBenhNhan.Location = new System.Drawing.Point(244, 319);
+            this.dtgv_DanhSachBenhNhan.Location = new System.Drawing.Point(208, 330);
             this.dtgv_DanhSachBenhNhan.Name = "dtgv_DanhSachBenhNhan";
             this.dtgv_DanhSachBenhNhan.ReadOnly = true;
             this.dtgv_DanhSachBenhNhan.RowHeadersWidth = 51;
-            this.dtgv_DanhSachBenhNhan.Size = new System.Drawing.Size(586, 275);
+            this.dtgv_DanhSachBenhNhan.Size = new System.Drawing.Size(692, 275);
             this.dtgv_DanhSachBenhNhan.TabIndex = 8;
             this.dtgv_DanhSachBenhNhan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DanhSachBenhNhan_CellClick);
             // 
@@ -671,6 +711,24 @@
             // 
             // tab_KHDT
             // 
+            this.tab_KHDT.Controls.Add(this.textBox1);
+            this.tab_KHDT.Controls.Add(this.lb9_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb8_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb8_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb7_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb7_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb6_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb3_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb5_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb4_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb1_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb2_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb6_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb3_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb5_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb4_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb1_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb2_KHDT);
             this.tab_KHDT.Controls.Add(this.gb_TTCTGD);
             this.tab_KHDT.Controls.Add(this.btn_TaoKHDT);
             this.tab_KHDT.Controls.Add(this.btn_RefreshDSKHDT);
@@ -681,20 +739,218 @@
             this.tab_KHDT.Controls.Add(this.lb_TitleDSKHDT);
             this.tab_KHDT.Location = new System.Drawing.Point(4, 22);
             this.tab_KHDT.Name = "tab_KHDT";
-            this.tab_KHDT.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_KHDT.Padding = new System.Windows.Forms.Padding(2);
             this.tab_KHDT.Size = new System.Drawing.Size(1068, 653);
             this.tab_KHDT.TabIndex = 1;
             this.tab_KHDT.Text = "Kế hoạch điều trị";
             this.tab_KHDT.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(809, 364);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 54;
+            this.textBox1.Text = "Viêm Nướu";
+            // 
+            // lb9_KHDT
+            // 
+            this.lb9_KHDT.AutoSize = true;
+            this.lb9_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb9_KHDT.Location = new System.Drawing.Point(718, 363);
+            this.lb9_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb9_KHDT.Name = "lb9_KHDT";
+            this.lb9_KHDT.Size = new System.Drawing.Size(86, 18);
+            this.lb9_KHDT.TabIndex = 53;
+            this.lb9_KHDT.Text = "Các điều trị:";
+            // 
+            // tb8_KHDT
+            // 
+            this.tb8_KHDT.Enabled = false;
+            this.tb8_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb8_KHDT.Location = new System.Drawing.Point(808, 317);
+            this.tb8_KHDT.Margin = new System.Windows.Forms.Padding(2);
+            this.tb8_KHDT.Name = "tb8_KHDT";
+            this.tb8_KHDT.Size = new System.Drawing.Size(53, 22);
+            this.tb8_KHDT.TabIndex = 52;
+            this.tb8_KHDT.Text = "2";
+            // 
+            // lb8_KHDT
+            // 
+            this.lb8_KHDT.AutoSize = true;
+            this.lb8_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb8_KHDT.Location = new System.Drawing.Point(718, 318);
+            this.lb8_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb8_KHDT.Name = "lb8_KHDT";
+            this.lb8_KHDT.Size = new System.Drawing.Size(75, 18);
+            this.lb8_KHDT.TabIndex = 51;
+            this.lb8_KHDT.Text = "Giai đoạn:";
+            // 
+            // tb7_KHDT
+            // 
+            this.tb7_KHDT.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.tb7_KHDT.Enabled = false;
+            this.tb7_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb7_KHDT.Location = new System.Drawing.Point(494, 203);
+            this.tb7_KHDT.Margin = new System.Windows.Forms.Padding(2);
+            this.tb7_KHDT.Name = "tb7_KHDT";
+            this.tb7_KHDT.Size = new System.Drawing.Size(166, 22);
+            this.tb7_KHDT.TabIndex = 50;
+            this.tb7_KHDT.Text = "kế hoạch";
+            // 
+            // lb7_KHDT
+            // 
+            this.lb7_KHDT.AutoSize = true;
+            this.lb7_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb7_KHDT.Location = new System.Drawing.Point(366, 203);
+            this.lb7_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb7_KHDT.Name = "lb7_KHDT";
+            this.lb7_KHDT.Size = new System.Drawing.Size(124, 18);
+            this.lb7_KHDT.TabIndex = 49;
+            this.lb7_KHDT.Text = "Trạng thái điều trị:";
+            // 
+            // tb6_KHDT
+            // 
+            this.tb6_KHDT.Enabled = false;
+            this.tb6_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb6_KHDT.Location = new System.Drawing.Point(494, 163);
+            this.tb6_KHDT.Margin = new System.Windows.Forms.Padding(2);
+            this.tb6_KHDT.Name = "tb6_KHDT";
+            this.tb6_KHDT.Size = new System.Drawing.Size(166, 22);
+            this.tb6_KHDT.TabIndex = 48;
+            this.tb6_KHDT.Text = "Mặt trong (Lingual - L)";
+            // 
+            // tb3_KHDT
+            // 
+            this.tb3_KHDT.Enabled = false;
+            this.tb3_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb3_KHDT.Location = new System.Drawing.Point(169, 202);
+            this.tb3_KHDT.Margin = new System.Windows.Forms.Padding(2);
+            this.tb3_KHDT.Name = "tb3_KHDT";
+            this.tb3_KHDT.Size = new System.Drawing.Size(166, 22);
+            this.tb3_KHDT.TabIndex = 47;
+            this.tb3_KHDT.Text = "14/02/2024";
+            // 
+            // tb5_KHDT
+            // 
+            this.tb5_KHDT.Enabled = false;
+            this.tb5_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb5_KHDT.Location = new System.Drawing.Point(494, 125);
+            this.tb5_KHDT.Margin = new System.Windows.Forms.Padding(2);
+            this.tb5_KHDT.Name = "tb5_KHDT";
+            this.tb5_KHDT.Size = new System.Drawing.Size(166, 22);
+            this.tb5_KHDT.TabIndex = 46;
+            this.tb5_KHDT.Text = "14";
+            // 
+            // tb4_KHDT
+            // 
+            this.tb4_KHDT.Enabled = false;
+            this.tb4_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb4_KHDT.Location = new System.Drawing.Point(169, 243);
+            this.tb4_KHDT.Margin = new System.Windows.Forms.Padding(2);
+            this.tb4_KHDT.Name = "tb4_KHDT";
+            this.tb4_KHDT.Size = new System.Drawing.Size(166, 22);
+            this.tb4_KHDT.TabIndex = 45;
+            this.tb4_KHDT.Text = "Jason Reacher";
+            // 
+            // tb1_KHDT
+            // 
+            this.tb1_KHDT.Enabled = false;
+            this.tb1_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb1_KHDT.Location = new System.Drawing.Point(169, 125);
+            this.tb1_KHDT.Margin = new System.Windows.Forms.Padding(2);
+            this.tb1_KHDT.Name = "tb1_KHDT";
+            this.tb1_KHDT.Size = new System.Drawing.Size(166, 22);
+            this.tb1_KHDT.TabIndex = 44;
+            this.tb1_KHDT.Text = "23";
+            // 
+            // tb2_KHDT
+            // 
+            this.tb2_KHDT.Enabled = false;
+            this.tb2_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb2_KHDT.Location = new System.Drawing.Point(169, 163);
+            this.tb2_KHDT.Margin = new System.Windows.Forms.Padding(2);
+            this.tb2_KHDT.Name = "tb2_KHDT";
+            this.tb2_KHDT.Size = new System.Drawing.Size(166, 22);
+            this.tb2_KHDT.TabIndex = 43;
+            this.tb2_KHDT.Text = "Jack Phillips";
+            // 
+            // lb6_KHDT
+            // 
+            this.lb6_KHDT.AutoSize = true;
+            this.lb6_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb6_KHDT.Location = new System.Drawing.Point(366, 164);
+            this.lb6_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb6_KHDT.Name = "lb6_KHDT";
+            this.lb6_KHDT.Size = new System.Drawing.Size(92, 18);
+            this.lb6_KHDT.TabIndex = 42;
+            this.lb6_KHDT.Text = "Bề mặt răng:";
+            // 
+            // lb3_KHDT
+            // 
+            this.lb3_KHDT.AutoSize = true;
+            this.lb3_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb3_KHDT.Location = new System.Drawing.Point(37, 203);
+            this.lb3_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb3_KHDT.Name = "lb3_KHDT";
+            this.lb3_KHDT.Size = new System.Drawing.Size(93, 18);
+            this.lb3_KHDT.TabIndex = 41;
+            this.lb3_KHDT.Text = "Ngày điều trị:";
+            // 
+            // lb5_KHDT
+            // 
+            this.lb5_KHDT.AutoSize = true;
+            this.lb5_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb5_KHDT.Location = new System.Drawing.Point(366, 129);
+            this.lb5_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb5_KHDT.Name = "lb5_KHDT";
+            this.lb5_KHDT.Size = new System.Drawing.Size(68, 18);
+            this.lb5_KHDT.TabIndex = 40;
+            this.lb5_KHDT.Text = "Răng số:";
+            // 
+            // lb4_KHDT
+            // 
+            this.lb4_KHDT.AutoSize = true;
+            this.lb4_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb4_KHDT.Location = new System.Drawing.Point(37, 244);
+            this.lb4_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb4_KHDT.Name = "lb4_KHDT";
+            this.lb4_KHDT.Size = new System.Drawing.Size(128, 18);
+            this.lb4_KHDT.TabIndex = 39;
+            this.lb4_KHDT.Text = "Nha Sĩ Phụ Trách:";
+            // 
+            // lb1_KHDT
+            // 
+            this.lb1_KHDT.AutoSize = true;
+            this.lb1_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1_KHDT.Location = new System.Drawing.Point(35, 129);
+            this.lb1_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb1_KHDT.Name = "lb1_KHDT";
+            this.lb1_KHDT.Size = new System.Drawing.Size(89, 18);
+            this.lb1_KHDT.TabIndex = 38;
+            this.lb1_KHDT.Text = "Mã bệnh án:";
+            // 
+            // lb2_KHDT
+            // 
+            this.lb2_KHDT.AutoSize = true;
+            this.lb2_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb2_KHDT.Location = new System.Drawing.Point(35, 164);
+            this.lb2_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb2_KHDT.Name = "lb2_KHDT";
+            this.lb2_KHDT.Size = new System.Drawing.Size(128, 18);
+            this.lb2_KHDT.TabIndex = 37;
+            this.lb2_KHDT.Text = "Họ tên bệnh nhân:";
+            // 
             // gb_TTCTGD
             // 
             this.gb_TTCTGD.Controls.Add(this.dtgv_GIAIDOAN);
-            this.gb_TTCTGD.Location = new System.Drawing.Point(644, 373);
+            this.gb_TTCTGD.Location = new System.Drawing.Point(678, 415);
             this.gb_TTCTGD.Margin = new System.Windows.Forms.Padding(2);
             this.gb_TTCTGD.Name = "gb_TTCTGD";
             this.gb_TTCTGD.Padding = new System.Windows.Forms.Padding(2);
-            this.gb_TTCTGD.Size = new System.Drawing.Size(214, 118);
+            this.gb_TTCTGD.Size = new System.Drawing.Size(357, 193);
             this.gb_TTCTGD.TabIndex = 12;
             this.gb_TTCTGD.TabStop = false;
             this.gb_TTCTGD.Text = "THÔNG TIN CÁC GIAI ĐOẠN";
@@ -705,22 +961,22 @@
             this.dtgv_GIAIDOAN.AllowUserToDeleteRows = false;
             this.dtgv_GIAIDOAN.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_GIAIDOAN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_GIAIDOAN.Location = new System.Drawing.Point(8, 11);
+            this.dtgv_GIAIDOAN.Location = new System.Drawing.Point(15, 17);
             this.dtgv_GIAIDOAN.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv_GIAIDOAN.Name = "dtgv_GIAIDOAN";
             this.dtgv_GIAIDOAN.ReadOnly = true;
             this.dtgv_GIAIDOAN.RowHeadersWidth = 51;
-            this.dtgv_GIAIDOAN.Size = new System.Drawing.Size(197, 99);
+            this.dtgv_GIAIDOAN.Size = new System.Drawing.Size(329, 167);
             this.dtgv_GIAIDOAN.TabIndex = 11;
             // 
             // btn_TaoKHDT
             // 
             this.btn_TaoKHDT.BackColor = System.Drawing.Color.Tomato;
             this.btn_TaoKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TaoKHDT.Location = new System.Drawing.Point(731, 62);
+            this.btn_TaoKHDT.Location = new System.Drawing.Point(765, 72);
             this.btn_TaoKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.btn_TaoKHDT.Name = "btn_TaoKHDT";
-            this.btn_TaoKHDT.Size = new System.Drawing.Size(181, 50);
+            this.btn_TaoKHDT.Size = new System.Drawing.Size(219, 61);
             this.btn_TaoKHDT.TabIndex = 10;
             this.btn_TaoKHDT.Text = "Tạo Kế Hoạch Điều Trị";
             this.btn_TaoKHDT.UseVisualStyleBackColor = false;
@@ -729,7 +985,7 @@
             // btn_RefreshDSKHDT
             // 
             this.btn_RefreshDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RefreshDSKHDT.Location = new System.Drawing.Point(444, 373);
+            this.btn_RefreshDSKHDT.Location = new System.Drawing.Point(588, 336);
             this.btn_RefreshDSKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.btn_RefreshDSKHDT.Name = "btn_RefreshDSKHDT";
             this.btn_RefreshDSKHDT.Size = new System.Drawing.Size(72, 24);
@@ -740,7 +996,7 @@
             // btn_TimKiemDSKHDT
             // 
             this.btn_TimKiemDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TimKiemDSKHDT.Location = new System.Drawing.Point(276, 363);
+            this.btn_TimKiemDSKHDT.Location = new System.Drawing.Point(238, 336);
             this.btn_TimKiemDSKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.btn_TimKiemDSKHDT.Name = "btn_TimKiemDSKHDT";
             this.btn_TimKiemDSKHDT.Size = new System.Drawing.Size(75, 24);
@@ -752,7 +1008,7 @@
             // 
             this.lb_SDT_DSKHDT.AutoSize = true;
             this.lb_SDT_DSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_SDT_DSKHDT.Location = new System.Drawing.Point(161, 345);
+            this.lb_SDT_DSKHDT.Location = new System.Drawing.Point(36, 315);
             this.lb_SDT_DSKHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_SDT_DSKHDT.Name = "lb_SDT_DSKHDT";
             this.lb_SDT_DSKHDT.Size = new System.Drawing.Size(203, 18);
@@ -761,10 +1017,10 @@
             // 
             // tb_SDT_DSKHDT
             // 
-            this.tb_SDT_DSKHDT.Location = new System.Drawing.Point(163, 363);
+            this.tb_SDT_DSKHDT.Location = new System.Drawing.Point(40, 336);
             this.tb_SDT_DSKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb_SDT_DSKHDT.Name = "tb_SDT_DSKHDT";
-            this.tb_SDT_DSKHDT.Size = new System.Drawing.Size(112, 20);
+            this.tb_SDT_DSKHDT.Size = new System.Drawing.Size(194, 20);
             this.tb_SDT_DSKHDT.TabIndex = 6;
             this.tb_SDT_DSKHDT.Tag = "PLace";
             // 
@@ -775,12 +1031,12 @@
             this.dtgv_DSKHDT.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_DSKHDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_DSKHDT.GridColor = System.Drawing.Color.White;
-            this.dtgv_DSKHDT.Location = new System.Drawing.Point(164, 402);
+            this.dtgv_DSKHDT.Location = new System.Drawing.Point(38, 364);
             this.dtgv_DSKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv_DSKHDT.Name = "dtgv_DSKHDT";
             this.dtgv_DSKHDT.ReadOnly = true;
             this.dtgv_DSKHDT.RowHeadersWidth = 51;
-            this.dtgv_DSKHDT.Size = new System.Drawing.Size(352, 206);
+            this.dtgv_DSKHDT.Size = new System.Drawing.Size(622, 244);
             this.dtgv_DSKHDT.TabIndex = 1;
             // 
             // lb_TitleDSKHDT
@@ -788,7 +1044,7 @@
             this.lb_TitleDSKHDT.AutoSize = true;
             this.lb_TitleDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TitleDSKHDT.ForeColor = System.Drawing.Color.Blue;
-            this.lb_TitleDSKHDT.Location = new System.Drawing.Point(175, 50);
+            this.lb_TitleDSKHDT.Location = new System.Drawing.Point(221, 40);
             this.lb_TitleDSKHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_TitleDSKHDT.Name = "lb_TitleDSKHDT";
             this.lb_TitleDSKHDT.Size = new System.Drawing.Size(294, 25);
@@ -797,6 +1053,16 @@
             // 
             // tab_HSBN
             // 
+            this.tab_HSBN.Controls.Add(this.tb5_HSBN);
+            this.tab_HSBN.Controls.Add(this.tb4_HSBN);
+            this.tab_HSBN.Controls.Add(this.tb3_HSBN);
+            this.tab_HSBN.Controls.Add(this.tb2_HSBN);
+            this.tab_HSBN.Controls.Add(this.tb1_HSBN);
+            this.tab_HSBN.Controls.Add(this.lb5_QLHSBN);
+            this.tab_HSBN.Controls.Add(this.lb4_QLHSBN);
+            this.tab_HSBN.Controls.Add(this.ln3_QLHSBN);
+            this.tab_HSBN.Controls.Add(this.lb2_QLHSBN);
+            this.tab_HSBN.Controls.Add(this.lb1_QLHSBN);
             this.tab_HSBN.Controls.Add(this.btn_RefreshQLHSBN);
             this.tab_HSBN.Controls.Add(this.btn_TimKiemQLHSBN);
             this.tab_HSBN.Controls.Add(this.label3);
@@ -805,16 +1071,121 @@
             this.tab_HSBN.Controls.Add(this.label2);
             this.tab_HSBN.Location = new System.Drawing.Point(4, 22);
             this.tab_HSBN.Name = "tab_HSBN";
-            this.tab_HSBN.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_HSBN.Padding = new System.Windows.Forms.Padding(2);
             this.tab_HSBN.Size = new System.Drawing.Size(1068, 653);
             this.tab_HSBN.TabIndex = 2;
             this.tab_HSBN.Text = "Hồ Sơ Bệnh Nhân";
             this.tab_HSBN.UseVisualStyleBackColor = true;
             // 
+            // tb5_HSBN
+            // 
+            this.tb5_HSBN.Enabled = false;
+            this.tb5_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb5_HSBN.Location = new System.Drawing.Point(716, 168);
+            this.tb5_HSBN.Margin = new System.Windows.Forms.Padding(2);
+            this.tb5_HSBN.Name = "tb5_HSBN";
+            this.tb5_HSBN.Size = new System.Drawing.Size(166, 22);
+            this.tb5_HSBN.TabIndex = 35;
+            // 
+            // tb4_HSBN
+            // 
+            this.tb4_HSBN.Enabled = false;
+            this.tb4_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb4_HSBN.Location = new System.Drawing.Point(716, 126);
+            this.tb4_HSBN.Margin = new System.Windows.Forms.Padding(2);
+            this.tb4_HSBN.Name = "tb4_HSBN";
+            this.tb4_HSBN.Size = new System.Drawing.Size(166, 22);
+            this.tb4_HSBN.TabIndex = 34;
+            // 
+            // tb3_HSBN
+            // 
+            this.tb3_HSBN.Enabled = false;
+            this.tb3_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb3_HSBN.Location = new System.Drawing.Point(366, 211);
+            this.tb3_HSBN.Margin = new System.Windows.Forms.Padding(2);
+            this.tb3_HSBN.Name = "tb3_HSBN";
+            this.tb3_HSBN.Size = new System.Drawing.Size(166, 22);
+            this.tb3_HSBN.TabIndex = 33;
+            // 
+            // tb2_HSBN
+            // 
+            this.tb2_HSBN.Enabled = false;
+            this.tb2_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb2_HSBN.Location = new System.Drawing.Point(366, 168);
+            this.tb2_HSBN.Margin = new System.Windows.Forms.Padding(2);
+            this.tb2_HSBN.Name = "tb2_HSBN";
+            this.tb2_HSBN.Size = new System.Drawing.Size(166, 22);
+            this.tb2_HSBN.TabIndex = 32;
+            // 
+            // tb1_HSBN
+            // 
+            this.tb1_HSBN.Enabled = false;
+            this.tb1_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb1_HSBN.Location = new System.Drawing.Point(366, 125);
+            this.tb1_HSBN.Margin = new System.Windows.Forms.Padding(2);
+            this.tb1_HSBN.Name = "tb1_HSBN";
+            this.tb1_HSBN.Size = new System.Drawing.Size(166, 22);
+            this.tb1_HSBN.TabIndex = 31;
+            // 
+            // lb5_QLHSBN
+            // 
+            this.lb5_QLHSBN.AutoSize = true;
+            this.lb5_QLHSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb5_QLHSBN.Location = new System.Drawing.Point(566, 169);
+            this.lb5_QLHSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb5_QLHSBN.Name = "lb5_QLHSBN";
+            this.lb5_QLHSBN.Size = new System.Drawing.Size(131, 18);
+            this.lb5_QLHSBN.TabIndex = 29;
+            this.lb5_QLHSBN.Text = "Tình Trạng Dị Ứng:";
+            // 
+            // lb4_QLHSBN
+            // 
+            this.lb4_QLHSBN.AutoSize = true;
+            this.lb4_QLHSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb4_QLHSBN.Location = new System.Drawing.Point(566, 126);
+            this.lb4_QLHSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb4_QLHSBN.Name = "lb4_QLHSBN";
+            this.lb4_QLHSBN.Size = new System.Drawing.Size(116, 18);
+            this.lb4_QLHSBN.TabIndex = 28;
+            this.lb4_QLHSBN.Text = "Sức Khỏe Răng:";
+            // 
+            // ln3_QLHSBN
+            // 
+            this.ln3_QLHSBN.AutoSize = true;
+            this.ln3_QLHSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ln3_QLHSBN.Location = new System.Drawing.Point(194, 213);
+            this.ln3_QLHSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ln3_QLHSBN.Name = "ln3_QLHSBN";
+            this.ln3_QLHSBN.Size = new System.Drawing.Size(161, 18);
+            this.ln3_QLHSBN.TabIndex = 27;
+            this.ln3_QLHSBN.Text = "Tổng Tiền Thanh Toán:";
+            // 
+            // lb2_QLHSBN
+            // 
+            this.lb2_QLHSBN.AutoSize = true;
+            this.lb2_QLHSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb2_QLHSBN.Location = new System.Drawing.Point(194, 169);
+            this.lb2_QLHSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb2_QLHSBN.Name = "lb2_QLHSBN";
+            this.lb2_QLHSBN.Size = new System.Drawing.Size(133, 18);
+            this.lb2_QLHSBN.TabIndex = 26;
+            this.lb2_QLHSBN.Text = "Tổng Tiền Điều Trị:";
+            // 
+            // lb1_QLHSBN
+            // 
+            this.lb1_QLHSBN.AutoSize = true;
+            this.lb1_QLHSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1_QLHSBN.Location = new System.Drawing.Point(194, 126);
+            this.lb1_QLHSBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb1_QLHSBN.Name = "lb1_QLHSBN";
+            this.lb1_QLHSBN.Size = new System.Drawing.Size(128, 18);
+            this.lb1_QLHSBN.TabIndex = 25;
+            this.lb1_QLHSBN.Text = "Họ tên bệnh nhân:";
+            // 
             // btn_RefreshQLHSBN
             // 
             this.btn_RefreshQLHSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RefreshQLHSBN.Location = new System.Drawing.Point(739, 206);
+            this.btn_RefreshQLHSBN.Location = new System.Drawing.Point(793, 299);
             this.btn_RefreshQLHSBN.Name = "btn_RefreshQLHSBN";
             this.btn_RefreshQLHSBN.Size = new System.Drawing.Size(89, 31);
             this.btn_RefreshQLHSBN.TabIndex = 6;
@@ -825,7 +1196,7 @@
             // btn_TimKiemQLHSBN
             // 
             this.btn_TimKiemQLHSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TimKiemQLHSBN.Location = new System.Drawing.Point(444, 214);
+            this.btn_TimKiemQLHSBN.Location = new System.Drawing.Point(386, 307);
             this.btn_TimKiemQLHSBN.Name = "btn_TimKiemQLHSBN";
             this.btn_TimKiemQLHSBN.Size = new System.Drawing.Size(75, 23);
             this.btn_TimKiemQLHSBN.TabIndex = 5;
@@ -837,7 +1208,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(239, 194);
+            this.label3.Location = new System.Drawing.Point(181, 287);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(203, 18);
             this.label3.TabIndex = 4;
@@ -845,7 +1216,7 @@
             // 
             // tb_SDT_QLHSBN
             // 
-            this.tb_SDT_QLHSBN.Location = new System.Drawing.Point(242, 217);
+            this.tb_SDT_QLHSBN.Location = new System.Drawing.Point(184, 310);
             this.tb_SDT_QLHSBN.Name = "tb_SDT_QLHSBN";
             this.tb_SDT_QLHSBN.Size = new System.Drawing.Size(196, 20);
             this.tb_SDT_QLHSBN.TabIndex = 3;
@@ -857,19 +1228,20 @@
             this.dtgv_BenhNhan.AllowUserToDeleteRows = false;
             this.dtgv_BenhNhan.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_BenhNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_BenhNhan.Location = new System.Drawing.Point(242, 244);
+            this.dtgv_BenhNhan.Location = new System.Drawing.Point(184, 337);
             this.dtgv_BenhNhan.Name = "dtgv_BenhNhan";
             this.dtgv_BenhNhan.ReadOnly = true;
             this.dtgv_BenhNhan.RowHeadersWidth = 51;
-            this.dtgv_BenhNhan.Size = new System.Drawing.Size(586, 275);
+            this.dtgv_BenhNhan.Size = new System.Drawing.Size(698, 275);
             this.dtgv_BenhNhan.TabIndex = 1;
+            this.dtgv_BenhNhan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_BenhNhan_CellClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(380, 58);
+            this.label2.Location = new System.Drawing.Point(385, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(312, 25);
             this.label2.TabIndex = 0;
@@ -877,26 +1249,165 @@
             // 
             // tab_CHYC
             // 
+            this.tab_CHYC.Controls.Add(this.tb6_CHYC);
+            this.tab_CHYC.Controls.Add(this.tb5_CHYC);
+            this.tab_CHYC.Controls.Add(this.tb4_CHYC);
+            this.tab_CHYC.Controls.Add(this.tb3_CHYC);
+            this.tab_CHYC.Controls.Add(this.tb2_CHYC);
+            this.tab_CHYC.Controls.Add(this.tb1_CHYC);
+            this.tab_CHYC.Controls.Add(this.lb6_CHYC);
+            this.tab_CHYC.Controls.Add(this.lb5_CHYC);
+            this.tab_CHYC.Controls.Add(this.lb4_CHYC);
+            this.tab_CHYC.Controls.Add(this.lb3_CHYC);
+            this.tab_CHYC.Controls.Add(this.lb2_CHYC);
+            this.tab_CHYC.Controls.Add(this.lb1_CHYC);
             this.tab_CHYC.Controls.Add(this.panel1);
             this.tab_CHYC.Controls.Add(this.button3);
             this.tab_CHYC.Controls.Add(this.dtgv_CHYC);
             this.tab_CHYC.Controls.Add(this.label4);
             this.tab_CHYC.Location = new System.Drawing.Point(4, 22);
             this.tab_CHYC.Name = "tab_CHYC";
-            this.tab_CHYC.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_CHYC.Padding = new System.Windows.Forms.Padding(2);
             this.tab_CHYC.Size = new System.Drawing.Size(1068, 653);
             this.tab_CHYC.TabIndex = 3;
             this.tab_CHYC.Text = "Cuộc Hẹn Yêu Cầu";
             this.tab_CHYC.UseVisualStyleBackColor = true;
             // 
+            // tb6_CHYC
+            // 
+            this.tb6_CHYC.Enabled = false;
+            this.tb6_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb6_CHYC.Location = new System.Drawing.Point(672, 221);
+            this.tb6_CHYC.Margin = new System.Windows.Forms.Padding(2);
+            this.tb6_CHYC.Name = "tb6_CHYC";
+            this.tb6_CHYC.Size = new System.Drawing.Size(166, 22);
+            this.tb6_CHYC.TabIndex = 36;
+            // 
+            // tb5_CHYC
+            // 
+            this.tb5_CHYC.Enabled = false;
+            this.tb5_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb5_CHYC.Location = new System.Drawing.Point(672, 179);
+            this.tb5_CHYC.Margin = new System.Windows.Forms.Padding(2);
+            this.tb5_CHYC.Name = "tb5_CHYC";
+            this.tb5_CHYC.Size = new System.Drawing.Size(166, 22);
+            this.tb5_CHYC.TabIndex = 35;
+            // 
+            // tb4_CHYC
+            // 
+            this.tb4_CHYC.Enabled = false;
+            this.tb4_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb4_CHYC.Location = new System.Drawing.Point(672, 135);
+            this.tb4_CHYC.Margin = new System.Windows.Forms.Padding(2);
+            this.tb4_CHYC.Name = "tb4_CHYC";
+            this.tb4_CHYC.Size = new System.Drawing.Size(166, 22);
+            this.tb4_CHYC.TabIndex = 34;
+            // 
+            // tb3_CHYC
+            // 
+            this.tb3_CHYC.Enabled = false;
+            this.tb3_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb3_CHYC.Location = new System.Drawing.Point(291, 221);
+            this.tb3_CHYC.Margin = new System.Windows.Forms.Padding(2);
+            this.tb3_CHYC.Name = "tb3_CHYC";
+            this.tb3_CHYC.Size = new System.Drawing.Size(166, 22);
+            this.tb3_CHYC.TabIndex = 33;
+            // 
+            // tb2_CHYC
+            // 
+            this.tb2_CHYC.Enabled = false;
+            this.tb2_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb2_CHYC.Location = new System.Drawing.Point(291, 178);
+            this.tb2_CHYC.Margin = new System.Windows.Forms.Padding(2);
+            this.tb2_CHYC.Name = "tb2_CHYC";
+            this.tb2_CHYC.Size = new System.Drawing.Size(166, 22);
+            this.tb2_CHYC.TabIndex = 32;
+            // 
+            // tb1_CHYC
+            // 
+            this.tb1_CHYC.Enabled = false;
+            this.tb1_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb1_CHYC.Location = new System.Drawing.Point(291, 135);
+            this.tb1_CHYC.Margin = new System.Windows.Forms.Padding(2);
+            this.tb1_CHYC.Name = "tb1_CHYC";
+            this.tb1_CHYC.Size = new System.Drawing.Size(166, 22);
+            this.tb1_CHYC.TabIndex = 31;
+            // 
+            // lb6_CHYC
+            // 
+            this.lb6_CHYC.AutoSize = true;
+            this.lb6_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb6_CHYC.Location = new System.Drawing.Point(491, 221);
+            this.lb6_CHYC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb6_CHYC.Name = "lb6_CHYC";
+            this.lb6_CHYC.Size = new System.Drawing.Size(120, 18);
+            this.lb6_CHYC.TabIndex = 30;
+            this.lb6_CHYC.Text = "Tình Trạng Bệnh:";
+            // 
+            // lb5_CHYC
+            // 
+            this.lb5_CHYC.AutoSize = true;
+            this.lb5_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb5_CHYC.Location = new System.Drawing.Point(491, 179);
+            this.lb5_CHYC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb5_CHYC.Name = "lb5_CHYC";
+            this.lb5_CHYC.Size = new System.Drawing.Size(177, 18);
+            this.lb5_CHYC.TabIndex = 29;
+            this.lb5_CHYC.Text = "Ngày điều trị mong muốn:";
+            // 
+            // lb4_CHYC
+            // 
+            this.lb4_CHYC.AutoSize = true;
+            this.lb4_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb4_CHYC.Location = new System.Drawing.Point(491, 136);
+            this.lb4_CHYC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb4_CHYC.Name = "lb4_CHYC";
+            this.lb4_CHYC.Size = new System.Drawing.Size(78, 18);
+            this.lb4_CHYC.TabIndex = 28;
+            this.lb4_CHYC.Text = "Điện thoại:";
+            // 
+            // lb3_CHYC
+            // 
+            this.lb3_CHYC.AutoSize = true;
+            this.lb3_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb3_CHYC.Location = new System.Drawing.Point(205, 220);
+            this.lb3_CHYC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb3_CHYC.Name = "lb3_CHYC";
+            this.lb3_CHYC.Size = new System.Drawing.Size(71, 18);
+            this.lb3_CHYC.TabIndex = 27;
+            this.lb3_CHYC.Text = "Giới Tính:";
+            // 
+            // lb2_CHYC
+            // 
+            this.lb2_CHYC.AutoSize = true;
+            this.lb2_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb2_CHYC.Location = new System.Drawing.Point(203, 178);
+            this.lb2_CHYC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb2_CHYC.Name = "lb2_CHYC";
+            this.lb2_CHYC.Size = new System.Drawing.Size(77, 18);
+            this.lb2_CHYC.TabIndex = 26;
+            this.lb2_CHYC.Text = "Năm Sinh:";
+            // 
+            // lb1_CHYC
+            // 
+            this.lb1_CHYC.AutoSize = true;
+            this.lb1_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1_CHYC.Location = new System.Drawing.Point(205, 135);
+            this.lb1_CHYC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb1_CHYC.Name = "lb1_CHYC";
+            this.lb1_CHYC.Size = new System.Drawing.Size(56, 18);
+            this.lb1_CHYC.TabIndex = 25;
+            this.lb1_CHYC.Text = "Họ tên:";
+            // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.btn_XoaYC);
             this.panel1.Controls.Add(this.btn_DuyetYC);
-            this.panel1.Location = new System.Drawing.Point(630, 208);
+            this.panel1.Location = new System.Drawing.Point(631, 314);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(363, 223);
             this.panel1.TabIndex = 6;
@@ -957,7 +1468,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(517, 179);
+            this.button3.Location = new System.Drawing.Point(518, 285);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -971,19 +1482,20 @@
             this.dtgv_CHYC.AllowUserToDeleteRows = false;
             this.dtgv_CHYC.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_CHYC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_CHYC.Location = new System.Drawing.Point(70, 208);
+            this.dtgv_CHYC.Location = new System.Drawing.Point(71, 314);
             this.dtgv_CHYC.Name = "dtgv_CHYC";
             this.dtgv_CHYC.ReadOnly = true;
             this.dtgv_CHYC.RowHeadersWidth = 51;
-            this.dtgv_CHYC.Size = new System.Drawing.Size(522, 313);
+            this.dtgv_CHYC.Size = new System.Drawing.Size(522, 223);
             this.dtgv_CHYC.TabIndex = 1;
+            this.dtgv_CHYC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CHYC_CellClick);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(360, 55);
+            this.label4.Location = new System.Drawing.Point(358, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(414, 25);
             this.label4.TabIndex = 0;
@@ -1011,7 +1523,7 @@
             this.tab_ThanhToan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tab_ThanhToan.Location = new System.Drawing.Point(4, 22);
             this.tab_ThanhToan.Name = "tab_ThanhToan";
-            this.tab_ThanhToan.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tab_ThanhToan.Padding = new System.Windows.Forms.Padding(3);
             this.tab_ThanhToan.Size = new System.Drawing.Size(1068, 653);
             this.tab_ThanhToan.TabIndex = 4;
             this.tab_ThanhToan.Text = "Thanh Toán";
@@ -1317,5 +1829,45 @@
         private System.Windows.Forms.TextBox tb1_DSBN;
         private System.Windows.Forms.DataGridView dtgv_GIAIDOAN;
         private System.Windows.Forms.GroupBox gb_TTCTGD;
+        private System.Windows.Forms.TextBox tb5_HSBN;
+        private System.Windows.Forms.TextBox tb4_HSBN;
+        private System.Windows.Forms.TextBox tb3_HSBN;
+        private System.Windows.Forms.TextBox tb2_HSBN;
+        private System.Windows.Forms.TextBox tb1_HSBN;
+        private System.Windows.Forms.Label lb5_QLHSBN;
+        private System.Windows.Forms.Label lb4_QLHSBN;
+        private System.Windows.Forms.Label ln3_QLHSBN;
+        private System.Windows.Forms.Label lb2_QLHSBN;
+        private System.Windows.Forms.Label lb1_QLHSBN;
+        private System.Windows.Forms.TextBox tb6_CHYC;
+        private System.Windows.Forms.TextBox tb5_CHYC;
+        private System.Windows.Forms.TextBox tb4_CHYC;
+        private System.Windows.Forms.TextBox tb3_CHYC;
+        private System.Windows.Forms.TextBox tb2_CHYC;
+        private System.Windows.Forms.TextBox tb1_CHYC;
+        private System.Windows.Forms.Label lb6_CHYC;
+        private System.Windows.Forms.Label lb5_CHYC;
+        private System.Windows.Forms.Label lb4_CHYC;
+        private System.Windows.Forms.Label lb3_CHYC;
+        private System.Windows.Forms.Label lb2_CHYC;
+        private System.Windows.Forms.Label lb1_CHYC;
+        private System.Windows.Forms.TextBox tb6_KHDT;
+        private System.Windows.Forms.TextBox tb3_KHDT;
+        private System.Windows.Forms.TextBox tb5_KHDT;
+        private System.Windows.Forms.TextBox tb4_KHDT;
+        private System.Windows.Forms.TextBox tb1_KHDT;
+        private System.Windows.Forms.TextBox tb2_KHDT;
+        private System.Windows.Forms.Label lb6_KHDT;
+        private System.Windows.Forms.Label lb3_KHDT;
+        private System.Windows.Forms.Label lb5_KHDT;
+        private System.Windows.Forms.Label lb4_KHDT;
+        private System.Windows.Forms.Label lb1_KHDT;
+        private System.Windows.Forms.Label lb2_KHDT;
+        private System.Windows.Forms.TextBox tb7_KHDT;
+        private System.Windows.Forms.Label lb7_KHDT;
+        private System.Windows.Forms.TextBox tb8_KHDT;
+        private System.Windows.Forms.Label lb8_KHDT;
+        private System.Windows.Forms.Label lb9_KHDT;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

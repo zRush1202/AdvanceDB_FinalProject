@@ -44,6 +44,3 @@ go
 
 -- NHÂN VIÊN: Tạo cuộc hẹn với nha sĩ cho bệnh nhân
 -- NHÂN VIÊN: Tạo kế hoạch điều trị cho bệnh nhân
-
-
-

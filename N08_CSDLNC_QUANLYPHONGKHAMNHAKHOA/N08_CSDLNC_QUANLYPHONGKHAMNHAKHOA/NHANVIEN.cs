@@ -135,11 +135,28 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             return data;
         }
 
+        private void dtgv_CHYC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtgv_CHYC.Rows.Count)
+            {
+
+                DataGridViewRow row = dtgv_CHYC.Rows[e.RowIndex];
+                int viTriKhoangTrang = row.Cells["NgSinhBN"].Value.ToString().IndexOf(' ');
+                tb1_CHYC.Text = row.Cells["HoTenBN"].Value?.ToString() ?? string.Empty;
+                tb2_CHYC.Text = row.Cells["NgSinhBN"].Value?.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
+                tb3_CHYC.Text = row.Cells["GioiTinhBN"].Value?.ToString() ?? string.Empty;
+                tb4_CHYC.Text = row.Cells["DienThoaiBN"].Value?.ToString() ?? string.Empty;
+                tb5_CHYC.Text = row.Cells["ThoiGianYC"].Value?.ToString() ?? string.Empty;
+                tb6_CHYC.Text = row.Cells["TinhTrangBenh"].Value?.ToString() ?? string.Empty;
+
+            }
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             dtgv_CHYC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgv_CHYC.DataSource = LoadData_CHYC_BENHNHAN().Tables[0];
-
+            tb1_CHYC.Text = tb2_CHYC.Text = tb3_CHYC.Text = tb4_CHYC.Text = tb5_CHYC.Text = tb6_CHYC.Text = ""; 
         }
 
         private void Connection_InfoMessage(object sender, SqlInfoMessageEventArgs e)
@@ -229,7 +246,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             DataSet data = new DataSet();
             if (type == "*")
             {
-                string query = "select top 100 * from HOSOBENHNHAN";
+                string query = "select top 200 bn.HoTenBN, hs.MaBenhAn, hs.TongTienDieuTri, hs.TongTienThanhToan, hs.SucKhoeRang, hs.TinhTrangDiUng, hs.MaNVQL from HOSOBENHNHAN hs, BENHNHAN bn WHERE bn.MaBenhNhan = hs.MaBenhNhan";
                 using (SqlConnection connection = new SqlConnection(conn.connectionStrings[numConn]))
                 {
                     connection.Open();
@@ -242,7 +259,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }   
             else
             {
-                string query = $"select bn.HoTenBN, hs.* from HOSOBENHNHAN hs, BENHNHAN bn WHERE bn.MaBenhNhan = hs.MaBenhNhan and bn.DienThoaiBN = N'{type}'";
+                string query = $"select bn.HoTenBN, hs.MaBenhAn, hs.TongTienDieuTri, hs.TongTienThanhToan, hs.SucKhoeRang, hs.TinhTrangDiUng, hs.MaNVQL from HOSOBENHNHAN hs, BENHNHAN bn WHERE bn.MaBenhNhan = hs.MaBenhNhan and bn.DienThoaiBN = N'{type}'";
                 using (SqlConnection connection = new SqlConnection(conn.connectionStrings[numConn]))
                 {
                     connection.Open();
@@ -308,9 +325,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
             if (e.RowIndex >= 0 && e.RowIndex < dtgv_DanhSachBenhNhan.Rows.Count)
             {
+
                 DataGridViewRow row = dtgv_DanhSachBenhNhan.Rows[e.RowIndex];
+                int viTriKhoangTrang = row.Cells["NgSinhBN"].Value.ToString().IndexOf(' ');
                 tb1_DSBN.Text = row.Cells["HoTenBN"].Value?.ToString() ?? string.Empty;
-                tb2_DSBN.Text = row.Cells["NgSinhBN"].Value?.ToString() ?? string.Empty;
+                tb2_DSBN.Text = row.Cells["NgSinhBN"].Value?.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
                 tb3_DSBN.Text = row.Cells["DiaChiBN"].Value?.ToString() ?? string.Empty;
                 tb4_DSBN.Text = row.Cells["DienThoaiBN"].Value?.ToString() ?? string.Empty;
                 tb5_DSBN.Text = row.Cells["GioiTinhBN"].Value?.ToString() ?? string.Empty;
@@ -324,7 +343,29 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             TaoKeHoachDieuTri taoKHDT = new TaoKeHoachDieuTri();
             taoKHDT.ShowDialog();
         }
+        private void dtgv_BenhNhan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtgv_BenhNhan.Rows.Count)
+            {
+                DataGridViewRow row = dtgv_BenhNhan.Rows[e.RowIndex];
+                tb1_HSBN.Text = row.Cells["HoTenBN"].Value?.ToString() ?? string.Empty;
+                tb2_HSBN.Text = row.Cells["TongTienDieuTri"].Value?.ToString() ?? string.Empty;
+                tb3_HSBN.Text = row.Cells["TongTienThanhToan"].Value?.ToString() ?? string.Empty;
+                tb4_HSBN.Text = row.Cells["SucKhoeRang"].Value?.ToString() ?? string.Empty;
+                tb5_HSBN.Text = row.Cells["TinhTrangDiUng"].Value?.ToString() ?? string.Empty;
 
+            }
+        }
+
+        private void NHANVIEN_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
 
@@ -557,15 +598,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             else button_XuatHD.Enabled = false;
         }
 
-        private void NHANVIEN_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 
 
