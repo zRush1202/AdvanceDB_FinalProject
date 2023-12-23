@@ -50,7 +50,7 @@ begin
 	declare @mach_benhnhan int
 	
 	-- Thêm cuộc hẹn
-	insert into CUOCHEN(NgayGioHen, LoaiCuocHen, MaNVQL, MaNhaSi) values (@ngaygiohen, 'bệnh nhân', @manvql, @manhasi)
+	insert into CUOCHEN(NgayGioHen, LoaiCuocHen, MaNVQL, MaNhaSi) values (@ngaygiohen, N'bệnh nhân', @manvql, @manhasi)
 	
 	select @mach_benhnhan = MaCuocHen
 	from CUOCHEN
@@ -113,7 +113,7 @@ begin
 	end
 	else
 	begin
-		select @mabenhnhan = MaBenhNhan from BENHNHAN where DienThoaiBN = @sdt_benhnhan)
+		select @mabenhnhan = MaBenhNhan from BENHNHAN where DienThoaiBN = @sdt_benhnhan
 	end
 
 	-- Lấy mã bệnh án
@@ -124,7 +124,7 @@ begin
 	end
 	else
 	begin
-		select @mabenhan = MaBenhAn from HOSOBENHNHAN where MaBenhNhan = @mabenhnhan)
+		select @mabenhan = MaBenhAn from HOSOBENHNHAN where MaBenhNhan = @mabenhnhan
 	end
 
 	insert into GIAIDOAN(MaBenhAn, MaRangKham, MaDieuTri, STTGiaiDoan) values
@@ -136,13 +136,12 @@ end
 go
 -- NHÂN VIÊN: Tạo kế hoạch điều trị cho bệnh nhân
 create or alter proc sp_TaoKeHoachDieuTri @sdt_benhnhan varchar(10), @ngaykham datetime, 
-	@tennhasikham nvarchar(50), @phongkham varchar(10), @sorang int, @bematrang nvarchar(100),
+	@manhasikham nvarchar(50), @phongkham varchar(10), @sorang int, @bematrang nvarchar(100),
 	@manvql int
 as
 begin 
 	declare @marangkham int --
 	declare @mabenhan int --
-	declare @manhasi int --
 	declare @mathanhtoan int --
 	declare @mabenhnhan int --
 	declare @maphongkham int -- 
@@ -161,7 +160,7 @@ begin
 	end
 	else
 	begin
-		select @mabenhnhan = MaBenhNhan from BENHNHAN where DienThoaiBN = @sdt_benhnhan)
+		select @mabenhnhan = MaBenhNhan from BENHNHAN where DienThoaiBN = @sdt_benhnhan
 	end
 
 	-- Lấy mã bệnh án
@@ -172,19 +171,9 @@ begin
 	end
 	else
 	begin
-		select @mabenhan = MaBenhAn from HOSOBENHNHAN where MaBenhNhan = @mabenhnhan)
+		select @mabenhan = MaBenhAn from HOSOBENHNHAN where MaBenhNhan = @mabenhnhan
 	end
 
-	-- Lấy mã nha sĩ
-	if not exists(select * from NHASI where HoTenNS = @tennhasikham)
-	begin
-		print N'Nha sĩ khám này không tồn tại'
-		return
-	end
-	else
-	begin
-		select @manhasi = MaNhaSi from NHASI where HoTenNS = @tennhasikham
-	end
 
 	-- Lấy mã phòng khám
 	select @maphongkham = MaPhongKham from PHONGKHAM WHERE PhongKham = @phongkham
@@ -200,10 +189,10 @@ begin
 
 	-- Thêm kế hoạch điều trị vào hệ thống
 	insert into KEHOACHDIEUTRI(MaBenhAn, MaRangKham, NgayDieuTri, TrangThaiDieuTri, MaThanhToan, MaNhaSi) values
-				(@mabenhan, @marangkham, @ngaykham, 'kế hoạch', @mathanhtoan, @manhasi)
+				(@mabenhan, @marangkham, @ngaykham, N'kế hoạch', @mathanhtoan, @manhasikham)
 
 	-- Tạo cuộc hẹn ở phòng nào với nha sĩ cho bệnh nhân
-	exec sp_TaoCuocHenPhongKham @mabenhnhan, @manhasi, @ngaykham, @manvql, @maphongkham
+	exec sp_TaoCuocHenPhongKham @mabenhnhan, @manhasikham, @ngaykham, @manvql, @maphongkham
 
 	print N'Tạo kế hoạch điều trị thành công'
 	return 

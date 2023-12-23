@@ -105,7 +105,7 @@ END
 go
 
 
--- QUANTRIVIEN: Thống kê các kế hoạch điều trị trong NGÀY theo từng NHA SĨ (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng)
+-- QUANTRIVIEN: 17 -  Thống kê các kế hoạch điều trị trong NGÀY theo từng NHA SĨ (trong một ngày chỉ định)
 create or alter proc sp_ThongKeKeHoachDieuTriTrongNgayTheoTungNhaSi @NgayThongKe datetime
 as
 	begin
@@ -117,6 +117,7 @@ as
 	end
 go
 
+-- QUANTRIVIEN: 18 - Thống kê số kế hoạch điều trị được tạo theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng)
 create or alter proc sp_ThongKeKeHoachDieuTriTheoNgay @NgayBD datetime, @NgayKT datetime
 as
 	begin
@@ -129,7 +130,7 @@ as
 go
 
 
--- QUANTRIVIEN: Thống kê lịch hẹn khám trong NGÀY theo từng NHA SĨ (trong một ngày được chỉ định)
+-- QUANTRIVIEN: 19 - Thống kê lịch hẹn khám trong NGÀY theo từng NHA SĨ (trong một ngày được chỉ định)
 create or alter proc sp_ThongKeLichHenKhamTrongNgayTheoTungNhaSi @NgayThongKe datetime
 as
 	begin
@@ -141,7 +142,7 @@ as
 	end
 go
 
--- QUANTRIVIEN: Thống kê lịch hẹn khám theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng) 
+-- QUANTRIVIEN: 20 - Thống kê lịch hẹn khám theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng) 
 create or alter proc sp_ThongKeLichHenKhamTheoNgay @NgayBD datetime, @NgayKT datetime
 as
 	begin
@@ -153,7 +154,7 @@ as
 	end
 go
 
--- QUANTRIVIEN: Thống kê lịch hẹn khám theo THÁNG (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 năm) 
+-- QUANTRIVIEN: 21 - Thống kê lịch hẹn khám theo THÁNG (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 năm) 
 create or alter proc sp_ThongKeLichHenKhamTheoThang @NgayBD datetime, @NgayKT datetime
 as
 	begin
@@ -166,7 +167,7 @@ as
 go
 
 
--- QUANTRIVIEN: Thống kê lịch hẹn khám theo NĂM (trong khoảng thời gian từ NgàyBD đến NgàyKT) 
+-- QUANTRIVIEN: 22 - Thống kê lịch hẹn khám theo NĂM (trong khoảng thời gian từ NgàyBD đến NgàyKT) 
 create or alter proc sp_ThongKeLichHenKhamTheoNam @NgayBD datetime, @NgayKT datetime
 as
 	begin
