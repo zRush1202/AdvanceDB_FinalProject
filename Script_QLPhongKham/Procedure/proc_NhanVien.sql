@@ -103,10 +103,10 @@ create or alter proc sp_TaoKeHoachDieuTri @tenbenhnhan nvarchar(50), @ngaykham d
 	@tennhasikham nvarchar(50), @phongkham varchar(10), @sorang int, @bematrang nvarchar(100)
 as
 begin 
-	declare @marangkham int
+	declare @marangkham int --
 	declare @mabenhan int
-	declare @manhasi int
-	declare @mathanhtoan int
+	declare @manhasi int --
+	declare @mathanhtoan int --
 	declare @mabenhnhan int
 	declare @maphongkham int
 

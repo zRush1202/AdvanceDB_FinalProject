@@ -39,6 +39,10 @@
             this.lb_GiaiDoan4 = new System.Windows.Forms.Label();
             this.lb_GiaiDoan5 = new System.Windows.Forms.Label();
             this.panel_TaoKHDT = new System.Windows.Forms.Panel();
+            this.tb1_KHDT = new System.Windows.Forms.TextBox();
+            this.lb_SDT_TKHDT = new System.Windows.Forms.Label();
+            this.lb_PhongKham = new System.Windows.Forms.Label();
+            this.cb_PhongKham = new System.Windows.Forms.ComboBox();
             this.dtt_NgayKham = new System.Windows.Forms.DateTimePicker();
             this.btn_TaoKHDT = new System.Windows.Forms.Button();
             this.lb_ChonLieuTrinh = new System.Windows.Forms.Label();
@@ -54,10 +58,6 @@
             this.cb_RANG = new System.Windows.Forms.ComboBox();
             this.lb_titleTaoKHDT = new System.Windows.Forms.Label();
             this.lb_titleKHDT = new System.Windows.Forms.Label();
-            this.lb_PhongKham = new System.Windows.Forms.Label();
-            this.cb_PhongKham = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb1_KHDT = new System.Windows.Forms.TextBox();
             this.panel_TaoKHDT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -160,7 +160,7 @@
             this.panel_TaoKHDT.AutoScroll = true;
             this.panel_TaoKHDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_TaoKHDT.Controls.Add(this.tb1_KHDT);
-            this.panel_TaoKHDT.Controls.Add(this.label1);
+            this.panel_TaoKHDT.Controls.Add(this.lb_SDT_TKHDT);
             this.panel_TaoKHDT.Controls.Add(this.lb_PhongKham);
             this.panel_TaoKHDT.Controls.Add(this.cb_PhongKham);
             this.panel_TaoKHDT.Controls.Add(this.dtt_NgayKham);
@@ -191,6 +191,42 @@
             this.panel_TaoKHDT.Name = "panel_TaoKHDT";
             this.panel_TaoKHDT.Size = new System.Drawing.Size(983, 549);
             this.panel_TaoKHDT.TabIndex = 16;
+            // 
+            // tb1_KHDT
+            // 
+            this.tb1_KHDT.Location = new System.Drawing.Point(367, 155);
+            this.tb1_KHDT.Name = "tb1_KHDT";
+            this.tb1_KHDT.Size = new System.Drawing.Size(138, 20);
+            this.tb1_KHDT.TabIndex = 34;
+            // 
+            // lb_SDT_TKHDT
+            // 
+            this.lb_SDT_TKHDT.AutoSize = true;
+            this.lb_SDT_TKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_SDT_TKHDT.Location = new System.Drawing.Point(173, 155);
+            this.lb_SDT_TKHDT.Name = "lb_SDT_TKHDT";
+            this.lb_SDT_TKHDT.Size = new System.Drawing.Size(132, 16);
+            this.lb_SDT_TKHDT.TabIndex = 33;
+            this.lb_SDT_TKHDT.Text = "Nhập sđt bệnh nhân :";
+            // 
+            // lb_PhongKham
+            // 
+            this.lb_PhongKham.AutoSize = true;
+            this.lb_PhongKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_PhongKham.Location = new System.Drawing.Point(538, 199);
+            this.lb_PhongKham.Name = "lb_PhongKham";
+            this.lb_PhongKham.Size = new System.Drawing.Size(120, 16);
+            this.lb_PhongKham.TabIndex = 32;
+            this.lb_PhongKham.Text = "Chọn Phòng Khám:";
+            // 
+            // cb_PhongKham
+            // 
+            this.cb_PhongKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_PhongKham.FormattingEnabled = true;
+            this.cb_PhongKham.Location = new System.Drawing.Point(683, 199);
+            this.cb_PhongKham.Name = "cb_PhongKham";
+            this.cb_PhongKham.Size = new System.Drawing.Size(157, 24);
+            this.cb_PhongKham.TabIndex = 31;
             // 
             // dtt_NgayKham
             // 
@@ -344,42 +380,6 @@
             this.lb_titleKHDT.Text = "CÁC BƯỚC TẠO KẾ HOẠCH ĐIỀU TRỊ";
             this.lb_titleKHDT.Click += new System.EventHandler(this.lb_titleKHDT_Click);
             // 
-            // lb_PhongKham
-            // 
-            this.lb_PhongKham.AutoSize = true;
-            this.lb_PhongKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_PhongKham.Location = new System.Drawing.Point(538, 199);
-            this.lb_PhongKham.Name = "lb_PhongKham";
-            this.lb_PhongKham.Size = new System.Drawing.Size(120, 16);
-            this.lb_PhongKham.TabIndex = 32;
-            this.lb_PhongKham.Text = "Chọn Phòng Khám:";
-            // 
-            // cb_PhongKham
-            // 
-            this.cb_PhongKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_PhongKham.FormattingEnabled = true;
-            this.cb_PhongKham.Location = new System.Drawing.Point(683, 199);
-            this.cb_PhongKham.Name = "cb_PhongKham";
-            this.cb_PhongKham.Size = new System.Drawing.Size(157, 24);
-            this.cb_PhongKham.TabIndex = 31;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(173, 155);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 16);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Nhập tên bệnh nhân :";
-            // 
-            // tb1_KHDT
-            // 
-            this.tb1_KHDT.Location = new System.Drawing.Point(367, 155);
-            this.tb1_KHDT.Name = "tb1_KHDT";
-            this.tb1_KHDT.Size = new System.Drawing.Size(138, 20);
-            this.tb1_KHDT.TabIndex = 34;
-            // 
             // TaoKeHoachDieuTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,7 +428,7 @@
         private System.Windows.Forms.Label lb_titleKHDT;
         private System.Windows.Forms.Label lb_PhongKham;
         private System.Windows.Forms.ComboBox cb_PhongKham;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_SDT_TKHDT;
         private System.Windows.Forms.TextBox tb1_KHDT;
     }
 }
