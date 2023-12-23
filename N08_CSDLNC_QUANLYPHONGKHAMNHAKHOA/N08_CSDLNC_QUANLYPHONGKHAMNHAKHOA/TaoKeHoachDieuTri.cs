@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp1;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 {
@@ -24,12 +25,16 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             InitializeComponent();
             LoadDataIntoRangComboBox();
             LoadDataIntoBeMatRangComboBox();
+            LoadDataIntoPhongKhamComboBox();
+            LoadDataIntoMaNhaSiComboBox();
             LoadDataIntoCheckedListBox();
             clb_DTGiaiDoan1.ItemCheck += CheckedListBox_ItemCheck;
             clb_DTGiaiDoan2.ItemCheck += CheckedListBox_ItemCheck;
             clb_DTGiaiDoan3.ItemCheck += CheckedListBox_ItemCheck;
             clb_DTGiaiDoan4.ItemCheck += CheckedListBox_ItemCheck;
             clb_DTGiaiDoan5.ItemCheck += CheckedListBox_ItemCheck;
+
+
         }
 
         private int testConnect()
@@ -100,6 +105,59 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 connection.Close();
             }
         }
+
+        private void LoadDataIntoPhongKhamComboBox()
+        {
+            int nConn = GetNumConn();
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                string query = "SELECT PhongKham  FROM PHONGKHAM";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Xóa dữ liệu cũ (nếu có) trong ComboBox
+                        cb_PhongKham.Items.Clear();
+
+                        // Đổ dữ liệu vào ComboBox
+                        while (reader.Read())
+                        {
+                            cb_PhongKham.Items.Add(reader["PhongKham"].ToString());
+                        }
+                    }
+                }
+                connection.Close();
+            }
+        }
+
+        private void LoadDataIntoMaNhaSiComboBox()
+        {
+            int nConn = GetNumConn();
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                string query = "SELECT MaNhaSi  FROM NHASI";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Xóa dữ liệu cũ (nếu có) trong ComboBox
+                        cb_MaNhaSi.Items.Clear();
+
+                        // Đổ dữ liệu vào ComboBox
+                        while (reader.Read())
+                        {
+                            cb_MaNhaSi.Items.Add(reader["MaNhaSi"].ToString());
+                        }
+                    }
+                }
+                connection.Close();
+            }
+        }
+
 
 
         private void LoadDataIntoCheckedListBox()
@@ -282,6 +340,44 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         }
 
-        
+        private void cb_MaNhaSi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+            int manhasi = cb_MaNhaSi.SelectedIndex;
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Tạo câu truy vấn SQL
+                    string query = "SELECT HoTenNS FROM NHASI WHERE MaNhaSi = @MaNhaSi";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+
+                    // Đặt giá trị tham số
+                    cmd.Parameters.AddWithValue("@MaNhaSi", cb_MaNhaSi.SelectedItem.ToString());
+
+                    // Thực hiện đọc dữ liệu từ cơ sở dữ liệu
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Hiển thị TenNS trong TextBox
+                    if (reader.Read())
+                    {
+                        tb_TenNhaSi.Text = reader["HoTenNS"].ToString();
+                    }
+
+                    // Đóng kết nối
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@ begin
 end
 go
 
---Cập nhật lại toa thuốc
+--Cập nhật lại toa thuốc của bệnh nhân
 CREATE OR ALTER PROCEDURE sp_SuaToaThuoc
     @mabenhan int,
     @maThuoc int,
@@ -58,7 +58,7 @@ AS
     END
 GO
 
---Thêm thuốc mới vào toa thuốc
+--Thêm thuốc mới vào toa thuốc của bệnh nhân
 CREATE OR ALTER PROCEDURE sp_ThemThuocVaoToa
     @mabenhan int,
     @maThuoc int,

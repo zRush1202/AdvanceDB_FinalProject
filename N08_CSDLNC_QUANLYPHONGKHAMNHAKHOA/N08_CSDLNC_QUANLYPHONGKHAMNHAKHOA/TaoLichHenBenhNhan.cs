@@ -33,5 +33,10 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 this.Close();
             }
         }
+
+        private void cb_PhongKham_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

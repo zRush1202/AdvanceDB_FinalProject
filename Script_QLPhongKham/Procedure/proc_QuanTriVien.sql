@@ -1,7 +1,7 @@
 ﻿use CSDLNC_QLPhongKham
 go
 
--- QUẢN TRỊ VIÊN: Thêm loại thuốc mới -- Commands completed successfully.
+-- QUẢN TRỊ VIÊN: Thêm loại thuốc mới
 create or alter proc sp_ThemThuocMoi @tenthuoc nvarchar(100), @donvi nvarchar(10), @chongchidinh nvarchar(100), @ngayhethan date
 as
 begin
@@ -31,7 +31,7 @@ begin
 end
 go
 
--- QUẢN TRỊ VIÊN: Cập nhật số lượng tồn kho của thuốc -- Commands completed successfully.
+-- QUẢN TRỊ VIÊN: Cập nhật số lượng tồn kho của thuốc 
 create or alter proc sp_CapNhatSLTK @mathuoc int, @soluong int
 as
 begin
@@ -57,7 +57,7 @@ end
 go
 
 
--- QUẢN TRỊ VIÊN: Thêm tài khoản cho nhân viên và nha sĩ  --- Commands completed successfully. 
+-- QUẢN TRỊ VIÊN: Thêm tài khoản cho nhân viên và nha sĩ 
 CREATE OR ALTER PROC sp_ThemTaiKhoan
     @tendangnhap VARCHAR(10),
     @matkhau VARCHAR(50),

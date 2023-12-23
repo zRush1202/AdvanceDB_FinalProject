@@ -125,6 +125,7 @@
             this.cb_PhongKham.Name = "cb_PhongKham";
             this.cb_PhongKham.Size = new System.Drawing.Size(200, 21);
             this.cb_PhongKham.TabIndex = 7;
+            this.cb_PhongKham.SelectedIndexChanged += new System.EventHandler(this.cb_PhongKham_SelectedIndexChanged);
             // 
             // textBox1
             // 

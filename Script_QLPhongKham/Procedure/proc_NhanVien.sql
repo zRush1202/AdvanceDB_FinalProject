@@ -134,6 +134,7 @@ end
 
 
 go
+
 -- NHÂN VIÊN: Tạo kế hoạch điều trị cho bệnh nhân
 create or alter proc sp_TaoKeHoachDieuTri @sdt_benhnhan varchar(10), @ngaykham datetime, 
 	@manhasikham nvarchar(50), @phongkham varchar(10), @sorang int, @bematrang nvarchar(100),

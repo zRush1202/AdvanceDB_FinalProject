@@ -47,10 +47,9 @@
             this.btn_TaoKHDT = new System.Windows.Forms.Button();
             this.lb_ChonLieuTrinh = new System.Windows.Forms.Label();
             this.lb_ChonNgayKham = new System.Windows.Forms.Label();
-            this.cb_TroKham = new System.Windows.Forms.ComboBox();
             this.lb_ChonTroKham = new System.Windows.Forms.Label();
-            this.lb_ChonNhaSi = new System.Windows.Forms.Label();
-            this.cb_NhaSi = new System.Windows.Forms.ComboBox();
+            this.lb_ChonMaNhaSi = new System.Windows.Forms.Label();
+            this.cb_MaNhaSi = new System.Windows.Forms.ComboBox();
             this.cb_BeMatRang = new System.Windows.Forms.ComboBox();
             this.lb_BeMatRang = new System.Windows.Forms.Label();
             this.lb_SoRang = new System.Windows.Forms.Label();
@@ -58,6 +57,7 @@
             this.cb_RANG = new System.Windows.Forms.ComboBox();
             this.lb_titleTaoKHDT = new System.Windows.Forms.Label();
             this.lb_titleKHDT = new System.Windows.Forms.Label();
+            this.tb_TenNhaSi = new System.Windows.Forms.TextBox();
             this.panel_TaoKHDT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -159,6 +159,7 @@
             // 
             this.panel_TaoKHDT.AutoScroll = true;
             this.panel_TaoKHDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_TaoKHDT.Controls.Add(this.tb_TenNhaSi);
             this.panel_TaoKHDT.Controls.Add(this.tb1_KHDT);
             this.panel_TaoKHDT.Controls.Add(this.lb_SDT_TKHDT);
             this.panel_TaoKHDT.Controls.Add(this.lb_PhongKham);
@@ -167,10 +168,9 @@
             this.panel_TaoKHDT.Controls.Add(this.btn_TaoKHDT);
             this.panel_TaoKHDT.Controls.Add(this.lb_ChonLieuTrinh);
             this.panel_TaoKHDT.Controls.Add(this.lb_ChonNgayKham);
-            this.panel_TaoKHDT.Controls.Add(this.cb_TroKham);
             this.panel_TaoKHDT.Controls.Add(this.lb_ChonTroKham);
-            this.panel_TaoKHDT.Controls.Add(this.lb_ChonNhaSi);
-            this.panel_TaoKHDT.Controls.Add(this.cb_NhaSi);
+            this.panel_TaoKHDT.Controls.Add(this.lb_ChonMaNhaSi);
+            this.panel_TaoKHDT.Controls.Add(this.cb_MaNhaSi);
             this.panel_TaoKHDT.Controls.Add(this.cb_BeMatRang);
             this.panel_TaoKHDT.Controls.Add(this.lb_BeMatRang);
             this.panel_TaoKHDT.Controls.Add(this.lb_SoRang);
@@ -194,9 +194,10 @@
             // 
             // tb1_KHDT
             // 
+            this.tb1_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb1_KHDT.Location = new System.Drawing.Point(367, 155);
             this.tb1_KHDT.Name = "tb1_KHDT";
-            this.tb1_KHDT.Size = new System.Drawing.Size(138, 20);
+            this.tb1_KHDT.Size = new System.Drawing.Size(138, 22);
             this.tb1_KHDT.TabIndex = 34;
             // 
             // lb_SDT_TKHDT
@@ -271,43 +272,35 @@
             this.lb_ChonNgayKham.TabIndex = 28;
             this.lb_ChonNgayKham.Text = "Chọn Ngày Khám:";
             // 
-            // cb_TroKham
-            // 
-            this.cb_TroKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_TroKham.FormattingEnabled = true;
-            this.cb_TroKham.Location = new System.Drawing.Point(367, 279);
-            this.cb_TroKham.Name = "cb_TroKham";
-            this.cb_TroKham.Size = new System.Drawing.Size(138, 24);
-            this.cb_TroKham.TabIndex = 26;
-            // 
             // lb_ChonTroKham
             // 
             this.lb_ChonTroKham.AutoSize = true;
             this.lb_ChonTroKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ChonTroKham.Location = new System.Drawing.Point(173, 282);
             this.lb_ChonTroKham.Name = "lb_ChonTroKham";
-            this.lb_ChonTroKham.Size = new System.Drawing.Size(102, 16);
+            this.lb_ChonTroKham.Size = new System.Drawing.Size(74, 16);
             this.lb_ChonTroKham.TabIndex = 25;
-            this.lb_ChonTroKham.Text = "Chọn Trợ Khám:";
+            this.lb_ChonTroKham.Text = "Tên nha sĩ:";
             // 
-            // lb_ChonNhaSi
+            // lb_ChonMaNhaSi
             // 
-            this.lb_ChonNhaSi.AutoSize = true;
-            this.lb_ChonNhaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ChonNhaSi.Location = new System.Drawing.Point(173, 238);
-            this.lb_ChonNhaSi.Name = "lb_ChonNhaSi";
-            this.lb_ChonNhaSi.Size = new System.Drawing.Size(86, 16);
-            this.lb_ChonNhaSi.TabIndex = 24;
-            this.lb_ChonNhaSi.Text = "Chọn Nha Sĩ:";
+            this.lb_ChonMaNhaSi.AutoSize = true;
+            this.lb_ChonMaNhaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ChonMaNhaSi.Location = new System.Drawing.Point(173, 238);
+            this.lb_ChonMaNhaSi.Name = "lb_ChonMaNhaSi";
+            this.lb_ChonMaNhaSi.Size = new System.Drawing.Size(108, 16);
+            this.lb_ChonMaNhaSi.TabIndex = 24;
+            this.lb_ChonMaNhaSi.Text = "Chọn Mã Nha Sĩ:";
             // 
-            // cb_NhaSi
+            // cb_MaNhaSi
             // 
-            this.cb_NhaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_NhaSi.FormattingEnabled = true;
-            this.cb_NhaSi.Location = new System.Drawing.Point(367, 238);
-            this.cb_NhaSi.Name = "cb_NhaSi";
-            this.cb_NhaSi.Size = new System.Drawing.Size(138, 24);
-            this.cb_NhaSi.TabIndex = 23;
+            this.cb_MaNhaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_MaNhaSi.FormattingEnabled = true;
+            this.cb_MaNhaSi.Location = new System.Drawing.Point(367, 238);
+            this.cb_MaNhaSi.Name = "cb_MaNhaSi";
+            this.cb_MaNhaSi.Size = new System.Drawing.Size(138, 24);
+            this.cb_MaNhaSi.TabIndex = 23;
+            this.cb_MaNhaSi.SelectedIndexChanged += new System.EventHandler(this.cb_MaNhaSi_SelectedIndexChanged);
             // 
             // cb_BeMatRang
             // 
@@ -380,6 +373,15 @@
             this.lb_titleKHDT.Text = "CÁC BƯỚC TẠO KẾ HOẠCH ĐIỀU TRỊ";
             this.lb_titleKHDT.Click += new System.EventHandler(this.lb_titleKHDT_Click);
             // 
+            // tb_TenNhaSi
+            // 
+            this.tb_TenNhaSi.Enabled = false;
+            this.tb_TenNhaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_TenNhaSi.Location = new System.Drawing.Point(367, 278);
+            this.tb_TenNhaSi.Name = "tb_TenNhaSi";
+            this.tb_TenNhaSi.Size = new System.Drawing.Size(138, 22);
+            this.tb_TenNhaSi.TabIndex = 35;
+            // 
             // TaoKeHoachDieuTri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,10 +420,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cb_RANG;
         private System.Windows.Forms.Label lb_titleTaoKHDT;
-        private System.Windows.Forms.ComboBox cb_TroKham;
         private System.Windows.Forms.Label lb_ChonTroKham;
-        private System.Windows.Forms.Label lb_ChonNhaSi;
-        private System.Windows.Forms.ComboBox cb_NhaSi;
+        private System.Windows.Forms.Label lb_ChonMaNhaSi;
+        private System.Windows.Forms.ComboBox cb_MaNhaSi;
         private System.Windows.Forms.Label lb_ChonNgayKham;
         private System.Windows.Forms.Label lb_ChonLieuTrinh;
         private System.Windows.Forms.DateTimePicker dtt_NgayKham;
@@ -430,5 +431,6 @@
         private System.Windows.Forms.ComboBox cb_PhongKham;
         private System.Windows.Forms.Label lb_SDT_TKHDT;
         private System.Windows.Forms.TextBox tb1_KHDT;
+        private System.Windows.Forms.TextBox tb_TenNhaSi;
     }
 }
