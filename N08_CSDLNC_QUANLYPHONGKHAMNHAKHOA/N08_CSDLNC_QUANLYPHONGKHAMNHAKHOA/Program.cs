@@ -18,7 +18,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new NHANVIEN());
             //Application.Run(new TaoKeHoachDieuTri());
-            //Application.Run(new TOATHUOC("1"));
 
             //Application.Run(new NHASI("0752717429"));
         }
