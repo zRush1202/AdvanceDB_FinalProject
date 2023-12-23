@@ -105,11 +105,11 @@ END
 go
 
 
--- QUANTRIVIEN: Thống kê các kế hoạch điều trị trong NGÀY theo từng NHA SĨ (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng)
+-- QUANTRIVIEN: Thống kê các kế hoạch điều trị trong NGÀY theo từng NHA SĨ (trong một ngày chỉ định)
 create or alter proc sp_ThongKeKeHoachDieuTriTrongNgayTheoTungNhaSi @NgayThongKe datetime
 as
 	begin
-		select MaNhaSi as N'Mã nha sĩ', COUNT(*) as N'Số điều trị'
+		select MaNhaSi as N'Mã nha sĩ', COUNT(*) as N'Số kế hoạch điều trị'
 		from KEHOACHDIEUTRI
 		where cast(NgayDieuTri as date) = cast(@NgayThongKe as date)
 		group by MaNhaSi
@@ -117,10 +117,11 @@ as
 	end
 go
 
+-- QUANTRIVIEN: Thống kê các kế hoạch điều trị theo NGÀY (trong khoảng thời gian từ NgàyBD đến NgàyKT trong cùng 1 tháng)
 create or alter proc sp_ThongKeKeHoachDieuTriTheoNgay @NgayBD datetime, @NgayKT datetime
 as
 	begin
-		select DATEPART(day, NgayDieuTri) as N'Ngày', count(*) as N'Số điều trị'
+		select DATEPART(day, NgayDieuTri) as N'Ngày', count(*) as N'Số kế hoạch điều trị'
 		from KEHOACHDIEUTRI
 		where NgayDieuTri between @NgayBD and @NgayKT
 		GROUP BY DATEPART(day, NgayDieuTri)
