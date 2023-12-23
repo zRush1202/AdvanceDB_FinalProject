@@ -356,6 +356,7 @@
             this.btn_ChinhSuaTT.TabIndex = 17;
             this.btn_ChinhSuaTT.Text = "Chỉnh sửa thông tin cá nhân";
             this.btn_ChinhSuaTT.UseVisualStyleBackColor = true;
+            this.btn_ChinhSuaTT.Click += new System.EventHandler(this.btn_ChinhSuaTT_Click);
             // 
             // lb_HoTen
             // 

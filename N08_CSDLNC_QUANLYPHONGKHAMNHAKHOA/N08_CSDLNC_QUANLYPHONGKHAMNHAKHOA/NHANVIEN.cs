@@ -571,6 +571,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
 
         }
+
+        private void btn_ChinhSuaTT_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
