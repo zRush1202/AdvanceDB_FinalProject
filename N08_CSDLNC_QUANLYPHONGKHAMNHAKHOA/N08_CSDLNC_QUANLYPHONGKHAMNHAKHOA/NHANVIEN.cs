@@ -448,7 +448,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 else
                 {
                     checkTrangThai = true;
-                    if (row.Cells["NgayGiaoDich"].Value is DBNull)
+                    if (row.Cells["NgayGiaoDich"].Value is DBNull || row.Cells["NgayGiaoDich"].Value.ToString() == "")
                     {
                         date_NgayGiaoDich.Value = DateTime.Today;
                     }
