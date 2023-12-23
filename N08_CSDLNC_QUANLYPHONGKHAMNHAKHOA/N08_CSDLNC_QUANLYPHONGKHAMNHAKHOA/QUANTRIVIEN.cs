@@ -209,7 +209,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dgv_DSNhaSi.DataSource = LoadData_NhaSi().Tables[0];
             dgv_DSThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_DSThuoc.DataSource = LoadData_Thuoc().Tables[0];
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.DataSource = LoadData_NhanVien().Tables[0];
             dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView2.DataSource = LoadData_DieuTri().Tables[0];
