@@ -54,6 +54,10 @@
             this.cb_RANG = new System.Windows.Forms.ComboBox();
             this.lb_titleTaoKHDT = new System.Windows.Forms.Label();
             this.lb_titleKHDT = new System.Windows.Forms.Label();
+            this.lb_PhongKham = new System.Windows.Forms.Label();
+            this.cb_PhongKham = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb1_KHDT = new System.Windows.Forms.TextBox();
             this.panel_TaoKHDT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -155,6 +159,10 @@
             // 
             this.panel_TaoKHDT.AutoScroll = true;
             this.panel_TaoKHDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_TaoKHDT.Controls.Add(this.tb1_KHDT);
+            this.panel_TaoKHDT.Controls.Add(this.label1);
+            this.panel_TaoKHDT.Controls.Add(this.lb_PhongKham);
+            this.panel_TaoKHDT.Controls.Add(this.cb_PhongKham);
             this.panel_TaoKHDT.Controls.Add(this.dtt_NgayKham);
             this.panel_TaoKHDT.Controls.Add(this.btn_TaoKHDT);
             this.panel_TaoKHDT.Controls.Add(this.lb_ChonLieuTrinh);
@@ -187,7 +195,7 @@
             // dtt_NgayKham
             // 
             this.dtt_NgayKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtt_NgayKham.Location = new System.Drawing.Point(307, 139);
+            this.dtt_NgayKham.Location = new System.Drawing.Point(305, 197);
             this.dtt_NgayKham.MinDate = new System.DateTime(2023, 12, 22, 22, 29, 39, 0);
             this.dtt_NgayKham.Name = "dtt_NgayKham";
             this.dtt_NgayKham.Size = new System.Drawing.Size(200, 22);
@@ -221,7 +229,7 @@
             // 
             this.lb_ChonNgayKham.AutoSize = true;
             this.lb_ChonNgayKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ChonNgayKham.Location = new System.Drawing.Point(175, 141);
+            this.lb_ChonNgayKham.Location = new System.Drawing.Point(173, 199);
             this.lb_ChonNgayKham.Name = "lb_ChonNgayKham";
             this.lb_ChonNgayKham.Size = new System.Drawing.Size(114, 16);
             this.lb_ChonNgayKham.TabIndex = 28;
@@ -231,7 +239,7 @@
             // 
             this.cb_TroKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_TroKham.FormattingEnabled = true;
-            this.cb_TroKham.Location = new System.Drawing.Point(369, 221);
+            this.cb_TroKham.Location = new System.Drawing.Point(367, 279);
             this.cb_TroKham.Name = "cb_TroKham";
             this.cb_TroKham.Size = new System.Drawing.Size(138, 24);
             this.cb_TroKham.TabIndex = 26;
@@ -240,7 +248,7 @@
             // 
             this.lb_ChonTroKham.AutoSize = true;
             this.lb_ChonTroKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ChonTroKham.Location = new System.Drawing.Point(175, 224);
+            this.lb_ChonTroKham.Location = new System.Drawing.Point(173, 282);
             this.lb_ChonTroKham.Name = "lb_ChonTroKham";
             this.lb_ChonTroKham.Size = new System.Drawing.Size(102, 16);
             this.lb_ChonTroKham.TabIndex = 25;
@@ -250,7 +258,7 @@
             // 
             this.lb_ChonNhaSi.AutoSize = true;
             this.lb_ChonNhaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ChonNhaSi.Location = new System.Drawing.Point(175, 180);
+            this.lb_ChonNhaSi.Location = new System.Drawing.Point(173, 238);
             this.lb_ChonNhaSi.Name = "lb_ChonNhaSi";
             this.lb_ChonNhaSi.Size = new System.Drawing.Size(86, 16);
             this.lb_ChonNhaSi.TabIndex = 24;
@@ -260,7 +268,7 @@
             // 
             this.cb_NhaSi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_NhaSi.FormattingEnabled = true;
-            this.cb_NhaSi.Location = new System.Drawing.Point(369, 180);
+            this.cb_NhaSi.Location = new System.Drawing.Point(367, 238);
             this.cb_NhaSi.Name = "cb_NhaSi";
             this.cb_NhaSi.Size = new System.Drawing.Size(138, 24);
             this.cb_NhaSi.TabIndex = 23;
@@ -269,7 +277,7 @@
             // 
             this.cb_BeMatRang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_BeMatRang.FormattingEnabled = true;
-            this.cb_BeMatRang.Location = new System.Drawing.Point(687, 180);
+            this.cb_BeMatRang.Location = new System.Drawing.Point(683, 277);
             this.cb_BeMatRang.Name = "cb_BeMatRang";
             this.cb_BeMatRang.Size = new System.Drawing.Size(157, 24);
             this.cb_BeMatRang.TabIndex = 22;
@@ -278,7 +286,7 @@
             // 
             this.lb_BeMatRang.AutoSize = true;
             this.lb_BeMatRang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_BeMatRang.Location = new System.Drawing.Point(542, 185);
+            this.lb_BeMatRang.Location = new System.Drawing.Point(538, 282);
             this.lb_BeMatRang.Name = "lb_BeMatRang";
             this.lb_BeMatRang.Size = new System.Drawing.Size(122, 16);
             this.lb_BeMatRang.TabIndex = 21;
@@ -288,7 +296,7 @@
             // 
             this.lb_SoRang.AutoSize = true;
             this.lb_SoRang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_SoRang.Location = new System.Drawing.Point(542, 141);
+            this.lb_SoRang.Location = new System.Drawing.Point(538, 238);
             this.lb_SoRang.Name = "lb_SoRang";
             this.lb_SoRang.Size = new System.Drawing.Size(97, 16);
             this.lb_SoRang.TabIndex = 20;
@@ -297,7 +305,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA.Properties.Resources.SoRang;
-            this.pictureBox1.Location = new System.Drawing.Point(235, 295);
+            this.pictureBox1.Location = new System.Drawing.Point(236, 366);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(512, 393);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -308,7 +316,7 @@
             // 
             this.cb_RANG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_RANG.FormattingEnabled = true;
-            this.cb_RANG.Location = new System.Drawing.Point(687, 141);
+            this.cb_RANG.Location = new System.Drawing.Point(683, 238);
             this.cb_RANG.Name = "cb_RANG";
             this.cb_RANG.Size = new System.Drawing.Size(157, 24);
             this.cb_RANG.TabIndex = 18;
@@ -335,6 +343,42 @@
             this.lb_titleKHDT.TabIndex = 31;
             this.lb_titleKHDT.Text = "CÁC BƯỚC TẠO KẾ HOẠCH ĐIỀU TRỊ";
             this.lb_titleKHDT.Click += new System.EventHandler(this.lb_titleKHDT_Click);
+            // 
+            // lb_PhongKham
+            // 
+            this.lb_PhongKham.AutoSize = true;
+            this.lb_PhongKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_PhongKham.Location = new System.Drawing.Point(538, 199);
+            this.lb_PhongKham.Name = "lb_PhongKham";
+            this.lb_PhongKham.Size = new System.Drawing.Size(120, 16);
+            this.lb_PhongKham.TabIndex = 32;
+            this.lb_PhongKham.Text = "Chọn Phòng Khám:";
+            // 
+            // cb_PhongKham
+            // 
+            this.cb_PhongKham.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_PhongKham.FormattingEnabled = true;
+            this.cb_PhongKham.Location = new System.Drawing.Point(683, 199);
+            this.cb_PhongKham.Name = "cb_PhongKham";
+            this.cb_PhongKham.Size = new System.Drawing.Size(157, 24);
+            this.cb_PhongKham.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(173, 155);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 16);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Nhập tên bệnh nhân :";
+            // 
+            // tb1_KHDT
+            // 
+            this.tb1_KHDT.Location = new System.Drawing.Point(367, 155);
+            this.tb1_KHDT.Name = "tb1_KHDT";
+            this.tb1_KHDT.Size = new System.Drawing.Size(138, 20);
+            this.tb1_KHDT.TabIndex = 34;
             // 
             // TaoKeHoachDieuTri
             // 
@@ -382,5 +426,9 @@
         private System.Windows.Forms.Label lb_ChonLieuTrinh;
         private System.Windows.Forms.DateTimePicker dtt_NgayKham;
         private System.Windows.Forms.Label lb_titleKHDT;
+        private System.Windows.Forms.Label lb_PhongKham;
+        private System.Windows.Forms.ComboBox cb_PhongKham;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tb1_KHDT;
     }
 }
