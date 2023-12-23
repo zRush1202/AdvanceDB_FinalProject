@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QUANTRIVIEN));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button17 = new System.Windows.Forms.Button();
@@ -92,6 +93,11 @@
             this.button16 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button21 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
@@ -831,6 +837,11 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button21);
+            this.tabPage6.Controls.Add(this.textBox5);
+            this.tabPage6.Controls.Add(this.textBox6);
+            this.tabPage6.Controls.Add(this.label28);
+            this.tabPage6.Controls.Add(this.label31);
             this.tabPage6.Controls.Add(this.button12);
             this.tabPage6.Controls.Add(this.button18);
             this.tabPage6.Controls.Add(this.label21);
@@ -844,6 +855,50 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Lịch hẹn";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button21
+            // 
+            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.Location = new System.Drawing.Point(664, 59);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(75, 62);
+            this.button21.TabIndex = 49;
+            this.button21.Text = "Tìm kiếm";
+            this.button21.UseVisualStyleBackColor = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(474, 78);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(172, 24);
+            this.textBox5.TabIndex = 48;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(279, 78);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(90, 24);
+            this.textBox6.TabIndex = 47;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(387, 81);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(82, 20);
+            this.label28.TabIndex = 46;
+            this.label28.Text = "Mã nha sĩ";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(181, 79);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(95, 20);
+            this.label31.TabIndex = 45;
+            this.label31.Text = "Mã lịch hẹn";
             // 
             // button12
             // 
@@ -1089,9 +1144,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(919, 560);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QUANTRIVIEN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUANTRIVIEN";
+            this.Text = "QUẢN TRỊ VIÊN";
             this.Load += new System.EventHandler(this.QUANTRIVIEN_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1217,5 +1273,10 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label31;
     }
 }
