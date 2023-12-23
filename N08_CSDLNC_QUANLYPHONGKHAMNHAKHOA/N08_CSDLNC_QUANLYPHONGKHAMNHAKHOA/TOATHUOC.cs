@@ -114,7 +114,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
         }
 
-
         private void Connection_InfoMessage(object sender, SqlInfoMessageEventArgs e)
         {
             // Xử lý thông điệp được in ra từ SQL Server (bằng PRINT)
@@ -125,6 +124,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         }
         private void btn_Submit_Click(object sender, EventArgs e)
         {
+            if (txt_SLThuocKe.Text == "" && txt_ChiDinh.Text == "")
+            {
+                MessageBox.Show("Cần điền đầy đủ thông tin");
+                return;
+            }
             int mba = int.Parse(Mabenhan);
             int mt = int.Parse(MaThuoc);
             int soluong = int.Parse(txt_SLThuocKe.Text);

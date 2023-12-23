@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp1;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 {
@@ -98,6 +99,12 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             int nConn = GetNumConn();
+
+            if (txt_MaThuoc.Text == "" && txt_SLThuocKe.Text == "" && txt_ChiDinh.Text == "")
+            {
+                MessageBox.Show("Không có thay đổi");
+                return;
+            }
 
             int mba = int.Parse(Mabenhan);
             int mt = int.Parse(txt_MaThuoc.Text);
