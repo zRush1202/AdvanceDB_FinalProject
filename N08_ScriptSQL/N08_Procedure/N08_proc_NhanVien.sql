@@ -98,9 +98,11 @@ begin
 	select top 200 *
 	from NHASI
 	where MaNhaSi not in (select DS.MaNhaSi from dbo.F_DSNhaSiBanTheoThuTuKham(@ngaykham, @maphongkham, @thutukham) DS) and
-			MaNhaSi not in (select DS.MaNhaSi from dbo.F_DSNhaSiBanTheoLichLamViec(@ngaykham) DS) order by MaNhaSi DESC
+			MaNhaSi not in (select DS.MaNhaSi from dbo.F_DSNhaSiBanTheoLichLamViec(@ngaykham) DS) 
+	order by MaNhaSi desc
 end
 go
+
 
 
 go

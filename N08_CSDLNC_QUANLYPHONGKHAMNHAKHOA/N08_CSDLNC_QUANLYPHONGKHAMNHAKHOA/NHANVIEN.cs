@@ -38,6 +38,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             this.username = username;
             this.password = password;
             Load_Personal_Info();
+            LoadDataIntoPhongKhamComboBox();
         }
 
         public void Load_Personal_Info()
@@ -455,6 +456,91 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dtgv_DSKHDT.DataSource = Load_DSKHDT().Tables[0];
         }
 
+        private void LoadDataIntoPhongKhamComboBox()
+        {
+            int nConn = GetNumConn();
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                string query = "SELECT PhongKham  FROM PHONGKHAM";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Xóa dữ liệu cũ (nếu có) trong ComboBox
+                        //cb_LHBN_PhongKham.Items.Clear();
+
+                        // Đổ dữ liệu vào ComboBox
+                        while (reader.Read())
+                        {
+                            cb_LHBN_PhongKham.Items.Add(reader["PhongKham"].ToString());
+                        }
+                    }
+                }
+                connection.Close();
+            }
+        }
+
+        private void btn1_TimKiem_DSLH_Click(object sender, EventArgs e)
+        {
+            dtgv_LHBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_LHBN.DataSource = Load_CHBN(cb_LHBN_PhongKham.SelectedItem.ToString(), dtpk_CHBN.Value).Tables[0];
+
+        }
+
+        DataSet Load_CHBN(string loai, DateTime ngayhen)
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            if(loai == "Tất cả")
+            {
+                string query = $"select CH.MaNhaSi, CH.MaNVQL, CHBN.MaBenhNhan, CH.NgayGioHen, PK.PhongKham, CHBN.ThuTuKham from CUOCHEN CH, CH_BENHNHAN CHBN, PHONGKHAM PK where CH.LoaiCuocHen = N'bệnh nhân' and cast(CH.NgayGioHen as date) = cast('{ngayhen}' as date) and CH.MaCuocHen = CHBN.MaCHBN and CHBN.MaPhongKham = PK.MaPhongKham";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(data);
+                    connection.Close();
+                }
+            }
+            else
+            {
+                string query = $"select CH.MaNhaSi, CH.MaNVQL, CHBN.MaBenhNhan, CH.NgayGioHen, PK.PhongKham, CHBN.ThuTuKham from CUOCHEN CH, CH_BENHNHAN CHBN, PHONGKHAM PK where CH.LoaiCuocHen = N'bệnh nhân' and cast(CH.NgayGioHen as date) = cast('{ngayhen}' as date) and CH.MaCuocHen = CHBN.MaCHBN and CHBN.MaPhongKham = PK.MaPhongKham and PK.PhongKham = '{loai}'";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(data);
+                    connection.Close();
+                }
+            }    
+            //sql connection
+            return data;
+        }
+
+        private void btn2_TimKiem_DSLH_Click(object sender, EventArgs e)
+        {
+            dtgv_LLVNS.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_LLVNS.DataSource = Load_LLVNS(dtpk_LLVNS.Value).Tables[0];
+        }
+
+        DataSet Load_LLVNS(DateTime ngay)
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+            string query = $"select CH.*, CHCN.*  from CUOCHEN CH, CH_CANHAN CHCN where CH.LoaiCuocHen = N'cá nhân' and cast(CH.NgayGioHen as date) = cast('{ngay}' as date) and CH.MaCuocHen = CHCN.MaCHCN";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+
+            return data;
+        }
 
 
 
