@@ -203,7 +203,7 @@
             // 
             this.btn2_TimKiem_DSLH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn2_TimKiem_DSLH.Location = new System.Drawing.Point(621, 369);
-            this.btn2_TimKiem_DSLH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn2_TimKiem_DSLH.Margin = new System.Windows.Forms.Padding(2);
             this.btn2_TimKiem_DSLH.Name = "btn2_TimKiem_DSLH";
             this.btn2_TimKiem_DSLH.Size = new System.Drawing.Size(83, 31);
             this.btn2_TimKiem_DSLH.TabIndex = 16;
@@ -214,7 +214,7 @@
             // dtpk_LLVNS
             // 
             this.dtpk_LLVNS.Location = new System.Drawing.Point(412, 379);
-            this.dtpk_LLVNS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpk_LLVNS.Margin = new System.Windows.Forms.Padding(2);
             this.dtpk_LLVNS.Name = "dtpk_LLVNS";
             this.dtpk_LLVNS.Size = new System.Drawing.Size(205, 21);
             this.dtpk_LLVNS.TabIndex = 15;
@@ -223,7 +223,7 @@
             // 
             this.btn1_TimKiem_DSLH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btn1_TimKiem_DSLH.Location = new System.Drawing.Point(816, 113);
-            this.btn1_TimKiem_DSLH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn1_TimKiem_DSLH.Margin = new System.Windows.Forms.Padding(2);
             this.btn1_TimKiem_DSLH.Name = "btn1_TimKiem_DSLH";
             this.btn1_TimKiem_DSLH.Size = new System.Drawing.Size(73, 30);
             this.btn1_TimKiem_DSLH.TabIndex = 14;
@@ -234,7 +234,7 @@
             // dtpk_CHBN
             // 
             this.dtpk_CHBN.Location = new System.Drawing.Point(378, 122);
-            this.dtpk_CHBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpk_CHBN.Margin = new System.Windows.Forms.Padding(2);
             this.dtpk_CHBN.Name = "dtpk_CHBN";
             this.dtpk_CHBN.Size = new System.Drawing.Size(206, 21);
             this.dtpk_CHBN.TabIndex = 13;
@@ -280,7 +280,7 @@
             this.cb_LHBN_PhongKham.Items.AddRange(new object[] {
             "Tất cả"});
             this.cb_LHBN_PhongKham.Location = new System.Drawing.Point(736, 120);
-            this.cb_LHBN_PhongKham.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_LHBN_PhongKham.Margin = new System.Windows.Forms.Padding(2);
             this.cb_LHBN_PhongKham.Name = "cb_LHBN_PhongKham";
             this.cb_LHBN_PhongKham.Size = new System.Drawing.Size(72, 23);
             this.cb_LHBN_PhongKham.TabIndex = 6;
@@ -292,7 +292,7 @@
             this.dtgv_LLVNS.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_LLVNS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_LLVNS.Location = new System.Drawing.Point(124, 404);
-            this.dtgv_LLVNS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgv_LLVNS.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv_LLVNS.Name = "dtgv_LLVNS";
             this.dtgv_LLVNS.ReadOnly = true;
             this.dtgv_LLVNS.RowHeadersWidth = 51;
@@ -306,7 +306,7 @@
             this.dtgv_LHBN.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_LHBN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_LHBN.Location = new System.Drawing.Point(124, 145);
-            this.dtgv_LHBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgv_LHBN.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv_LHBN.Name = "dtgv_LHBN";
             this.dtgv_LHBN.ReadOnly = true;
             this.dtgv_LHBN.RowHeadersWidth = 51;
@@ -390,7 +390,7 @@
             this.tab_HoSo.Controls.Add(this.pictureBox1);
             this.tab_HoSo.Location = new System.Drawing.Point(4, 24);
             this.tab_HoSo.Name = "tab_HoSo";
-            this.tab_HoSo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_HoSo.Padding = new System.Windows.Forms.Padding(2);
             this.tab_HoSo.Size = new System.Drawing.Size(1089, 651);
             this.tab_HoSo.TabIndex = 0;
             this.tab_HoSo.Text = "Hồ Sơ";
@@ -400,7 +400,7 @@
             // 
             this.btn_ChinhSuaTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ChinhSuaTT.Location = new System.Drawing.Point(619, 411);
-            this.btn_ChinhSuaTT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ChinhSuaTT.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ChinhSuaTT.Name = "btn_ChinhSuaTT";
             this.btn_ChinhSuaTT.Size = new System.Drawing.Size(214, 42);
             this.btn_ChinhSuaTT.TabIndex = 17;
@@ -474,7 +474,7 @@
             this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(699, 291);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(183, 26);
             this.textBox5.TabIndex = 18;
@@ -549,7 +549,7 @@
             this.tb6_DSBN.Enabled = false;
             this.tb6_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb6_DSBN.Location = new System.Drawing.Point(643, 202);
-            this.tb6_DSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb6_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb6_DSBN.Name = "tb6_DSBN";
             this.tb6_DSBN.Size = new System.Drawing.Size(152, 22);
             this.tb6_DSBN.TabIndex = 24;
@@ -559,7 +559,7 @@
             this.tb5_DSBN.Enabled = false;
             this.tb5_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb5_DSBN.Location = new System.Drawing.Point(643, 159);
-            this.tb5_DSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb5_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb5_DSBN.Name = "tb5_DSBN";
             this.tb5_DSBN.Size = new System.Drawing.Size(152, 22);
             this.tb5_DSBN.TabIndex = 23;
@@ -569,7 +569,7 @@
             this.tb4_DSBN.Enabled = false;
             this.tb4_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb4_DSBN.Location = new System.Drawing.Point(643, 115);
-            this.tb4_DSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb4_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb4_DSBN.Name = "tb4_DSBN";
             this.tb4_DSBN.Size = new System.Drawing.Size(152, 22);
             this.tb4_DSBN.TabIndex = 22;
@@ -579,7 +579,7 @@
             this.tb3_DSBN.Enabled = false;
             this.tb3_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb3_DSBN.Location = new System.Drawing.Point(362, 201);
-            this.tb3_DSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb3_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb3_DSBN.Name = "tb3_DSBN";
             this.tb3_DSBN.Size = new System.Drawing.Size(152, 22);
             this.tb3_DSBN.TabIndex = 21;
@@ -589,7 +589,7 @@
             this.tb2_DSBN.Enabled = false;
             this.tb2_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb2_DSBN.Location = new System.Drawing.Point(362, 158);
-            this.tb2_DSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb2_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb2_DSBN.Name = "tb2_DSBN";
             this.tb2_DSBN.Size = new System.Drawing.Size(152, 22);
             this.tb2_DSBN.TabIndex = 20;
@@ -599,7 +599,7 @@
             this.tb1_DSBN.Enabled = false;
             this.tb1_DSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb1_DSBN.Location = new System.Drawing.Point(362, 115);
-            this.tb1_DSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb1_DSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb1_DSBN.Name = "tb1_DSBN";
             this.tb1_DSBN.Size = new System.Drawing.Size(152, 22);
             this.tb1_DSBN.TabIndex = 19;
@@ -763,7 +763,7 @@
             this.tab_KHDT.Controls.Add(this.lb_TitleDSKHDT);
             this.tab_KHDT.Location = new System.Drawing.Point(4, 24);
             this.tab_KHDT.Name = "tab_KHDT";
-            this.tab_KHDT.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_KHDT.Padding = new System.Windows.Forms.Padding(2);
             this.tab_KHDT.Size = new System.Drawing.Size(1089, 651);
             this.tab_KHDT.TabIndex = 1;
             this.tab_KHDT.Text = "Kế hoạch điều trị";
@@ -774,7 +774,7 @@
             this.tb9_KHDT.Enabled = false;
             this.tb9_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb9_KHDT.Location = new System.Drawing.Point(481, 250);
-            this.tb9_KHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb9_KHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb9_KHDT.Name = "tb9_KHDT";
             this.tb9_KHDT.Size = new System.Drawing.Size(141, 22);
             this.tb9_KHDT.TabIndex = 56;
@@ -796,7 +796,7 @@
             this.tb7_KHDT.Enabled = false;
             this.tb7_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb7_KHDT.Location = new System.Drawing.Point(481, 217);
-            this.tb7_KHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb7_KHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb7_KHDT.Name = "tb7_KHDT";
             this.tb7_KHDT.Size = new System.Drawing.Size(141, 22);
             this.tb7_KHDT.TabIndex = 50;
@@ -817,7 +817,7 @@
             this.tb6_KHDT.Enabled = false;
             this.tb6_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb6_KHDT.Location = new System.Drawing.Point(481, 184);
-            this.tb6_KHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb6_KHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb6_KHDT.Name = "tb6_KHDT";
             this.tb6_KHDT.Size = new System.Drawing.Size(141, 22);
             this.tb6_KHDT.TabIndex = 48;
@@ -827,7 +827,7 @@
             this.tb3_KHDT.Enabled = false;
             this.tb3_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb3_KHDT.Location = new System.Drawing.Point(208, 216);
-            this.tb3_KHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb3_KHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb3_KHDT.Name = "tb3_KHDT";
             this.tb3_KHDT.Size = new System.Drawing.Size(126, 22);
             this.tb3_KHDT.TabIndex = 47;
@@ -837,7 +837,7 @@
             this.tb5_KHDT.Enabled = false;
             this.tb5_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb5_KHDT.Location = new System.Drawing.Point(481, 154);
-            this.tb5_KHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb5_KHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb5_KHDT.Name = "tb5_KHDT";
             this.tb5_KHDT.Size = new System.Drawing.Size(141, 22);
             this.tb5_KHDT.TabIndex = 46;
@@ -847,7 +847,7 @@
             this.tb4_KHDT.Enabled = false;
             this.tb4_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb4_KHDT.Location = new System.Drawing.Point(208, 249);
-            this.tb4_KHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb4_KHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb4_KHDT.Name = "tb4_KHDT";
             this.tb4_KHDT.Size = new System.Drawing.Size(126, 22);
             this.tb4_KHDT.TabIndex = 45;
@@ -857,7 +857,7 @@
             this.tb1_KHDT.Enabled = false;
             this.tb1_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb1_KHDT.Location = new System.Drawing.Point(208, 154);
-            this.tb1_KHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb1_KHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb1_KHDT.Name = "tb1_KHDT";
             this.tb1_KHDT.Size = new System.Drawing.Size(126, 22);
             this.tb1_KHDT.TabIndex = 44;
@@ -867,7 +867,7 @@
             this.tb2_KHDT.Enabled = false;
             this.tb2_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb2_KHDT.Location = new System.Drawing.Point(208, 184);
-            this.tb2_KHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb2_KHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb2_KHDT.Name = "tb2_KHDT";
             this.tb2_KHDT.Size = new System.Drawing.Size(126, 22);
             this.tb2_KHDT.TabIndex = 43;
@@ -944,8 +944,8 @@
             this.gb_TTCTGD.Location = new System.Drawing.Point(668, 351);
             this.gb_TTCTGD.Margin = new System.Windows.Forms.Padding(2);
             this.gb_TTCTGD.Name = "gb_TTCTGD";
-            this.gb_TTCTGD.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gb_TTCTGD.Size = new System.Drawing.Size(402, 178);
+            this.gb_TTCTGD.Padding = new System.Windows.Forms.Padding(2);
+            this.gb_TTCTGD.Size = new System.Drawing.Size(402, 250);
             this.gb_TTCTGD.TabIndex = 12;
             this.gb_TTCTGD.TabStop = false;
             this.gb_TTCTGD.Text = "THÔNG TIN CÁC GIAI ĐOẠN";
@@ -957,11 +957,11 @@
             this.dtgv_GIAIDOAN.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_GIAIDOAN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_GIAIDOAN.Location = new System.Drawing.Point(14, 18);
-            this.dtgv_GIAIDOAN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgv_GIAIDOAN.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv_GIAIDOAN.Name = "dtgv_GIAIDOAN";
             this.dtgv_GIAIDOAN.ReadOnly = true;
             this.dtgv_GIAIDOAN.RowHeadersWidth = 51;
-            this.dtgv_GIAIDOAN.Size = new System.Drawing.Size(372, 145);
+            this.dtgv_GIAIDOAN.Size = new System.Drawing.Size(372, 217);
             this.dtgv_GIAIDOAN.TabIndex = 11;
             // 
             // btn_TaoKHDT
@@ -969,7 +969,7 @@
             this.btn_TaoKHDT.BackColor = System.Drawing.Color.Tomato;
             this.btn_TaoKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TaoKHDT.Location = new System.Drawing.Point(731, 62);
-            this.btn_TaoKHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_TaoKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.btn_TaoKHDT.Name = "btn_TaoKHDT";
             this.btn_TaoKHDT.Size = new System.Drawing.Size(214, 50);
             this.btn_TaoKHDT.TabIndex = 10;
@@ -981,7 +981,7 @@
             // 
             this.btn_RefreshDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_RefreshDSKHDT.Location = new System.Drawing.Point(567, 341);
-            this.btn_RefreshDSKHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_RefreshDSKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.btn_RefreshDSKHDT.Name = "btn_RefreshDSKHDT";
             this.btn_RefreshDSKHDT.Size = new System.Drawing.Size(72, 24);
             this.btn_RefreshDSKHDT.TabIndex = 9;
@@ -993,7 +993,7 @@
             // 
             this.btn_TimKiemDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TimKiemDSKHDT.Location = new System.Drawing.Point(244, 337);
-            this.btn_TimKiemDSKHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_TimKiemDSKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.btn_TimKiemDSKHDT.Name = "btn_TimKiemDSKHDT";
             this.btn_TimKiemDSKHDT.Size = new System.Drawing.Size(75, 24);
             this.btn_TimKiemDSKHDT.TabIndex = 8;
@@ -1014,7 +1014,7 @@
             // tb_SDT_DSKHDT
             // 
             this.tb_SDT_DSKHDT.Location = new System.Drawing.Point(45, 340);
-            this.tb_SDT_DSKHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb_SDT_DSKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.tb_SDT_DSKHDT.Name = "tb_SDT_DSKHDT";
             this.tb_SDT_DSKHDT.Size = new System.Drawing.Size(195, 21);
             this.tb_SDT_DSKHDT.TabIndex = 6;
@@ -1028,7 +1028,7 @@
             this.dtgv_DSKHDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_DSKHDT.GridColor = System.Drawing.Color.White;
             this.dtgv_DSKHDT.Location = new System.Drawing.Point(43, 369);
-            this.dtgv_DSKHDT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgv_DSKHDT.Margin = new System.Windows.Forms.Padding(2);
             this.dtgv_DSKHDT.Name = "dtgv_DSKHDT";
             this.dtgv_DSKHDT.ReadOnly = true;
             this.dtgv_DSKHDT.RowHeadersWidth = 51;
@@ -1068,7 +1068,7 @@
             this.tab_HSBN.Controls.Add(this.label2);
             this.tab_HSBN.Location = new System.Drawing.Point(4, 24);
             this.tab_HSBN.Name = "tab_HSBN";
-            this.tab_HSBN.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_HSBN.Padding = new System.Windows.Forms.Padding(2);
             this.tab_HSBN.Size = new System.Drawing.Size(1089, 651);
             this.tab_HSBN.TabIndex = 2;
             this.tab_HSBN.Text = "Hồ Sơ Bệnh Nhân";
@@ -1079,7 +1079,7 @@
             this.tb5_HSBN.Enabled = false;
             this.tb5_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb5_HSBN.Location = new System.Drawing.Point(702, 158);
-            this.tb5_HSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb5_HSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb5_HSBN.Name = "tb5_HSBN";
             this.tb5_HSBN.Size = new System.Drawing.Size(147, 22);
             this.tb5_HSBN.TabIndex = 35;
@@ -1089,7 +1089,7 @@
             this.tb4_HSBN.Enabled = false;
             this.tb4_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb4_HSBN.Location = new System.Drawing.Point(702, 124);
-            this.tb4_HSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb4_HSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb4_HSBN.Name = "tb4_HSBN";
             this.tb4_HSBN.Size = new System.Drawing.Size(147, 22);
             this.tb4_HSBN.TabIndex = 34;
@@ -1099,7 +1099,7 @@
             this.tb3_HSBN.Enabled = false;
             this.tb3_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb3_HSBN.Location = new System.Drawing.Point(396, 193);
-            this.tb3_HSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb3_HSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb3_HSBN.Name = "tb3_HSBN";
             this.tb3_HSBN.Size = new System.Drawing.Size(147, 22);
             this.tb3_HSBN.TabIndex = 33;
@@ -1109,7 +1109,7 @@
             this.tb2_HSBN.Enabled = false;
             this.tb2_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb2_HSBN.Location = new System.Drawing.Point(396, 158);
-            this.tb2_HSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb2_HSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb2_HSBN.Name = "tb2_HSBN";
             this.tb2_HSBN.Size = new System.Drawing.Size(147, 22);
             this.tb2_HSBN.TabIndex = 32;
@@ -1119,7 +1119,7 @@
             this.tb1_HSBN.Enabled = false;
             this.tb1_HSBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb1_HSBN.Location = new System.Drawing.Point(396, 124);
-            this.tb1_HSBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb1_HSBN.Margin = new System.Windows.Forms.Padding(2);
             this.tb1_HSBN.Name = "tb1_HSBN";
             this.tb1_HSBN.Size = new System.Drawing.Size(147, 22);
             this.tb1_HSBN.TabIndex = 31;
@@ -1264,7 +1264,7 @@
             this.tab_CHYC.Controls.Add(this.label4);
             this.tab_CHYC.Location = new System.Drawing.Point(4, 24);
             this.tab_CHYC.Name = "tab_CHYC";
-            this.tab_CHYC.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tab_CHYC.Padding = new System.Windows.Forms.Padding(2);
             this.tab_CHYC.Size = new System.Drawing.Size(1089, 651);
             this.tab_CHYC.TabIndex = 3;
             this.tab_CHYC.Text = "Cuộc Hẹn Yêu Cầu";
@@ -1275,7 +1275,7 @@
             this.tb6_CHYC.Enabled = false;
             this.tb6_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb6_CHYC.Location = new System.Drawing.Point(500, 211);
-            this.tb6_CHYC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb6_CHYC.Margin = new System.Windows.Forms.Padding(2);
             this.tb6_CHYC.Name = "tb6_CHYC";
             this.tb6_CHYC.Size = new System.Drawing.Size(126, 22);
             this.tb6_CHYC.TabIndex = 36;
@@ -1285,7 +1285,7 @@
             this.tb5_CHYC.Enabled = false;
             this.tb5_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb5_CHYC.Location = new System.Drawing.Point(500, 176);
-            this.tb5_CHYC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb5_CHYC.Margin = new System.Windows.Forms.Padding(2);
             this.tb5_CHYC.Name = "tb5_CHYC";
             this.tb5_CHYC.Size = new System.Drawing.Size(126, 22);
             this.tb5_CHYC.TabIndex = 35;
@@ -1295,7 +1295,7 @@
             this.tb4_CHYC.Enabled = false;
             this.tb4_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb4_CHYC.Location = new System.Drawing.Point(500, 141);
-            this.tb4_CHYC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb4_CHYC.Margin = new System.Windows.Forms.Padding(2);
             this.tb4_CHYC.Name = "tb4_CHYC";
             this.tb4_CHYC.Size = new System.Drawing.Size(126, 22);
             this.tb4_CHYC.TabIndex = 34;
@@ -1305,7 +1305,7 @@
             this.tb3_CHYC.Enabled = false;
             this.tb3_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb3_CHYC.Location = new System.Drawing.Point(154, 205);
-            this.tb3_CHYC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb3_CHYC.Margin = new System.Windows.Forms.Padding(2);
             this.tb3_CHYC.Name = "tb3_CHYC";
             this.tb3_CHYC.Size = new System.Drawing.Size(126, 22);
             this.tb3_CHYC.TabIndex = 33;
@@ -1315,7 +1315,7 @@
             this.tb2_CHYC.Enabled = false;
             this.tb2_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb2_CHYC.Location = new System.Drawing.Point(154, 171);
-            this.tb2_CHYC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb2_CHYC.Margin = new System.Windows.Forms.Padding(2);
             this.tb2_CHYC.Name = "tb2_CHYC";
             this.tb2_CHYC.Size = new System.Drawing.Size(126, 22);
             this.tb2_CHYC.TabIndex = 32;
@@ -1325,7 +1325,7 @@
             this.tb1_CHYC.Enabled = false;
             this.tb1_CHYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb1_CHYC.Location = new System.Drawing.Point(154, 133);
-            this.tb1_CHYC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tb1_CHYC.Margin = new System.Windows.Forms.Padding(2);
             this.tb1_CHYC.Name = "tb1_CHYC";
             this.tb1_CHYC.Size = new System.Drawing.Size(126, 22);
             this.tb1_CHYC.TabIndex = 31;
@@ -1520,7 +1520,7 @@
             this.tab_ThanhToan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tab_ThanhToan.Location = new System.Drawing.Point(4, 24);
             this.tab_ThanhToan.Name = "tab_ThanhToan";
-            this.tab_ThanhToan.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tab_ThanhToan.Padding = new System.Windows.Forms.Padding(3);
             this.tab_ThanhToan.Size = new System.Drawing.Size(1089, 651);
             this.tab_ThanhToan.TabIndex = 4;
             this.tab_ThanhToan.Text = "Thanh Toán";
@@ -1532,7 +1532,7 @@
             this.button_XuatHD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_XuatHD.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_XuatHD.Location = new System.Drawing.Point(622, 452);
-            this.button_XuatHD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_XuatHD.Margin = new System.Windows.Forms.Padding(2);
             this.button_XuatHD.Name = "button_XuatHD";
             this.button_XuatHD.Size = new System.Drawing.Size(169, 50);
             this.button_XuatHD.TabIndex = 17;
