@@ -173,6 +173,9 @@
     <EmbeddedResource Include="DATLICHHEN.resx">
       <DependentUpon>DATLICHHEN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditProfile.resx">
+      <DependentUpon>EditProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </EmbeddedResource>

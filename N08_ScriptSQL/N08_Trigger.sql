@@ -8,7 +8,7 @@ begin
 	ins.MaBenhAn = khdt.MaBenhAn and  ins.MaRangKham = KHDT.MaRangKham 
 	AND KHDT.TrangThaiDieuTri = N'kế hoạch')
 	begin
-		print N'Kế hoạch điều trị này chưa được tạo hoặc chưa có trạn thái hoặc đã hoàn thành hoặc đã bị hủy'
+		print N'Kế hoạch điều trị này chưa được tạo hoặc chưa có trạng thái hoặc đã hoàn thành hoặc đã bị hủy'
 		return
 	end
 	declare @total int
@@ -72,3 +72,36 @@ begin
 	end 
 end
 go
+
+
+-- khi nha sĩ và nhân viên thay đổi số điện thoại thì cập nhật lại tên đăng nhập của tài khoản luôn
+CREATE OR ALTER TRIGGER CapNhatTenDangNhap_NS
+ON NHASI
+AFTER UPDATE
+AS
+BEGIN
+    IF UPDATE(DienThoaiNS)
+    BEGIN
+        UPDATE TK
+        SET TK.TenDangNhap = i.DienThoaiNS
+        FROM TAIKHOAN TK
+        JOIN inserted i ON TK.MaTaiKhoan = i.MaNhaSi
+        WHERE TK.MaTaiKhoan IN (SELECT i.MaNhaSi FROM inserted i)
+    END
+END
+GO
+
+CREATE OR ALTER TRIGGER CapNhatTenDangNhap_NV
+ON NHANVIEN
+AFTER UPDATE
+AS
+BEGIN
+    IF UPDATE(DienThoaiNV)
+    BEGIN
+        UPDATE TK
+        SET TK.TenDangNhap = i.DienThoaiNV
+        FROM TAIKHOAN TK
+        JOIN inserted i ON TK.MaTaiKhoan = i.MaNhanVien
+        WHERE TK.MaTaiKhoan IN (SELECT i.MaNhanVien FROM inserted i)
+    END
+END

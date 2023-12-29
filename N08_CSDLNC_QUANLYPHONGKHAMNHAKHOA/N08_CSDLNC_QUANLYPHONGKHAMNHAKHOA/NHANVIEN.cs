@@ -33,14 +33,20 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             dtgv_BenhNhan.DataSource = Load_HoSoBenhNhan("*").Tables[0];
             dtgv_DanhSachBenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgv_DanhSachBenhNhan.DataSource = Load_DSBenhNhan("*").Tables[0];
+            dtgv_DSKHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_DSKHDT.DataSource = Load_DSKHDT().Tables[0];
             this.username = username;
             this.password = password;
+            Load_Personal_Info();
+        }
 
+        public void Load_Personal_Info()
+        {
             int nConn = GetNumConn();
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
                 connection.Open();
-                string query = $"select HoTenNV, NgSinhNV, DiaChiNV, DienThoaiNV from TAIKHOAN, NHANVIEN WHERE DienThoaiNV='{username}'";
+                string query = $"select HoTenNV, NgSinhNV, DiaChiNV, DienThoaiNV from TAIKHOAN, NHANVIEN WHERE DienThoaiNV='{this.username}'";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -60,8 +66,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
                                 // Sử dụng dữ liệu như mong muốn (ví dụ: hiển thị lên các controls trên form)
                                 int viTriKhoangTrang = ngSinhNV.IndexOf(' ');
-
                                 textBox3.Text = hoTenNV;
+
                                 textBox4.Text = ngSinhNV.Substring(0, viTriKhoangTrang);
                                 textBox5.Text = diaChiNV;
                                 textBox6.Text = dienThoaiNV;
@@ -70,7 +76,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                     }
                 }
 
-                string query_TimMaNVQL = $"select MaNhanVien from NHANVIEN where DienThoaiNV = '{username}'";
+                string query_TimMaNVQL = $"select MaNhanVien from NHANVIEN where DienThoaiNV = '{this.username}'";
                 using (SqlCommand command = new SqlCommand(query_TimMaNVQL, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -146,7 +152,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 tb2_CHYC.Text = row.Cells["NgSinhBN"].Value?.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
                 tb3_CHYC.Text = row.Cells["GioiTinhBN"].Value?.ToString() ?? string.Empty;
                 tb4_CHYC.Text = row.Cells["DienThoaiBN"].Value?.ToString() ?? string.Empty;
-                tb5_CHYC.Text = row.Cells["ThoiGianYC"].Value?.ToString() ?? string.Empty;
+                tb5_CHYC.Text = row.Cells["ThoiGianYC"].Value?.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
                 tb6_CHYC.Text = row.Cells["TinhTrangBenh"].Value?.ToString() ?? string.Empty;
 
             }
@@ -340,7 +346,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         private void btn_TaoKHDT_Click(object sender, EventArgs e)
         {
-            TaoKeHoachDieuTri taoKHDT = new TaoKeHoachDieuTri();
+            TaoKeHoachDieuTri taoKHDT = new TaoKeHoachDieuTri(this.MaNVQL);
             taoKHDT.ShowDialog();
         }
         private void dtgv_BenhNhan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -357,16 +363,97 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
         }
 
-        private void NHANVIEN_Load(object sender, EventArgs e)
+        private void btn_ChinhSuaTT_Click(object sender, EventArgs e)
         {
-
+            EditProfile editProfile = new EditProfile(this.MaNVQL, this.username, this.password,  "NV");
+            NHANVIEN nHANVIEN = new NHANVIEN(this.username, this.password);
+            this.Hide();
+            editProfile.ShowDialog();
+            this.Close();
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
 
+        DataSet Load_DSKHDT()
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = "select distinct khdt.MaBenhAn, bn.HoTenBN, khdt.NgayDieuTri, ns.HoTenNS, r.SoRang, bmr.MoTa, khdt.TrangThaiDieuTri, pk.PhongKham from KEHOACHDIEUTRI khdt, HOSOBENHNHAN hsbn, BENHNHAN bn, NHASI ns, PHONGKHAM pk, RANG_BEMAT rbm, RANG r, BEMATRANG bmr, CH_BENHNHAN chbn " +
+                            "where khdt.MaBenhAn = hsbn.MaBenhAn and hsbn.MaBenhNhan = bn.MaBenhNhan and khdt.MaNhaSi = ns.MaNhaSi and " +
+                            "khdt.MaRangKham = rbm.MaRangKham and rbm.MaRang = r.MaRang and rbm.MaBeMat = bmr.MaBeMat and bn.MaBenhNhan = chbn.MaBenhNhan and " +
+                            "chbn.MaPhongKham = pk.MaPhongKham";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            return data;
         }
 
+
+        private void dtgv_DSKHDT_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtgv_DSKHDT.Rows.Count)
+            {
+                DataGridViewRow row = dtgv_DSKHDT.Rows[e.RowIndex];
+                int viTriKhoangTrang = row.Cells["NgayDieuTri"].Value.ToString().IndexOf(' ');
+                tb1_KHDT.Text = row.Cells["MaBenhAn"].Value?.ToString() ?? string.Empty;
+                tb2_KHDT.Text = row.Cells["HoTenBN"].Value?.ToString() ?? string.Empty;
+                tb3_KHDT.Text = row.Cells["NgayDieuTri"].Value?.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
+                tb4_KHDT.Text = row.Cells["HoTenNS"].Value?.ToString() ?? string.Empty;
+                tb5_KHDT.Text = row.Cells["SoRang"].Value?.ToString() ?? string.Empty;
+                tb6_KHDT.Text = row.Cells["MoTa"].Value?.ToString() ?? string.Empty;
+                tb7_KHDT.Text = row.Cells["TrangThaiDieuTri"].Value?.ToString() ?? string.Empty;
+                tb9_KHDT.Text = row.Cells["PhongKham"].Value?.ToString() ?? string.Empty;
+
+                if(tb7_KHDT.Text == "kế hoạch")
+                {
+                    tb7_KHDT.BackColor = Color.LightSkyBlue;
+                }
+                else if(tb7_KHDT.Text == "đã hủy")
+                {
+                    tb7_KHDT.BackColor = Color.Yellow;
+                }
+                else if (tb7_KHDT.Text == "đã hoàn thành")
+                {
+                    tb7_KHDT.BackColor = Color.FromArgb(192, 255, 192);
+
+                }
+
+                dtgv_GIAIDOAN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dtgv_GIAIDOAN.DataSource = Load_DSGiaiDoan(int.Parse(tb1_KHDT.Text), int.Parse(tb5_KHDT.Text), tb6_KHDT.Text).Tables[0];
+            }
+        }
+
+        DataSet Load_DSGiaiDoan (int mabenhan, int sorang, string bematrang)
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = $"select distinct gd.STTGiaiDoan, dt.TenDieuTri, dt.PhiDieuTri from GIAIDOAN gd, DIEUTRI dt, BEMATRANG bmr, RANG r, RANG_BEMAT rbm where gd.MaBenhAn = {mabenhan} and gd.MaRangKham = rbm.MaRangKham and rbm.MaRang = r.MaRang and rbm.MaBeMat = bmr.MaBeMat and r.SoRang = {sorang} and bmr.MoTa = N'{bematrang}' and gd.MaDieuTri = dt.MaDieuTri order by (gd.STTGiaiDoan)";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            return data;
+        }    
+
+        private void btn_RefreshDSKHDT_Click(object sender, EventArgs e)
+        {
+            dtgv_DSKHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_DSKHDT.DataSource = Load_DSKHDT().Tables[0];
+        }
 
 
 

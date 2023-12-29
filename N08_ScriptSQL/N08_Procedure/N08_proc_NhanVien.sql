@@ -42,6 +42,68 @@ end
 go
 
 
+create function F_DSNhaSiBanTheoThuTuKham(@ngaykham datetime, @maphongkham int, @thutukham int)
+returns table
+as
+	return(
+		select CH.MaNhaSi as 'MaNhaSi'
+		from CUOCHEN CH, CH_BENHNHAN CHBN
+		where cast(CH.NgayGioHen as date) =  CAST(@ngaykham as date) and CHBN.ThuTuKham = @thutukham and CH.MaCuocHen = CHBN.MaCHBN)
+
+go
+
+-- Hàm trả ra các nha sĩ bận lịch làm việc riêng của họ vào ngày cụ thể
+create function F_DSNhaSiBanTheoLichLamViec(@ngaykham datetime)
+returns table
+as
+	return(
+		select CH.MaNhaSi as 'MaNhaSi'
+		from CUOCHEN CH
+		where cast(CH.NgayGioHen as date) =  CAST(@ngaykham as date) and CH.LoaiCuocHen = N'cá nhân')
+go
+
+
+-- NHÂN VIÊN: Xuất danh sách nha sĩ khám phù hợp vào thời gian và phòng khám mà bệnh nhân chọn
+create or alter proc sp_NhaSiKhamPhuHop @ngaykham datetime, @phongkham varchar(10)
+as
+begin 
+	-- Lấy mã phòng khám 
+	declare @maphongkham int
+	select @maphongkham = MaPhongKham
+	from PHONGKHAM where @phongkham = PhongKham
+
+	-- lấy thứ tự khám
+	declare @thutukham int
+
+	if not exists(select * from CUOCHEN where cast(NgayGioHen as date) =  CAST(@ngaykham as date))
+	begin
+		set @thutukham = 1
+	end
+	else
+	begin
+		if not exists(select * 
+					from CUOCHEN CH, CH_BENHNHAN CHBN, PHONGKHAM PK 
+					where cast(CH.NgayGioHen as date) =  CAST(@ngaykham as date) and CH.MaCuocHen = CHBN.MaCHBN and CHBN.MaPhongKham = PK.MaPhongKham and PK.PhongKham = @phongkham)
+		begin
+			set @thutukham = 1
+		end
+		else
+		begin
+			select  @thutukham = MAX(CHBN.ThuTuKham) + 1
+			from CUOCHEN CH, CH_BENHNHAN CHBN, PHONGKHAM PK 
+			where cast(CH.NgayGioHen as date) =  CAST(@ngaykham as date) and CH.MaCuocHen = CHBN.MaCHBN and CHBN.MaPhongKham = PK.MaPhongKham and PK.PhongKham = @phongkham
+		end
+	end
+
+	select top 200 *
+	from NHASI
+	where MaNhaSi not in (select DS.MaNhaSi from dbo.F_DSNhaSiBanTheoThuTuKham(@ngaykham, @maphongkham, @thutukham) DS) and
+			MaNhaSi not in (select DS.MaNhaSi from dbo.F_DSNhaSiBanTheoLichLamViec(@ngaykham) DS)
+end
+go
+
+
+go
 -- NHÂN VIÊN: Tạo cuộc hẹn ở phòng khám với nha sĩ cho bệnh nhân
 create or alter proc sp_TaoCuocHenPhongKham @mabenhnhan int, @manhasi int,
 					 @ngaygiohen datetime, @manvql int, @maphongkham int
@@ -54,7 +116,7 @@ begin
 	
 	select @mach_benhnhan = MaCuocHen
 	from CUOCHEN
-	order by MaCuocHen desc
+	order by MaCuocHen asc
 	
 	-- xử lý thứ tự khám 
 	declare @dem int
@@ -96,7 +158,7 @@ begin
 	declare @marangkham int -- 
 	
 	-- Lấy mã điều trị
-	select @madieutri
+	select @madieutri = MaDieuTri
 	from DIEUTRI where TenDieuTri = @tendieutri
 
 	-- Lấy mã răng khám
@@ -133,11 +195,12 @@ begin
 end
 
 
+
 go
 
 -- NHÂN VIÊN: Tạo kế hoạch điều trị cho bệnh nhân
 create or alter proc sp_TaoKeHoachDieuTri @sdt_benhnhan varchar(10), @ngaykham datetime, 
-	@manhasikham nvarchar(50), @phongkham varchar(10), @sorang int, @bematrang nvarchar(100),
+	@manhasikham int, @phongkham varchar(10), @sorang int, @bematrang nvarchar(100),
 	@manvql int
 as
 begin 
@@ -175,6 +238,11 @@ begin
 		select @mabenhan = MaBenhAn from HOSOBENHNHAN where MaBenhNhan = @mabenhnhan
 	end
 
+	if exists(select * from KEHOACHDIEUTRI where MaBenhAn = @mabenhan and MaRangKham = @marangkham)
+	begin
+		print N'Bạn đang hoặc đã khám mã răng này rồi !!!'
+		return
+	end
 
 	-- Lấy mã phòng khám
 	select @maphongkham = MaPhongKham from PHONGKHAM WHERE PhongKham = @phongkham
@@ -186,7 +254,7 @@ begin
 	-- Lấy mã thanh toán
 	select @mathanhtoan = MaThanhToan
 	from THANHTOAN
-	order by MaThanhToan desc
+	order by MaThanhToan asc
 
 	-- Thêm kế hoạch điều trị vào hệ thống
 	insert into KEHOACHDIEUTRI(MaBenhAn, MaRangKham, NgayDieuTri, TrangThaiDieuTri, MaThanhToan, MaNhaSi) values
@@ -198,3 +266,4 @@ begin
 	print N'Tạo kế hoạch điều trị thành công'
 	return 
 end
+

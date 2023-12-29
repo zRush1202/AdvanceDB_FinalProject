@@ -125,6 +125,7 @@ create table RANG_BEMAT
 	primary key (MaRangKham)
 )
 
+
 create table BEMATRANG
 (
 	MaBeMat int identity(1,1),
@@ -233,8 +234,9 @@ alter table KEHOACHDIEUTRI add
 	constraint FK_KEHOACHDIEUTRI_TROKHAM foreign key (MaTroKham) references NHASI(MaNhaSi)
 
 alter table RANG_BEMAT add
-	constraint FK_RANG_BEMAT_RANG foreign key (MaRang) references RANG(SoRang),
+	constraint FK_RANG_BEMAT_RANG foreign key (MaRang) references RANG(MaRang),
 	constraint FK_RANG_BEMAT_BEMATRANG foreign key (MaBeMat) references BEMATRANG(MaBeMat)
+
 
 alter table GIAIDOAN add
 	constraint FK_GIAIDOAN_KEHOACHDIEUTRI foreign key (MaBenhAn, MaRangKham) references KEHOACHDIEUTRI(MaBenhAn, MaRangKham),

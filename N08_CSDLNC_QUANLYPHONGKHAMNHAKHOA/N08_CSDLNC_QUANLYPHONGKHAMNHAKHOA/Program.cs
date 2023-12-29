@@ -17,9 +17,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new HOME());
-            //Application.Run(new TaoKeHoachDieuTri());
+            //Application.Run(new EditProfile());
 
-            //Application.Run(new NHASI("0752717429"));
         }
     }
 }

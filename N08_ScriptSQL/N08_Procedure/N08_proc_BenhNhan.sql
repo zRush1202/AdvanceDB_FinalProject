@@ -1,7 +1,7 @@
 ﻿use CSDLNC_QLPhongKham
 go
 
---- KHÁCH HÀNG: Khách hàng đặt online cuộc hẹn yêu cầu trên hệ thống ---  Commands completed successfully.
+--- KHÁCH HÀNG: Khách hàng đặt online cuộc hẹn yêu cầu trên hệ thống
 create or alter proc sp_ThemCuocHenYeuCau 
 					@hoten nvarchar(50), @ngsinh date, @diachi nvarchar(100),
 					@phone varchar(10), @email varchar(50), @gender nvarchar(4),
@@ -34,3 +34,4 @@ begin
 end
 
 go
+

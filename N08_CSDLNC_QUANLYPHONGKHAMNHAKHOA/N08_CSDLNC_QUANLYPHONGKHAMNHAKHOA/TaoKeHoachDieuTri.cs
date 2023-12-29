@@ -19,14 +19,15 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         private int numConn = -1;
         private bool isNumConnInitialized = false;
         //clb_DTGiaiDoan1_Load();
+        private int MaNVQL;
 
-        public TaoKeHoachDieuTri()
+        public TaoKeHoachDieuTri(int manvql)
         {
+            this.MaNVQL = manvql;   
             InitializeComponent();
             LoadDataIntoRangComboBox();
             LoadDataIntoBeMatRangComboBox();
             LoadDataIntoPhongKhamComboBox();
-            LoadDataIntoMaNhaSiComboBox();
             LoadDataIntoCheckedListBox();
             clb_DTGiaiDoan1.ItemCheck += CheckedListBox_ItemCheck;
             clb_DTGiaiDoan2.ItemCheck += CheckedListBox_ItemCheck;
@@ -139,7 +140,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             {
                 connection.Open();
 
-                string query = "SELECT MaNhaSi  FROM NHASI";
+                string query = $"exec sp_NhaSiKhamPhuHop '{dtt_NgayKham.Value}', '{cb_PhongKham.SelectedItem}'";
+
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -158,6 +160,16 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
         }
 
+
+        private void cb_PhongKham_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataIntoMaNhaSiComboBox();
+        }
+
+        private void dtt_NgayKham_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDataIntoMaNhaSiComboBox();
+        }
 
 
         private void LoadDataIntoCheckedListBox()
@@ -310,11 +322,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         }
 
 
-        private bool isCancelled = false;
+        private bool isCancelled = true;
         private void btn_TaoKHDT_Click(object sender, EventArgs e)
         {
             CheckedListBox.CheckedItemCollection checkedItems = clb_DTGiaiDoan1.CheckedItems;
-            if (cb_RANG.SelectedItem !=  null && cb_BeMatRang.SelectedItem != null && checkedItems.Count != 0)
+            if (cb_RANG.SelectedItem !=  null && cb_MaNhaSi.SelectedItem != null && cb_BeMatRang.SelectedItem != null && checkedItems.Count != 0)
             {
                 if(MessageBox.Show("Bạn đã thật sự muốn tạo kế hoạch điều trị này chứ?", "XÁC NHẬN", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
                 {
@@ -331,7 +343,118 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             // Tiếp tục quá trình lưu kế hoạch điều trị
             if (isCancelled)
             {
+                int nConn = GetNumConn();
+                DateTime ngayhenkham = dtt_NgayKham.Value;
+                string query = $"exec sp_TaoKeHoachDieuTri '{tb1_KHDT.Text}', '{ngayhenkham}', {cb_MaNhaSi.SelectedItem}, '{cb_PhongKham.SelectedItem}', {cb_RANG.SelectedItem}, N'{cb_BeMatRang.SelectedItem}', {this.MaNVQL}";
+                using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                {
+                    connection.Open();
+                    connection.InfoMessage += Connection_InfoMessage;
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+
+                if(clb_DTGiaiDoan1.CheckedItems.Count != 0)
+                {
+                    CheckedListBox.CheckedItemCollection checkedItems = clb_DTGiaiDoan1.CheckedItems;
+
+                    foreach (object item in checkedItems)
+                    {
+                        string query_ = $"exec sp_TaoLieuTrinh '{tb1_KHDT.Text}', 1, {cb_RANG.SelectedItem}, N'{cb_BeMatRang.SelectedItem}', N'{item.ToString()}'";
+                        using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                        {
+                            connection.Open();
+                            connection.InfoMessage += Connection_InfoMessage;
+                            SqlCommand command = new SqlCommand(query_, connection);
+                            command.ExecuteNonQuery();
+                            connection.Close();
+                        }
+                    }
+                }
+
+                if (clb_DTGiaiDoan2.CheckedItems.Count != 0)
+                {
+                    CheckedListBox.CheckedItemCollection checkedItems = clb_DTGiaiDoan2.CheckedItems;
+
+                    foreach (object item in checkedItems)
+                    {
+                        string query_ = $"exec sp_TaoLieuTrinh '{tb1_KHDT.Text}', 2, {cb_RANG.SelectedItem}, N'{cb_BeMatRang.SelectedItem}', N'{item.ToString()}'";
+                        using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                        {
+                            connection.Open();
+                            connection.InfoMessage += Connection_InfoMessage;
+                            SqlCommand command = new SqlCommand(query_, connection);
+                            command.ExecuteNonQuery();
+                            connection.Close();
+                        }
+                    }
+                }
+
+                if (clb_DTGiaiDoan3.CheckedItems.Count != 0)
+                {
+                    CheckedListBox.CheckedItemCollection checkedItems = clb_DTGiaiDoan3.CheckedItems;
+
+                    foreach (object item in checkedItems)
+                    {
+                        string query_ = $"exec sp_TaoLieuTrinh '{tb1_KHDT.Text}', 3, {cb_RANG.SelectedItem}, N'{cb_BeMatRang.SelectedItem}', N'{item.ToString()}'";
+                        using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                        {
+                            connection.Open();
+                            connection.InfoMessage += Connection_InfoMessage;
+                            SqlCommand command = new SqlCommand(query_, connection);
+                            command.ExecuteNonQuery();
+                            connection.Close();
+                        }
+                    }
+                }
+
+                if (clb_DTGiaiDoan4.CheckedItems.Count != 0)
+                {
+                    CheckedListBox.CheckedItemCollection checkedItems = clb_DTGiaiDoan4.CheckedItems;
+
+                    foreach (object item in checkedItems)
+                    {
+                        string query_ = $"exec sp_TaoLieuTrinh '{tb1_KHDT.Text}', 4, {cb_RANG.SelectedItem}, N'{cb_BeMatRang.SelectedItem}', N'{item.ToString()}'";
+                        using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                        {
+                            connection.Open();
+                            connection.InfoMessage += Connection_InfoMessage;
+                            SqlCommand command = new SqlCommand(query_, connection);
+                            command.ExecuteNonQuery();
+                            connection.Close();
+                        }
+                    }
+                }
+
+                if (clb_DTGiaiDoan5.CheckedItems.Count != 0)
+                {
+                    CheckedListBox.CheckedItemCollection checkedItems = clb_DTGiaiDoan5.CheckedItems;
+
+                    foreach (object item in checkedItems)
+                    {
+                        string query_ = $"exec sp_TaoLieuTrinh '{tb1_KHDT.Text}', 5, {cb_RANG.SelectedItem}, N'{cb_BeMatRang.SelectedItem}', N'{item.ToString()}'";
+                        using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+                        {
+                            connection.Open();
+                            connection.InfoMessage += Connection_InfoMessage;
+                            SqlCommand command = new SqlCommand(query_, connection);
+                            command.ExecuteNonQuery();
+                            connection.Close();
+                        }
+                    }
+                }
+
                 this.Close();
+            }
+        }
+
+        private void Connection_InfoMessage(object sender, SqlInfoMessageEventArgs e)
+        {
+            // Xử lý thông điệp được in ra từ SQL Server (bằng PRINT)
+            foreach (SqlError error in e.Errors)
+            {
+                MessageBox.Show(error.Message); // Hiển thị thông điệp trong MessageBox
             }
         }
 
@@ -343,7 +466,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         private void cb_MaNhaSi_SelectedIndexChanged(object sender, EventArgs e)
         {
             int nConn = GetNumConn();
-            int manhasi = cb_MaNhaSi.SelectedIndex;
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
                 try
@@ -378,6 +500,11 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                     connection.Close();
                 }
             }
+        }
+
+        private void panel_TaoKHDT_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
