@@ -8,7 +8,7 @@ begin
 	ins.MaBenhAn = khdt.MaBenhAn and  ins.MaRangKham = KHDT.MaRangKham 
 	AND KHDT.TrangThaiDieuTri = N'kế hoạch')
 	begin
-		print N'Kế hoạch điều trị này chưa được tạo hoặc chưa có trạng thái hoặc đã hoàn thành hoặc đã bị hủy'
+		--print N'Kế hoạch điều trị này chưa được tạo hoặc chưa có trạng thái hoặc đã hoàn thành hoặc đã bị hủy'
 		return
 	end
 	declare @total int
@@ -34,18 +34,17 @@ begin
 	if not exists(select * from KEHOACHDIEUTRI KHDT, inserted ins where 
 	ins.MaThanhToan = khdt.mathanhtoan AND KHDT.TrangThaiDieuTri = N'kế hoạch')
 	begin
-		print N'Kế hoạch điều trị này chưa được tạo hoặc chưa có trạn thái hoặc đã hoàn thành hoặc đã bị hủy'
+		--print N'Kế hoạch điều trị này chưa được tạo hoặc chưa có trạn thái hoặc đã hoàn thành hoặc đã bị hủy'
 		return
 	end
 
 	declare @total int
 	declare @mahsba int
-	select @mahsba = khdt.mabenhan from KEHOACHDIEUTRI khdt, inserted ins
+	select @mahsba = khdt.mabenhan from KEHOACHDIEUTRI khdt, inserted ins where ins.MaThanhToan = khdt.MaThanhToan
 
-	select @total = sum(ins.tiencanthanhtoan) from inserted ins, KEHOACHDIEUTRI khdt 
-	where khdt.MaThanhToan = ins.MaThanhToan 
-
-	update HOSOBENHNHAN SET TongTienDieuTri = TongTienDieuTri + @total where @mahsba = MaBenhAn
+	select @total = sum(tt.tiencanthanhtoan) from KEHOACHDIEUTRI khdt, THANHTOAN tt 
+	where khdt.MaThanhToan = tt.MaThanhToan and khdt.MaBenhAn = @mahsba 
+	update HOSOBENHNHAN SET TongTienDieuTri = @total where @mahsba = MaBenhAn
 end
 go
 
@@ -61,11 +60,11 @@ begin
 			if @state = N'đã hoàn thành'
 			begin
 				declare @mahsba int
-				select @mahsba = mabenhan from inserted 
+				select @mahsba = ins.mabenhan from inserted ins
 
 				declare @total bigint
-				select @total = sum(tt.tiencanthanhtoan) from inserted ins, THANHTOAN tt , KEHOACHDIEUTRI khdt
-				where tt.MaThanhToan = ins.mathanhtoan and khdt.MaBenhAn = @mahsba and khdt.TrangThaiDieuTri = N'đã hoàn thành'
+				select @total = sum(tt.tiencanthanhtoan) from THANHTOAN tt , KEHOACHDIEUTRI khdt
+				where tt.MaThanhToan = khdt.mathanhtoan and khdt.MaBenhAn = @mahsba and khdt.TrangThaiDieuTri = N'đã hoàn thành'
 
 				update HOSOBENHNHAN set TongTienThanhToan = @total where @mahsba = MaBenhAn
 			end 

@@ -723,7 +723,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
             HoaDon h = new HoaDon(this.hoTenBN, this.hoTenNV, date,txt_TienCanTT.Text, tienDaTra,tienThoi);
             h.ShowDialog();
-            this.Close();
         }
 
         private bool checkTienDaTra = false;
@@ -736,7 +735,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 bool isNumber = System.Text.RegularExpressions.Regex.IsMatch(text, @"^\d+$");
                 if (isNumber && text.Length < 20)
                 {
-                    if (Int64.Parse(txt_TienCanTT.Text) < Int64.Parse(txt_TienDaTra.Text))
+                    if (Int64.Parse(txt_TienCanTT.Text) <= Int64.Parse(txt_TienDaTra.Text))
                     {
                         checkTienDaTra = true;
                     }
