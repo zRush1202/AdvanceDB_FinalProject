@@ -77,9 +77,6 @@
             this.tab_KHDT = new System.Windows.Forms.TabPage();
             this.tb9_KHDT = new System.Windows.Forms.TextBox();
             this.lb10_KHDT = new System.Windows.Forms.Label();
-            this.lb9_KHDT = new System.Windows.Forms.Label();
-            this.tb8_KHDT = new System.Windows.Forms.TextBox();
-            this.lb8_KHDT = new System.Windows.Forms.Label();
             this.tb7_KHDT = new System.Windows.Forms.TextBox();
             this.lb7_KHDT = new System.Windows.Forms.Label();
             this.tb6_KHDT = new System.Windows.Forms.TextBox();
@@ -716,9 +713,6 @@
             // 
             this.tab_KHDT.Controls.Add(this.tb9_KHDT);
             this.tab_KHDT.Controls.Add(this.lb10_KHDT);
-            this.tab_KHDT.Controls.Add(this.lb9_KHDT);
-            this.tab_KHDT.Controls.Add(this.tb8_KHDT);
-            this.tab_KHDT.Controls.Add(this.lb8_KHDT);
             this.tab_KHDT.Controls.Add(this.tb7_KHDT);
             this.tab_KHDT.Controls.Add(this.lb7_KHDT);
             this.tab_KHDT.Controls.Add(this.tb6_KHDT);
@@ -769,39 +763,6 @@
             this.lb10_KHDT.Size = new System.Drawing.Size(96, 18);
             this.lb10_KHDT.TabIndex = 55;
             this.lb10_KHDT.Text = "Phòng khám:";
-            // 
-            // lb9_KHDT
-            // 
-            this.lb9_KHDT.AutoSize = true;
-            this.lb9_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb9_KHDT.Location = new System.Drawing.Point(735, 368);
-            this.lb9_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb9_KHDT.Name = "lb9_KHDT";
-            this.lb9_KHDT.Size = new System.Drawing.Size(86, 18);
-            this.lb9_KHDT.TabIndex = 53;
-            this.lb9_KHDT.Text = "Các điều trị:";
-            // 
-            // tb8_KHDT
-            // 
-            this.tb8_KHDT.Enabled = false;
-            this.tb8_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb8_KHDT.Location = new System.Drawing.Point(828, 331);
-            this.tb8_KHDT.Margin = new System.Windows.Forms.Padding(2);
-            this.tb8_KHDT.Name = "tb8_KHDT";
-            this.tb8_KHDT.Size = new System.Drawing.Size(41, 22);
-            this.tb8_KHDT.TabIndex = 52;
-            this.tb8_KHDT.Text = "2";
-            // 
-            // lb8_KHDT
-            // 
-            this.lb8_KHDT.AutoSize = true;
-            this.lb8_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb8_KHDT.Location = new System.Drawing.Point(735, 331);
-            this.lb8_KHDT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lb8_KHDT.Name = "lb8_KHDT";
-            this.lb8_KHDT.Size = new System.Drawing.Size(75, 18);
-            this.lb8_KHDT.TabIndex = 51;
-            this.lb8_KHDT.Text = "Giai đoạn:";
             // 
             // tb7_KHDT
             // 
@@ -954,7 +915,7 @@
             // gb_TTCTGD
             // 
             this.gb_TTCTGD.Controls.Add(this.dtgv_GIAIDOAN);
-            this.gb_TTCTGD.Location = new System.Drawing.Point(664, 423);
+            this.gb_TTCTGD.Location = new System.Drawing.Point(660, 359);
             this.gb_TTCTGD.Margin = new System.Windows.Forms.Padding(2);
             this.gb_TTCTGD.Name = "gb_TTCTGD";
             this.gb_TTCTGD.Padding = new System.Windows.Forms.Padding(2);
@@ -1874,9 +1835,6 @@
         private System.Windows.Forms.Label lb2_KHDT;
         private System.Windows.Forms.TextBox tb7_KHDT;
         private System.Windows.Forms.Label lb7_KHDT;
-        private System.Windows.Forms.TextBox tb8_KHDT;
-        private System.Windows.Forms.Label lb8_KHDT;
-        private System.Windows.Forms.Label lb9_KHDT;
         private System.Windows.Forms.TextBox tb9_KHDT;
         private System.Windows.Forms.Label lb10_KHDT;
     }

@@ -11,11 +11,12 @@ namespace WinFormsApp1
     {
         public string[] connectionStrings = new string[]
         {
-            "Data Source=SHIPHUDOTCPP;Initial Catalog=CSDLNC_QLPhongKham;Integrated Security=True",
-            "Data Source=DESKTOP-U8VK4R9\\MSSQLSERVER2022;Initial Catalog=CSDLNC_QLPhongKham;Integrated Security=true;",
-            //"Server=DESKTOP-OST9FTB;Database=CSDLNC_QLPhongKham;User Id=sa;Password=123;",
-            "Data Source=HUYNHPHUC;Initial Catalog=CSDLNC_QLPhongKham;Integrated Security=True",
-            "Data Source=P1293;Initial Catalog=CSDLNC_QLPhongKham;Integrated Security=True"
+            //"Data Source=SHIPHUDOTCPP;Initial Catalog=CSDLNC_QLPhongKham;Integrated Security=True",
+            //"Data Source=DESKTOP-U8VK4R9\\MSSQLSERVER2022;Initial Catalog=CSDLNC_QLPhongKham;Integrated Security=true;",
+            "Server=DESKTOP-OST9FTB;Database=CSDLNC_QLPhongKham;User Id=sa;Password=123;",
+            //"Data Source=HUYNHPHUC;Initial Catalog=CSDLNC_QLPhongKham;Integrated Security=True",
+            //"Data Source=P1293;Initial Catalog=CSDLNC_QLPhongKham;Integrated Security=True"
+
             // Thêm các connectionString khác ở đây tương ứng với từng người dùng
         };
 
