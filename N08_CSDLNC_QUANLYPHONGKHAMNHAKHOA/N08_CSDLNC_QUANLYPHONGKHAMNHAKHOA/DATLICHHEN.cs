@@ -200,10 +200,5 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             h.ShowDialog();
             this.Close();
         }
-
-        private void DATLICHHEN_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -396,7 +396,6 @@
             this.Name = "DATLICHHEN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DATLICHHEN";
-            this.Load += new System.EventHandler(this.DATLICHHEN_Load);
             this.panel_cyan.ResumeLayout(false);
             this.panel_cyan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
