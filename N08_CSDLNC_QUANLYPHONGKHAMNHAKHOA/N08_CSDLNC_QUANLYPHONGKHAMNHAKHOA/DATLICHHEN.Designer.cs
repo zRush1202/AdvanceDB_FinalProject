@@ -303,6 +303,7 @@
             // tb_dienthoai
             // 
             this.tb_dienthoai.Location = new System.Drawing.Point(184, 147);
+            this.tb_dienthoai.MaxLength = 10;
             this.tb_dienthoai.Name = "tb_dienthoai";
             this.tb_dienthoai.Size = new System.Drawing.Size(200, 20);
             this.tb_dienthoai.TabIndex = 3;

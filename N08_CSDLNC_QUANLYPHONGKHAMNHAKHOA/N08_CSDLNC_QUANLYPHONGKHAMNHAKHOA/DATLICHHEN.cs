@@ -125,7 +125,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 !String.IsNullOrEmpty(tb_dienthoai.Text) &&
                 !String.IsNullOrEmpty(tb_diachi.Text) &&
                 !String.IsNullOrEmpty(tb_email.Text) &&
-                !String.IsNullOrEmpty(tb_tinhtrang.Text))
+                !String.IsNullOrEmpty(tb_tinhtrang.Text) &&
+                (tb_dienthoai.Text.Substring(0, 1) == "0"))
             {
                 allTBFilled = true;
             }
