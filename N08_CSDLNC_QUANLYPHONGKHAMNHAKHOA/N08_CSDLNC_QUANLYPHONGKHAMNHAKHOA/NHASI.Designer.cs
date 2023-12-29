@@ -131,7 +131,7 @@
             this.tab_NHASI.Controls.Add(this.tab_HSBN);
             this.tab_NHASI.Controls.Add(this.tab_LHCN);
             this.tab_NHASI.Controls.Add(this.tab_KHDT);
-            this.tab_NHASI.Location = new System.Drawing.Point(7, 2);
+            this.tab_NHASI.Location = new System.Drawing.Point(12, 2);
             this.tab_NHASI.Name = "tab_NHASI";
             this.tab_NHASI.SelectedIndex = 0;
             this.tab_NHASI.Size = new System.Drawing.Size(1327, 663);
@@ -342,6 +342,7 @@
             this.btn_KHDT.TabIndex = 36;
             this.btn_KHDT.Text = "KẾ HOẠCH ĐIỀU TRỊ";
             this.btn_KHDT.UseVisualStyleBackColor = true;
+            this.btn_KHDT.Click += new System.EventHandler(this.btn_KHDT_Click);
             // 
             // btn_CapNhat
             // 
@@ -812,6 +813,7 @@
             this.btn_RefreshDSKHDT.TabIndex = 79;
             this.btn_RefreshDSKHDT.Text = "Refresh";
             this.btn_RefreshDSKHDT.UseVisualStyleBackColor = true;
+            this.btn_RefreshDSKHDT.Click += new System.EventHandler(this.btn_RefreshDSKHDT_Click);
             // 
             // btn_TimKiemDSKHDT
             // 
@@ -823,6 +825,7 @@
             this.btn_TimKiemDSKHDT.TabIndex = 78;
             this.btn_TimKiemDSKHDT.Text = "Tìm kiếm";
             this.btn_TimKiemDSKHDT.UseVisualStyleBackColor = true;
+            this.btn_TimKiemDSKHDT.Click += new System.EventHandler(this.btn_TimKiemDSKHDT_Click);
             // 
             // lb_SDT_DSKHDT
             // 

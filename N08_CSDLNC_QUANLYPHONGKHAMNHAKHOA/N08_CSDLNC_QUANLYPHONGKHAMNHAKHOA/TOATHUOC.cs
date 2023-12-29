@@ -46,7 +46,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         private void TOATHUOC_Load(object sender, EventArgs e)
         {
-            dgv_ThuocKeDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_ThuocKeDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_ThuocKeDon.Columns.Clear();
             dgv_ThuocKeDon.DataSource = LoadData_THUOC_HSBN(Mabenhan).Tables[0];
         }
@@ -68,10 +68,10 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                     T.DonVi AS 'Đơn Vị',
                     T.SLTK AS 'Số Lượng Tồn Kho'
                 FROM
-                    THUOC T, TOATHUOC TT, BENHNHAN BN
+                    BENHNHAN BN, HOSOBENHNHAN HSBN, THUOC T, TOATHUOC TT 
                 WHERE
-					TT.MaBenhAn = @mabenhan AND BN.MaBenhNhan = @mabenhan AND
-                    T.MaThuoc = TT.MaThuoc";
+					HSBN.MaBenhNhan = BN.MaBenhNhan AND T.MaThuoc = TT.MaThuoc AND
+					HSBN.MaBenhAn = TT.MaBenhAn AND TT.MaBenhAn = @mabenhan";
 
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
@@ -156,7 +156,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                         connection.Close();
                 }
             }
-            dgv_ThuocKeDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_ThuocKeDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_ThuocKeDon.Columns.Clear();
             dgv_ThuocKeDon.DataSource = LoadData_THUOC_HSBN(Mabenhan).Tables[0];
         }
@@ -169,7 +169,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            dgv_ThuocKeDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_ThuocKeDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_ThuocKeDon.Columns.Clear();
             dgv_ThuocKeDon.DataSource = LoadData_THUOC_HSBN(Mabenhan).Tables[0];
         }

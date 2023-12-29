@@ -39,7 +39,6 @@
             this.txt_DonVi = new System.Windows.Forms.TextBox();
             this.dgv_THUOC = new System.Windows.Forms.DataGridView();
             this.btn_Submit = new System.Windows.Forms.Button();
-            this.btn_Back = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_MaThuoc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_THUOC)).BeginInit();
@@ -155,16 +154,6 @@
             this.btn_Submit.UseVisualStyleBackColor = true;
             this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
             // 
-            // btn_Back
-            // 
-            this.btn_Back.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Back.Location = new System.Drawing.Point(12, 9);
-            this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(116, 35);
-            this.btn_Back.TabIndex = 55;
-            this.btn_Back.Text = "Quay lại";
-            this.btn_Back.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -192,7 +181,6 @@
             this.ClientSize = new System.Drawing.Size(811, 570);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_MaThuoc);
-            this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.dgv_THUOC);
             this.Controls.Add(this.label1);
@@ -226,7 +214,6 @@
         private System.Windows.Forms.TextBox txt_DonVi;
         private System.Windows.Forms.DataGridView dgv_THUOC;
         private System.Windows.Forms.Button btn_Submit;
-        private System.Windows.Forms.Button btn_Back;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_MaThuoc;
     }

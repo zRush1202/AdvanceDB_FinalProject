@@ -423,7 +423,6 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 MessageBox.Show("Không có thay đổi");
                 return;
             }
-
             string ttdu = txt_TinhTrangDiUng.Text;
             string skrm = txt_SucKhoeRangMieng.Text;
             string query = $"exec sp_CapNhatHoSoBenhNhan {MaBenhAn}, N'{skrm}', N'{ttdu}'";
@@ -499,5 +498,21 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
         }
 
+        private void btn_RefreshDSKHDT_Click(object sender, EventArgs e)
+        {
+            dtgv_DSKHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_DSKHDT.Columns.Clear();
+            dtgv_DSKHDT.DataSource = Load_DSKHDT().Tables[0];
+        }
+
+        private void btn_KHDT_Click(object sender, EventArgs e)
+        {
+            tab_NHASI.SelectTab(3);
+        }
+
+        private void btn_TimKiemDSKHDT_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

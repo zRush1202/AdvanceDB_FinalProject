@@ -779,6 +779,16 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
 
         }
+
+        private void NHANVIEN_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_TimKiemDSKHDT_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

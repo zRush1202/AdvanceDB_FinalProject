@@ -52,7 +52,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         private void NS_THEMTHUOC_Load(object sender, EventArgs e)
         {
-            dgv_THUOC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_THUOC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_THUOC.Columns.Clear();
             dgv_THUOC.DataSource = LoadData_THUOC().Tables[0];
         }
@@ -132,7 +132,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                         connection.Close();
                 }
             }
-            dgv_THUOC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_THUOC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_THUOC.Columns.Clear();
             dgv_THUOC.DataSource = LoadData_THUOC().Tables[0];
         }

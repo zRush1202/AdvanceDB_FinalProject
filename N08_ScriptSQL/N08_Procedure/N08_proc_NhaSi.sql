@@ -3,16 +3,17 @@ go
 
 
 -- NHA SĨ: cập nhật hồ sơ bẹnh nhân
-create or alter proc sp_capNhatHoSoBenhNhan @mabenhnhan int, @suckhoerang nvarchar(100), @tinhtrangdiung nvarchar(100)
+create or alter proc sp_capNhatHoSoBenhNhan @mabenhan int, @suckhoerang nvarchar(100), @tinhtrangdiung nvarchar(100)
 as
 begin
-	if not exists (select * from BENHNHAN where @mabenhnhan = MaBenhNhan)
+	if not exists (select * from BENHNHAN bn, HOSOBENHNHAN hsbn where bn.MaBenhNhan = hsbn.MaBenhNhan
+							and hsbn.MaBenhAn = @mabenhan)
 		begin
-			print N'Không tồn tại bệnh nhân này'
+			print N'Không tồn tại hồ sơ bệnh nhân'
 			return 
 		end
 	update HOSOBENHNHAN set SucKhoeRang = @suckhoerang, TinhTrangDiUng = @tinhtrangdiung 
-	where MaBenhNhan = @mabenhnhan 
+	where MaBenhAn = @mabenhan 
 	print N'Cập nhật hồ sơ bệnh nhân thành công'
 	return 
 end
