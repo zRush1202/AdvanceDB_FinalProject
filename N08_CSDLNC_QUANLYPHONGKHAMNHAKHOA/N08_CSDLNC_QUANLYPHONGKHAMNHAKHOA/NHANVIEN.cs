@@ -690,7 +690,10 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             else button_XuatHD.Enabled = false;
         }
 
-        
+        private void dtgv_LHBN_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 

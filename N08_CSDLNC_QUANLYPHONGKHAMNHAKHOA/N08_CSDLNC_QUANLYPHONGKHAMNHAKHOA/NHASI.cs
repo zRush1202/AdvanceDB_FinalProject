@@ -28,6 +28,8 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         public string MaNhaSi { get; set; }
         public string MaBenhAn { get; set; }
 
+        private int MaNVQL { get; set; }
+
 
         public NHASI()
         {
@@ -47,6 +49,23 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             InitializeComponent();
             this.username = username;
             this.MaNhaSi = GetMaNhaSiFromDatabase(username);
+        }
+
+        private void NHASI_Load(object sender, EventArgs e)
+        {
+            LoadDataToTextBoxes();
+            dgv_HSBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv_HSBN.Columns.Clear();
+            dgv_HSBN.DataSource = LoadData_HSBN().Tables[0];
+            dtgv_DSKHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_DSKHDT.Columns.Clear();
+            dtgv_DSKHDT.DataSource = Load_DSKHDT().Tables[0];
+            dtgv_LHBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_LHBN.Columns.Clear();
+            dtgv_LHBN.DataSource = Load_LHBN().Tables[0];
+            dtgv_LHCN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtgv_LHCN.Columns.Clear();
+            dtgv_LHCN.DataSource = Load_LHCN().Tables[0];
         }
 
         private void Connection_InfoMessage(object sender, SqlInfoMessageEventArgs e)
@@ -218,14 +237,111 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             return data;
         }
 
-
-        private void NHASI_Load(object sender, EventArgs e)
+        DataSet Load_DSGiaiDoan(int mabenhan, int sorang, string bematrang)
         {
-            LoadDataToTextBoxes();
-            dgv_HSBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_HSBN.Columns.Clear();
-            dgv_HSBN.DataSource = LoadData_HSBN().Tables[0];
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = $"select distinct gd.STTGiaiDoan, dt.TenDieuTri, dt.PhiDieuTri from GIAIDOAN gd, DIEUTRI dt, BEMATRANG bmr, RANG r, RANG_BEMAT rbm where gd.MaBenhAn = {mabenhan} and gd.MaRangKham = rbm.MaRangKham and rbm.MaRang = r.MaRang and rbm.MaBeMat = bmr.MaBeMat and r.SoRang = {sorang} and bmr.MoTa = N'{bematrang}' and gd.MaDieuTri = dt.MaDieuTri order by (gd.STTGiaiDoan)";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            return data;
         }
+
+        DataSet Load_DSKHDT()
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = "select distinct khdt.MaBenhAn, bn.HoTenBN, khdt.NgayDieuTri, ns.HoTenNS, r.SoRang, bmr.MoTa, khdt.TrangThaiDieuTri, pk.PhongKham from KEHOACHDIEUTRI khdt, HOSOBENHNHAN hsbn, BENHNHAN bn, NHASI ns, PHONGKHAM pk, RANG_BEMAT rbm, RANG r, BEMATRANG bmr, CH_BENHNHAN chbn " +
+                            "where khdt.MaBenhAn = hsbn.MaBenhAn and hsbn.MaBenhNhan = bn.MaBenhNhan and khdt.MaNhaSi = ns.MaNhaSi and " +
+                            "khdt.MaRangKham = rbm.MaRangKham and rbm.MaRang = r.MaRang and rbm.MaBeMat = bmr.MaBeMat and bn.MaBenhNhan = chbn.MaBenhNhan and " +
+                            "chbn.MaPhongKham = pk.MaPhongKham";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+
+                connection.Close();
+            }
+            return data;
+        }
+
+        DataSet Load_LHBN()
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = @"select MaCuocHen, NgayGioHen, ThuTuKham, TinhTrang, MaPhongKham from CUOCHEN
+                            inner join CH_BENHNHAN on MaCuocHen = MaCHBN
+                            where LoaiCuocHen = N'bệnh nhân' and MaNhaSi = @manhasi";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@manhasi", MaNhaSi);
+                try
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+            return data;
+        }
+
+        DataSet Load_LHCN()
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = @"select MaCuocHen as N'Mã cuộc hẹn', MaNhaSi as N'Mã nha sĩ', NgayGioHen as N'Thời gian', MoTaHD as N'Mô tả' 
+                            from CH_CANHAN, CUOCHEN 
+                            where MaCHCN = MaCuocHen and MaNhaSi = @manhasi";
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@manhasi", MaNhaSi);
+                try
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+            return data;
+        }
+
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
@@ -245,7 +361,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 MessageBox.Show("Cần nhập thông tin đề tìm kiếm!");
                 return;
             }
-            else 
+            else
             {
                 query = $"select MaNhaSi as N'Mã Nha Sĩ', HoTenNS as 'Họ và tên', NgSinhNS as N'Ngày sinh', DiaChiNS as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', TinhTrang as N'Tình trạng' from NHASI ns, TAIKHOAN tk where ns.MaNhaSi = {txt_maBA_search.Text} and tk.MaTaiKhoan = ns.MaNhaSi";
             }
@@ -264,7 +380,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
-            dgv_HSBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_HSBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_HSBN.Columns.Clear();
             dgv_HSBN.DataSource = LoadData_HSBN().Tables[0];
         }
@@ -286,7 +402,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 txt_TinhTrangDiUng.Text = row.Cells["Tình Trạng Dị Ứng"].Value?.ToString() ?? string.Empty;
                 txt_GiayGioiThieu.Text = row.Cells["Giấy Giới Thiệu"].Value?.ToString() ?? string.Empty;
 
-                dgv_ThuocKeDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgv_ThuocKeDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgv_ThuocKeDon.Columns.Clear();
                 dgv_ThuocKeDon.DataSource = LoadData_THUOC_HSBN(MaBenhAn).Tables[0];
             }
@@ -332,7 +448,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                         connection.Close();
                 }
             }
-            dgv_HSBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_HSBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_HSBN.Columns.Clear();
             dgv_HSBN.DataSource = LoadData_HSBN().Tables[0];
         }
@@ -343,14 +459,45 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             changePassword.ShowDialog();
         }
 
-        private void btn_ChinhSuaTT_Click(object sender, EventArgs e)
+        private void btn_TaoKHDT_Click(object sender, EventArgs e)
         {
-
+            TaoKeHoachDieuTri taoKHDT = new TaoKeHoachDieuTri(this.MaNVQL);
+            taoKHDT.ShowDialog();
         }
 
-        private void tab_LHCN_Click(object sender, EventArgs e)
+        private void dtgv_DSKHDT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.RowIndex < dtgv_DSKHDT.Rows.Count)
+            {
+                DataGridViewRow row = dtgv_DSKHDT.Rows[e.RowIndex];
+                int viTriKhoangTrang = row.Cells["NgayDieuTri"].Value.ToString().IndexOf(' ');
+                tb1_KHDT.Text = row.Cells["MaBenhAn"].Value?.ToString() ?? string.Empty;
+                tb2_KHDT.Text = row.Cells["HoTenBN"].Value?.ToString() ?? string.Empty;
+                tb3_KHDT.Text = row.Cells["NgayDieuTri"].Value?.ToString().Substring(0, viTriKhoangTrang) ?? string.Empty;
+                tb4_KHDT.Text = row.Cells["HoTenNS"].Value?.ToString() ?? string.Empty;
+                tb5_KHDT.Text = row.Cells["SoRang"].Value?.ToString() ?? string.Empty;
+                tb6_KHDT.Text = row.Cells["MoTa"].Value?.ToString() ?? string.Empty;
+                tb7_KHDT.Text = row.Cells["TrangThaiDieuTri"].Value?.ToString() ?? string.Empty;
+                tb9_KHDT.Text = row.Cells["PhongKham"].Value?.ToString() ?? string.Empty;
 
+                if (tb7_KHDT.Text == "kế hoạch")
+                {
+                    tb7_KHDT.BackColor = Color.LightSkyBlue;
+                }
+                else if (tb7_KHDT.Text == "đã hủy")
+                {
+                    tb7_KHDT.BackColor = Color.Yellow;
+                }
+                else if (tb7_KHDT.Text == "đã hoàn thành")
+                {
+                    tb7_KHDT.BackColor = Color.FromArgb(192, 255, 192);
+
+                }
+
+                dtgv_GIAIDOAN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dtgv_GIAIDOAN.DataSource = Load_DSGiaiDoan(int.Parse(tb1_KHDT.Text), int.Parse(tb5_KHDT.Text), tb6_KHDT.Text).Tables[0];
+            }
         }
+
     }
 }

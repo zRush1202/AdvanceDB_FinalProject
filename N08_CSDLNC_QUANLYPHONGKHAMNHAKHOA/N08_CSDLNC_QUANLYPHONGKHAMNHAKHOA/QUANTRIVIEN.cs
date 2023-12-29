@@ -766,5 +766,42 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
                 dtpkLH2.Value = DateTime.Now;
             }
         }
+
+        private void btnTK_Click(object sender, EventArgs e)
+        {
+            int nConn = GetNumConn();
+            string query = "";
+            DataSet data = new DataSet();
+            if (tbxMaLH.Text == "" && tbxMaNS.Text == "")
+            {
+                MessageBox.Show("Cần nhập thông tin đề tìm kiếm!");
+                return;
+            }
+            if (tbxMaNS.Text == "" && tbxMaLH.Text != "")
+            {
+                query = $"select MaCuocHen as N'Mã cuộc hẹn', MaNhaSi as N'Mã nha sĩ', NgayGioHen as N'Thời gian', MoTaHD as N'Mô tả' from CH_CANHAN, CUOCHEN where MaCHCN = MaCuocHen and MaCHCN = {int.Parse(tbxMaLH.Text)}";
+            }
+            if (tbxMaNS.Text != "" && tbxMaLH.Text == "")
+            {
+                query = $"select MaCuocHen as N'Mã cuộc hẹn', MaNhaSi as N'Mã nha sĩ', NgayGioHen as N'Thời gian', MoTaHD as N'Mô tả' from CH_CANHAN, CUOCHEN where MaCHCN = MaCuocHen and MaNhaSi = {int.Parse(tbxMaNS.Text)}";
+            }
+            if (tbxMaNS.Text != "" && tbxMaLH.Text != "")
+            {
+                query = $"select MaCuocHen as N'Mã cuộc hẹn', MaNhaSi as N'Mã nha sĩ', NgayGioHen as N'Thời gian', MoTaHD as N'Mô tả' from CH_CANHAN, CUOCHEN where MaCHCN = MaCuocHen and MaNhaSi = {int.Parse(tbxMaNS.Text)} and MaCuocHen = {int.Parse(tbxMaLH.Text)}";
+            }
+            //MessageBox.Show(query);
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                connection.Open();
+                //connection.InfoMessage += Connection_InfoMessage;
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                adapter.Fill(data);
+                connection.Close();
+            }
+            dgv_LHCN.AutoGenerateColumns = true;
+            dgv_LHCN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_LHCN.DataSource = data.Tables[0];
+            dgv_LHCN.Refresh();
+        }
     }
 }

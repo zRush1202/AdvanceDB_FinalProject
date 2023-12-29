@@ -76,6 +76,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tab_LHCN = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dtgv_LHCN = new System.Windows.Forms.DataGridView();
             this.lb_HienThiTheo_1 = new System.Windows.Forms.Label();
             this.cb_LHBN = new System.Windows.Forms.ComboBox();
             this.dtgv_LHBN = new System.Windows.Forms.DataGridView();
@@ -83,17 +86,30 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.tab_KHDT = new System.Windows.Forms.TabPage();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lb9_KHDT = new System.Windows.Forms.Label();
             this.btn_RefreshDSKHDT = new System.Windows.Forms.Button();
             this.btn_TimKiemDSKHDT = new System.Windows.Forms.Button();
             this.lb_SDT_DSKHDT = new System.Windows.Forms.Label();
             this.tb_SDT_DSKHDT = new System.Windows.Forms.TextBox();
-            this.dtgv_GIAIDOAN = new System.Windows.Forms.DataGridView();
             this.dtgv_DSKHDT = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgv_GIAIDOAN = new System.Windows.Forms.DataGridView();
+            this.tb9_KHDT = new System.Windows.Forms.TextBox();
+            this.lb10_KHDT = new System.Windows.Forms.Label();
+            this.tb7_KHDT = new System.Windows.Forms.TextBox();
+            this.lb7_KHDT = new System.Windows.Forms.Label();
+            this.tb6_KHDT = new System.Windows.Forms.TextBox();
+            this.tb3_KHDT = new System.Windows.Forms.TextBox();
+            this.tb5_KHDT = new System.Windows.Forms.TextBox();
+            this.tb4_KHDT = new System.Windows.Forms.TextBox();
+            this.tb1_KHDT = new System.Windows.Forms.TextBox();
+            this.tb2_KHDT = new System.Windows.Forms.TextBox();
+            this.lb6_KHDT = new System.Windows.Forms.Label();
+            this.lb3_KHDT = new System.Windows.Forms.Label();
+            this.lb5_KHDT = new System.Windows.Forms.Label();
+            this.lb4_KHDT = new System.Windows.Forms.Label();
+            this.lb1_KHDT = new System.Windows.Forms.Label();
+            this.lb2_KHDT = new System.Windows.Forms.Label();
+            this.lb_TitleDSKHDT = new System.Windows.Forms.Label();
             this.tab_NHASI.SuspendLayout();
             this.tab_TTCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_NhaSi)).BeginInit();
@@ -102,11 +118,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ThuocKeDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_HSBN)).BeginInit();
             this.tab_LHCN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_LHCN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_LHBN)).BeginInit();
             this.tab_KHDT.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_GIAIDOAN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DSKHDT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_GIAIDOAN)).BeginInit();
             this.SuspendLayout();
             // 
             // tab_NHASI
@@ -620,7 +636,7 @@
             // 
             this.tab_LHCN.Controls.Add(this.label20);
             this.tab_LHCN.Controls.Add(this.comboBox1);
-            this.tab_LHCN.Controls.Add(this.dataGridView1);
+            this.tab_LHCN.Controls.Add(this.dtgv_LHCN);
             this.tab_LHCN.Controls.Add(this.lb_HienThiTheo_1);
             this.tab_LHCN.Controls.Add(this.cb_LHBN);
             this.tab_LHCN.Controls.Add(this.dtgv_LHBN);
@@ -633,7 +649,45 @@
             this.tab_LHCN.TabIndex = 2;
             this.tab_LHCN.Text = "Lịch hẹn";
             this.tab_LHCN.UseVisualStyleBackColor = true;
-            this.tab_LHCN.Click += new System.EventHandler(this.tab_LHCN_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(1015, 168);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(109, 20);
+            this.label20.TabIndex = 22;
+            this.label20.Text = "Hiển thị theo:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Ngày",
+            "Tuần",
+            "Tháng",
+            "Năm"});
+            this.comboBox1.Location = new System.Drawing.Point(1132, 165);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(160, 24);
+            this.comboBox1.TabIndex = 21;
+            // 
+            // dtgv_LHCN
+            // 
+            this.dtgv_LHCN.AllowUserToAddRows = false;
+            this.dtgv_LHCN.AllowUserToDeleteRows = false;
+            this.dtgv_LHCN.BackgroundColor = System.Drawing.Color.White;
+            this.dtgv_LHCN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_LHCN.Location = new System.Drawing.Point(737, 200);
+            this.dtgv_LHCN.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgv_LHCN.Name = "dtgv_LHCN";
+            this.dtgv_LHCN.ReadOnly = true;
+            this.dtgv_LHCN.RowHeadersWidth = 51;
+            this.dtgv_LHCN.Size = new System.Drawing.Size(555, 416);
+            this.dtgv_LHCN.TabIndex = 20;
             // 
             // lb_HienThiTheo_1
             // 
@@ -707,14 +761,30 @@
             // 
             // tab_KHDT
             // 
-            this.tab_KHDT.Controls.Add(this.label17);
+            this.tab_KHDT.Controls.Add(this.lb9_KHDT);
             this.tab_KHDT.Controls.Add(this.btn_RefreshDSKHDT);
             this.tab_KHDT.Controls.Add(this.btn_TimKiemDSKHDT);
             this.tab_KHDT.Controls.Add(this.lb_SDT_DSKHDT);
             this.tab_KHDT.Controls.Add(this.tb_SDT_DSKHDT);
-            this.tab_KHDT.Controls.Add(this.dtgv_GIAIDOAN);
             this.tab_KHDT.Controls.Add(this.dtgv_DSKHDT);
-            this.tab_KHDT.Controls.Add(this.label12);
+            this.tab_KHDT.Controls.Add(this.dtgv_GIAIDOAN);
+            this.tab_KHDT.Controls.Add(this.tb9_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb10_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb7_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb7_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb6_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb3_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb5_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb4_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb1_KHDT);
+            this.tab_KHDT.Controls.Add(this.tb2_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb6_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb3_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb5_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb4_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb1_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb2_KHDT);
+            this.tab_KHDT.Controls.Add(this.lb_TitleDSKHDT);
             this.tab_KHDT.Location = new System.Drawing.Point(4, 25);
             this.tab_KHDT.Name = "tab_KHDT";
             this.tab_KHDT.Size = new System.Drawing.Size(1319, 634);
@@ -722,35 +792,35 @@
             this.tab_KHDT.Text = "Kế hoạch điều trị";
             this.tab_KHDT.UseVisualStyleBackColor = true;
             // 
-            // label17
+            // lb9_KHDT
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(857, 173);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(258, 24);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "THÔNG TIN CÁC GIAI ĐOẠN";
+            this.lb9_KHDT.AutoSize = true;
+            this.lb9_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb9_KHDT.Location = new System.Drawing.Point(885, 373);
+            this.lb9_KHDT.Name = "lb9_KHDT";
+            this.lb9_KHDT.Size = new System.Drawing.Size(128, 24);
+            this.lb9_KHDT.TabIndex = 83;
+            this.lb9_KHDT.Text = "Chi tiết điều trị";
             // 
             // btn_RefreshDSKHDT
             // 
             this.btn_RefreshDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RefreshDSKHDT.Location = new System.Drawing.Point(648, 191);
+            this.btn_RefreshDSKHDT.Location = new System.Drawing.Point(19, 373);
             this.btn_RefreshDSKHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_RefreshDSKHDT.Name = "btn_RefreshDSKHDT";
             this.btn_RefreshDSKHDT.Size = new System.Drawing.Size(96, 30);
-            this.btn_RefreshDSKHDT.TabIndex = 16;
+            this.btn_RefreshDSKHDT.TabIndex = 79;
             this.btn_RefreshDSKHDT.Text = "Refresh";
             this.btn_RefreshDSKHDT.UseVisualStyleBackColor = true;
             // 
             // btn_TimKiemDSKHDT
             // 
             this.btn_TimKiemDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TimKiemDSKHDT.Location = new System.Drawing.Point(453, 174);
+            this.btn_TimKiemDSKHDT.Location = new System.Drawing.Point(687, 373);
             this.btn_TimKiemDSKHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_TimKiemDSKHDT.Name = "btn_TimKiemDSKHDT";
             this.btn_TimKiemDSKHDT.Size = new System.Drawing.Size(100, 30);
-            this.btn_TimKiemDSKHDT.TabIndex = 15;
+            this.btn_TimKiemDSKHDT.TabIndex = 78;
             this.btn_TimKiemDSKHDT.Text = "Tìm kiếm";
             this.btn_TimKiemDSKHDT.UseVisualStyleBackColor = true;
             // 
@@ -758,34 +828,20 @@
             // 
             this.lb_SDT_DSKHDT.AutoSize = true;
             this.lb_SDT_DSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_SDT_DSKHDT.Location = new System.Drawing.Point(27, 176);
+            this.lb_SDT_DSKHDT.Location = new System.Drawing.Point(150, 375);
             this.lb_SDT_DSKHDT.Name = "lb_SDT_DSKHDT";
             this.lb_SDT_DSKHDT.Size = new System.Drawing.Size(266, 24);
-            this.lb_SDT_DSKHDT.TabIndex = 14;
+            this.lb_SDT_DSKHDT.TabIndex = 77;
             this.lb_SDT_DSKHDT.Text = "Nhập số điện thoại bệnh nhân";
             // 
             // tb_SDT_DSKHDT
             // 
-            this.tb_SDT_DSKHDT.Location = new System.Drawing.Point(299, 176);
+            this.tb_SDT_DSKHDT.Location = new System.Drawing.Point(422, 378);
             this.tb_SDT_DSKHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_SDT_DSKHDT.Name = "tb_SDT_DSKHDT";
-            this.tb_SDT_DSKHDT.Size = new System.Drawing.Size(148, 22);
-            this.tb_SDT_DSKHDT.TabIndex = 13;
+            this.tb_SDT_DSKHDT.Size = new System.Drawing.Size(259, 22);
+            this.tb_SDT_DSKHDT.TabIndex = 76;
             this.tb_SDT_DSKHDT.Tag = "PLace";
-            // 
-            // dtgv_GIAIDOAN
-            // 
-            this.dtgv_GIAIDOAN.AllowUserToAddRows = false;
-            this.dtgv_GIAIDOAN.AllowUserToDeleteRows = false;
-            this.dtgv_GIAIDOAN.BackgroundColor = System.Drawing.Color.White;
-            this.dtgv_GIAIDOAN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_GIAIDOAN.Location = new System.Drawing.Point(861, 225);
-            this.dtgv_GIAIDOAN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtgv_GIAIDOAN.Name = "dtgv_GIAIDOAN";
-            this.dtgv_GIAIDOAN.ReadOnly = true;
-            this.dtgv_GIAIDOAN.RowHeadersWidth = 51;
-            this.dtgv_GIAIDOAN.Size = new System.Drawing.Size(431, 404);
-            this.dtgv_GIAIDOAN.TabIndex = 17;
             // 
             // dtgv_DSKHDT
             // 
@@ -794,63 +850,200 @@
             this.dtgv_DSKHDT.BackgroundColor = System.Drawing.Color.White;
             this.dtgv_DSKHDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_DSKHDT.GridColor = System.Drawing.Color.White;
-            this.dtgv_DSKHDT.Location = new System.Drawing.Point(31, 225);
+            this.dtgv_DSKHDT.Location = new System.Drawing.Point(19, 410);
             this.dtgv_DSKHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgv_DSKHDT.Name = "dtgv_DSKHDT";
             this.dtgv_DSKHDT.ReadOnly = true;
             this.dtgv_DSKHDT.RowHeadersWidth = 51;
-            this.dtgv_DSKHDT.Size = new System.Drawing.Size(713, 404);
-            this.dtgv_DSKHDT.TabIndex = 12;
+            this.dtgv_DSKHDT.Size = new System.Drawing.Size(779, 219);
+            this.dtgv_DSKHDT.TabIndex = 75;
+            this.dtgv_DSKHDT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_DSKHDT_CellClick);
             // 
-            // label12
+            // dtgv_GIAIDOAN
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Blue;
-            this.label12.Location = new System.Drawing.Point(537, 13);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(282, 38);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "KẾ HOẠCH ĐIỀU TRỊ";
+            this.dtgv_GIAIDOAN.AllowUserToAddRows = false;
+            this.dtgv_GIAIDOAN.AllowUserToDeleteRows = false;
+            this.dtgv_GIAIDOAN.BackgroundColor = System.Drawing.Color.White;
+            this.dtgv_GIAIDOAN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_GIAIDOAN.Location = new System.Drawing.Point(889, 410);
+            this.dtgv_GIAIDOAN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtgv_GIAIDOAN.Name = "dtgv_GIAIDOAN";
+            this.dtgv_GIAIDOAN.ReadOnly = true;
+            this.dtgv_GIAIDOAN.RowHeadersWidth = 51;
+            this.dtgv_GIAIDOAN.Size = new System.Drawing.Size(410, 219);
+            this.dtgv_GIAIDOAN.TabIndex = 80;
             // 
-            // label20
+            // tb9_KHDT
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(1015, 168);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(109, 20);
-            this.label20.TabIndex = 22;
-            this.label20.Text = "Hiển thị theo:";
+            this.tb9_KHDT.Enabled = false;
+            this.tb9_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb9_KHDT.Location = new System.Drawing.Point(648, 257);
+            this.tb9_KHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb9_KHDT.Name = "tb9_KHDT";
+            this.tb9_KHDT.Size = new System.Drawing.Size(187, 26);
+            this.tb9_KHDT.TabIndex = 74;
             // 
-            // comboBox1
+            // lb10_KHDT
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Ngày",
-            "Tuần",
-            "Tháng",
-            "Năm"});
-            this.comboBox1.Location = new System.Drawing.Point(1132, 165);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 21;
+            this.lb10_KHDT.AutoSize = true;
+            this.lb10_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb10_KHDT.Location = new System.Drawing.Point(480, 260);
+            this.lb10_KHDT.Name = "lb10_KHDT";
+            this.lb10_KHDT.Size = new System.Drawing.Size(122, 24);
+            this.lb10_KHDT.TabIndex = 73;
+            this.lb10_KHDT.Text = "Phòng khám:";
             // 
-            // dataGridView1
+            // tb7_KHDT
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(737, 200);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(555, 416);
-            this.dataGridView1.TabIndex = 20;
+            this.tb7_KHDT.BackColor = System.Drawing.Color.White;
+            this.tb7_KHDT.Enabled = false;
+            this.tb7_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb7_KHDT.Location = new System.Drawing.Point(648, 216);
+            this.tb7_KHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb7_KHDT.Name = "tb7_KHDT";
+            this.tb7_KHDT.Size = new System.Drawing.Size(187, 26);
+            this.tb7_KHDT.TabIndex = 72;
+            // 
+            // lb7_KHDT
+            // 
+            this.lb7_KHDT.AutoSize = true;
+            this.lb7_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb7_KHDT.Location = new System.Drawing.Point(480, 216);
+            this.lb7_KHDT.Name = "lb7_KHDT";
+            this.lb7_KHDT.Size = new System.Drawing.Size(161, 24);
+            this.lb7_KHDT.TabIndex = 71;
+            this.lb7_KHDT.Text = "Trạng thái điều trị:";
+            // 
+            // tb6_KHDT
+            // 
+            this.tb6_KHDT.Enabled = false;
+            this.tb6_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb6_KHDT.Location = new System.Drawing.Point(648, 175);
+            this.tb6_KHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb6_KHDT.Name = "tb6_KHDT";
+            this.tb6_KHDT.Size = new System.Drawing.Size(187, 26);
+            this.tb6_KHDT.TabIndex = 70;
+            // 
+            // tb3_KHDT
+            // 
+            this.tb3_KHDT.Enabled = false;
+            this.tb3_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb3_KHDT.Location = new System.Drawing.Point(284, 215);
+            this.tb3_KHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb3_KHDT.Name = "tb3_KHDT";
+            this.tb3_KHDT.Size = new System.Drawing.Size(167, 26);
+            this.tb3_KHDT.TabIndex = 69;
+            // 
+            // tb5_KHDT
+            // 
+            this.tb5_KHDT.Enabled = false;
+            this.tb5_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb5_KHDT.Location = new System.Drawing.Point(648, 139);
+            this.tb5_KHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb5_KHDT.Name = "tb5_KHDT";
+            this.tb5_KHDT.Size = new System.Drawing.Size(187, 26);
+            this.tb5_KHDT.TabIndex = 68;
+            // 
+            // tb4_KHDT
+            // 
+            this.tb4_KHDT.Enabled = false;
+            this.tb4_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb4_KHDT.Location = new System.Drawing.Point(284, 255);
+            this.tb4_KHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb4_KHDT.Name = "tb4_KHDT";
+            this.tb4_KHDT.Size = new System.Drawing.Size(167, 26);
+            this.tb4_KHDT.TabIndex = 67;
+            // 
+            // tb1_KHDT
+            // 
+            this.tb1_KHDT.Enabled = false;
+            this.tb1_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb1_KHDT.Location = new System.Drawing.Point(284, 139);
+            this.tb1_KHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb1_KHDT.Name = "tb1_KHDT";
+            this.tb1_KHDT.Size = new System.Drawing.Size(167, 26);
+            this.tb1_KHDT.TabIndex = 66;
+            // 
+            // tb2_KHDT
+            // 
+            this.tb2_KHDT.Enabled = false;
+            this.tb2_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb2_KHDT.Location = new System.Drawing.Point(284, 175);
+            this.tb2_KHDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb2_KHDT.Name = "tb2_KHDT";
+            this.tb2_KHDT.Size = new System.Drawing.Size(167, 26);
+            this.tb2_KHDT.TabIndex = 65;
+            // 
+            // lb6_KHDT
+            // 
+            this.lb6_KHDT.AutoSize = true;
+            this.lb6_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb6_KHDT.Location = new System.Drawing.Point(480, 177);
+            this.lb6_KHDT.Name = "lb6_KHDT";
+            this.lb6_KHDT.Size = new System.Drawing.Size(116, 24);
+            this.lb6_KHDT.TabIndex = 64;
+            this.lb6_KHDT.Text = "Bề mặt răng:";
+            // 
+            // lb3_KHDT
+            // 
+            this.lb3_KHDT.AutoSize = true;
+            this.lb3_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb3_KHDT.Location = new System.Drawing.Point(102, 216);
+            this.lb3_KHDT.Name = "lb3_KHDT";
+            this.lb3_KHDT.Size = new System.Drawing.Size(121, 24);
+            this.lb3_KHDT.TabIndex = 63;
+            this.lb3_KHDT.Text = "Ngày điều trị:";
+            // 
+            // lb5_KHDT
+            // 
+            this.lb5_KHDT.AutoSize = true;
+            this.lb5_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb5_KHDT.Location = new System.Drawing.Point(480, 142);
+            this.lb5_KHDT.Name = "lb5_KHDT";
+            this.lb5_KHDT.Size = new System.Drawing.Size(85, 24);
+            this.lb5_KHDT.TabIndex = 62;
+            this.lb5_KHDT.Text = "Răng số:";
+            // 
+            // lb4_KHDT
+            // 
+            this.lb4_KHDT.AutoSize = true;
+            this.lb4_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb4_KHDT.Location = new System.Drawing.Point(102, 257);
+            this.lb4_KHDT.Name = "lb4_KHDT";
+            this.lb4_KHDT.Size = new System.Drawing.Size(152, 24);
+            this.lb4_KHDT.TabIndex = 61;
+            this.lb4_KHDT.Text = "Nha sĩ phụ trách:";
+            // 
+            // lb1_KHDT
+            // 
+            this.lb1_KHDT.AutoSize = true;
+            this.lb1_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1_KHDT.Location = new System.Drawing.Point(99, 142);
+            this.lb1_KHDT.Name = "lb1_KHDT";
+            this.lb1_KHDT.Size = new System.Drawing.Size(116, 24);
+            this.lb1_KHDT.TabIndex = 60;
+            this.lb1_KHDT.Text = "Mã bệnh án:";
+            // 
+            // lb2_KHDT
+            // 
+            this.lb2_KHDT.AutoSize = true;
+            this.lb2_KHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb2_KHDT.Location = new System.Drawing.Point(99, 177);
+            this.lb2_KHDT.Name = "lb2_KHDT";
+            this.lb2_KHDT.Size = new System.Drawing.Size(168, 24);
+            this.lb2_KHDT.TabIndex = 59;
+            this.lb2_KHDT.Text = "Họ tên bệnh nhân:";
+            // 
+            // lb_TitleDSKHDT
+            // 
+            this.lb_TitleDSKHDT.AutoSize = true;
+            this.lb_TitleDSKHDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TitleDSKHDT.ForeColor = System.Drawing.Color.Blue;
+            this.lb_TitleDSKHDT.Location = new System.Drawing.Point(408, 25);
+            this.lb_TitleDSKHDT.Name = "lb_TitleDSKHDT";
+            this.lb_TitleDSKHDT.Size = new System.Drawing.Size(273, 29);
+            this.lb_TitleDSKHDT.TabIndex = 57;
+            this.lb_TitleDSKHDT.Text = "KẾ HOẠCH ĐIỀU TRỊ";
             // 
             // NHASI
             // 
@@ -873,12 +1066,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_HSBN)).EndInit();
             this.tab_LHCN.ResumeLayout(false);
             this.tab_LHCN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_LHCN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_LHBN)).EndInit();
             this.tab_KHDT.ResumeLayout(false);
             this.tab_KHDT.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgv_GIAIDOAN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DSKHDT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_GIAIDOAN)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -935,14 +1128,6 @@
         private System.Windows.Forms.Button btn_KHDT;
         private System.Windows.Forms.TabPage tab_KHDT;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btn_RefreshDSKHDT;
-        private System.Windows.Forms.Button btn_TimKiemDSKHDT;
-        private System.Windows.Forms.Label lb_SDT_DSKHDT;
-        private System.Windows.Forms.TextBox tb_SDT_DSKHDT;
-        private System.Windows.Forms.DataGridView dtgv_GIAIDOAN;
-        private System.Windows.Forms.DataGridView dtgv_DSKHDT;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lb_HienThiTheo_1;
@@ -950,6 +1135,30 @@
         private System.Windows.Forms.DataGridView dtgv_LHBN;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgv_LHCN;
+        private System.Windows.Forms.TextBox tb9_KHDT;
+        private System.Windows.Forms.Label lb10_KHDT;
+        private System.Windows.Forms.TextBox tb7_KHDT;
+        private System.Windows.Forms.Label lb7_KHDT;
+        private System.Windows.Forms.TextBox tb6_KHDT;
+        private System.Windows.Forms.TextBox tb3_KHDT;
+        private System.Windows.Forms.TextBox tb5_KHDT;
+        private System.Windows.Forms.TextBox tb4_KHDT;
+        private System.Windows.Forms.TextBox tb1_KHDT;
+        private System.Windows.Forms.TextBox tb2_KHDT;
+        private System.Windows.Forms.Label lb6_KHDT;
+        private System.Windows.Forms.Label lb3_KHDT;
+        private System.Windows.Forms.Label lb5_KHDT;
+        private System.Windows.Forms.Label lb4_KHDT;
+        private System.Windows.Forms.Label lb1_KHDT;
+        private System.Windows.Forms.Label lb2_KHDT;
+        private System.Windows.Forms.Label lb_TitleDSKHDT;
+        private System.Windows.Forms.Label lb9_KHDT;
+        private System.Windows.Forms.Button btn_RefreshDSKHDT;
+        private System.Windows.Forms.Button btn_TimKiemDSKHDT;
+        private System.Windows.Forms.Label lb_SDT_DSKHDT;
+        private System.Windows.Forms.TextBox tb_SDT_DSKHDT;
+        private System.Windows.Forms.DataGridView dtgv_DSKHDT;
+        private System.Windows.Forms.DataGridView dtgv_GIAIDOAN;
     }
 }
