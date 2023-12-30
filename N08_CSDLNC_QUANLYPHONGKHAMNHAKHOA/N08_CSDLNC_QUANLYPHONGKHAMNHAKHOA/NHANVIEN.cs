@@ -780,6 +780,7 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         }
 
+<<<<<<< Updated upstream
         private void NHANVIEN_Load(object sender, EventArgs e)
         {
 
@@ -789,6 +790,9 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
         {
 
         }
+=======
+        
+>>>>>>> Stashed changes
     }
 
 
