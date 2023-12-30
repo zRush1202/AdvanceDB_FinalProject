@@ -278,6 +278,47 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             return data;
         }
 
+        DataSet Load_DSKHDT(string sodienthoai)
+        {
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+
+            //sql connection
+            string query = @"SELECT DISTINCT khdt.MaBenhAn, bn.HoTenBN, khdt.NgayDieuTri, ns.HoTenNS, r.SoRang, bmr.MoTa, khdt.TrangThaiDieuTri, pk.PhongKham
+                            FROM KEHOACHDIEUTRI khdt
+                            JOIN HOSOBENHNHAN hsbn ON khdt.MaBenhAn = hsbn.MaBenhAn
+                            JOIN BENHNHAN bn ON hsbn.MaBenhNhan = bn.MaBenhNhan
+                            JOIN NHASI ns ON khdt.MaNhaSi = ns.MaNhaSi
+                            JOIN PHONGKHAM pk ON chbn.MaPhongKham = pk.MaPhongKham
+                            JOIN CH_BENHNHAN chbn ON bn.MaBenhNhan = chbn.MaBenhNhan
+                            JOIN RANG_BEMAT rbm ON khdt.MaRangKham = rbm.MaRangKham
+                            JOIN RANG r ON rbm.MaRang = r.MaRang
+                            JOIN BEMATRANG bmr ON rbm.MaBeMat = bmr.MaBeMat
+                            WHERE bn.DienThoaiBN = @sodienthoai";
+                            
+            using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@sodienthoai", sodienthoai);
+                try
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+            return data;
+        }
+
         DataSet Load_LHBN()
         {
             int nConn = GetNumConn();
@@ -363,15 +404,43 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
             }
             else
             {
-                query = $"select MaNhaSi as N'Mã Nha Sĩ', HoTenNS as 'Họ và tên', NgSinhNS as N'Ngày sinh', DiaChiNS as N'Địa chỉ',TenDangNhap as N'Tên đăng nhập', MatKhau as N'Mật khẩu', TinhTrang as N'Tình trạng' from NHASI ns, TAIKHOAN tk where ns.MaNhaSi = {txt_maBA_search.Text} and tk.MaTaiKhoan = ns.MaNhaSi";
+                query = @"SELECT
+	                HSBN.MaBenhAn AS [Mã Bệnh Án],
+	                BN.HoTenBN AS [Tên Bệnh Nhân],
+	                DATEDIFF(YEAR, BN.NgSinhBN, GETDATE()) AS [Tuổi],
+	                BN.GioiTinhBN AS [Giới tính],
+                    HSBN.TongTienDieuTri AS [Tổng Tiền Điều Trị],
+                    HSBN.TongTienThanhToan AS [Tổng Tiền Thanh Toán],
+                    HSBN.SucKhoeRang AS [Sức Khỏe Răng],
+                    HSBN.TinhTrangDiUng AS [Tình Trạng Dị Ứng],
+                    HSBN.GiayGioiThieu AS [Giấy Giới Thiệu]
+                FROM
+                    HOSOBENHNHAN HSBN
+                INNER JOIN KEHOACHDIEUTRI KHDT ON HSBN.MaBenhAn = KHDT.MaBenhAn
+                INNER JOIN BENHNHAN BN ON BN.MaBenhNhan = HSBN.MaBenhNhan
+                WHERE
+                    KHDT.MaNhaSi = @manhasi AND HSBN.MaBenhAn = @mabenhan ";
             }
-            //MessageBox.Show(query);
             using (SqlConnection connection = new SqlConnection(conn.connectionStrings[nConn]))
             {
-                connection.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-                adapter.Fill(data);
-                connection.Close();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@manhasi", MaNhaSi);
+                command.Parameters.AddWithValue("@mabenhan", txt_maBA_search.Text);
+                try
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
             }
             dgv_HSBN.AutoGenerateColumns = true;
             dgv_HSBN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -512,7 +581,21 @@ namespace N08_CSDLNC_QUANLYPHONGKHAMNHAKHOA
 
         private void btn_TimKiemDSKHDT_Click(object sender, EventArgs e)
         {
-
+            int nConn = GetNumConn();
+            DataSet data = new DataSet();
+            string sdt = tb_SDT_DSKHDT.Text;
+            if ( sdt == "")
+            {
+                MessageBox.Show("Cần nhập thông tin đề tìm kiếm!");
+                return;
+            }
+            else
+            {
+                dtgv_DSKHDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dtgv_DSKHDT.Columns.Clear();
+                dtgv_DSKHDT.DataSource = Load_DSKHDT(sdt).Tables[0];
+            }
+            
         }
     }
 }
